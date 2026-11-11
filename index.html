@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="با راهنمای سادهٔ MCD Code Up برنامه‌نویسی را از صفر شروع کن؛ مسیر طراحی وب، ساخت بازی و انتخاب زبان مناسب را بشناس و قدم‌به‌قدم یاد بگیر.">
+    <meta name="theme-color" content="#07110b">
+    <meta property="og:locale" content="fa_IR">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="آموزش برنامه‌نویسی از صفر | MCD Code Up">
+    <meta property="og:description"
+        content="مسیر یادگیری طراحی وب و ساخت بازی را پیدا کن و برنامه‌نویسی را با قدم‌های ساده شروع کن.">
+    <title>آموزش برنامه‌نویسی از صفر؛ وب و بازی | MCD Code Up</title>
+    <style>
+        :root {
+            color-scheme: dark;
+            --bg: #07110b;
+            --surface: #0d1b12;
+            --surface-light: #13251a;
+            --line: #294333;
+            --text: #f2fff4;
+            --muted: #b9cbbd;
+            --green: #48f477;
+            --mint: #54e5c0;
+            --yellow: #f3ce55;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: Tahoma, Arial, sans-serif;
+            line-height: 1.85;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -60px;
+            right: 16px;
+            z-index: 5;
+            padding: 8px 14px;
+            background: var(--green);
+            color: #07110b;
+        }
+
+        .skip-link:focus {
+            top: 12px;
+        }
+
+        .wrap {
+            width: min(1080px, calc(100% - 40px));
+            margin-inline: auto;
+        }
+
+        .topbar {
+            display: flex;
+            min-height: 76px;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .brand {
+            color: var(--green);
+            font-size: 1.1rem;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 22px;
+        }
+
+        .nav a {
+            color: var(--muted);
+            font-size: .92rem;
+            text-decoration: none;
+        }
+
+        .nav a:hover,
+        .nav a:focus-visible {
+            color: var(--green);
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            align-items: center;
+            gap: 48px;
+            padding-block: 68px 76px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            color: var(--green);
+            font-size: .92rem;
+            font-weight: 700;
+        }
+
+        .eyebrow::before {
+            width: 24px;
+            height: 3px;
+            background: var(--green);
+            content: "";
+        }
+
+        h1 {
+            max-width: 680px;
+            margin: 14px 0 0;
+            font-size: clamp(2rem, 4.5vw, 3.5rem);
+            line-height: 1.35;
+        }
+
+        .title-rule {
+            width: min(100%, 460px);
+            height: 3px;
+            margin: 10px 0 22px;
+            border: 0;
+            background: var(--green);
+            transform-origin: right;
+        }
+
+        .hero-copy {
+            max-width: 650px;
+            margin: 0;
+            color: var(--muted);
+            font-size: 1.08rem;
+        }
+
+        .hero-copy strong {
+            color: var(--text);
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 26px;
+        }
+
+        .button {
+            display: inline-flex;
+            min-height: 48px;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 9px 18px;
+            border: 1px solid var(--green);
+            background: var(--green);
+            color: #07110b;
+            font-weight: 800;
+            text-decoration: none;
+            transition: background-color .18s ease, color .18s ease;
+        }
+
+        .button:hover,
+        .button:focus-visible {
+            background: transparent;
+            color: var(--green);
+        }
+
+        .button.secondary {
+            background: transparent;
+            color: var(--text);
+            border-color: var(--line);
+        }
+
+        .button.secondary:hover,
+        .button.secondary:focus-visible {
+            border-color: var(--green);
+            color: var(--green);
+        }
+
+        .hero-art {
+            position: relative;
+            display: grid;
+            min-height: 300px;
+            place-items: center;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            background: var(--surface);
+            isolation: isolate;
+        }
+
+        .hero-art::before,
+        .hero-art::after {
+            position: absolute;
+            z-index: -1;
+            width: 120px;
+            height: 120px;
+            border: 2px solid #24683d;
+            content: "";
+            animation: drift 5s ease-in-out infinite alternate;
+        }
+
+        .hero-art::before {
+            top: 26px;
+            right: 24px;
+        }
+
+        .hero-art::after {
+            bottom: 25px;
+            left: 25px;
+            width: 74px;
+            height: 74px;
+            border-color: #1f8270;
+            animation-delay: -.8s;
+        }
+
+        .code-mark {
+            color: var(--green);
+            font-family: Consolas, monospace;
+            font-size: clamp(3.5rem, 9vw, 6rem);
+            font-weight: 800;
+            direction: ltr;
+            animation: mark-bob 3.4s ease-in-out infinite;
+        }
+
+        .art-caption {
+            position: absolute;
+            right: 20px;
+            bottom: 15px;
+            left: 20px;
+            color: var(--muted);
+            text-align: center;
+        }
+
+        .section {
+            padding-block: 24px 58px;
+            scroll-margin-top: 18px;
+        }
+
+        .section-heading {
+            max-width: 720px;
+            margin-bottom: 24px;
+        }
+
+        .section-heading h2 {
+            margin: 0 0 6px;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+        }
+
+        .section-heading p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .card {
+            position: relative;
+            display: flex;
+            min-height: 240px;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 22px;
+            border: 1px solid var(--line);
+            border-top: 4px solid var(--green);
+            background: var(--surface);
+            text-align: right;
+            animation: arrive .55s both;
+            transition: background-color .18s ease, border-color .18s ease;
+        }
+
+        .card:nth-child(2) {
+            border-top-color: var(--mint);
+            animation-delay: .12s;
+        }
+
+        .card:nth-child(3) {
+            border-top-color: var(--yellow);
+            animation-delay: .24s;
+        }
+
+        .card:hover {
+            background: var(--surface-light);
+            border-color: var(--green);
+        }
+
+        .card:nth-child(2):hover {
+            border-color: var(--mint);
+        }
+
+        .card:nth-child(3):hover {
+            border-color: var(--yellow);
+        }
+
+        .card-number {
+            color: var(--green);
+            font-size: .88rem;
+            font-weight: 700;
+        }
+
+        .card:nth-child(2) .card-number {
+            color: var(--mint);
+        }
+
+        .card:nth-child(3) .card-number {
+            color: var(--yellow);
+        }
+
+        .card h3 {
+            margin: 8px 0;
+            font-size: 1.18rem;
+        }
+
+        .card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: .94rem;
+        }
+
+        .card-note {
+            margin-top: auto;
+            padding-top: 18px;
+            color: var(--text);
+            font-size: .88rem;
+        }
+
+        .card-cta {
+            margin-top: 14px;
+            color: var(--green);
+            font-weight: 700;
+            text-decoration: none;
+        }
+        .card-cta:hover, .card-cta:focus-visible { text-decoration: underline; }
+
+        .guide {
+            display: grid;
+            grid-template-columns: .8fr 1.2fr;
+            gap: 28px;
+            padding: 28px;
+            border-right: 4px solid var(--green);
+            background: var(--surface);
+        }
+
+        .guide h2 {
+            margin: 0;
+            font-size: 1.55rem;
+        }
+
+        .guide p {
+            margin: 8px 0 0;
+            color: var(--muted);
+        }
+
+        .steps {
+            display: grid;
+            gap: 10px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            counter-reset: steps;
+        }
+
+        .steps li {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            color: var(--muted);
+            counter-increment: steps;
+        }
+
+        .steps li::before {
+            color: var(--green);
+            content: "0" counter(steps);
+            font-family: Consolas, monospace;
+            font-weight: 800;
+        }
+
+        .faq {
+            border-top: 1px solid var(--line);
+        }
+
+        .faq details {
+            border-bottom: 1px solid var(--line);
+        }
+
+        .faq summary {
+            padding: 15px 0;
+            color: var(--text);
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .faq details[open] summary {
+            color: var(--green);
+        }
+
+        .faq p {
+            margin: 0;
+            padding: 0 0 16px;
+            color: var(--muted);
+        }
+
+        footer {
+            margin-top: 30px;
+            padding: 22px 0;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: .9rem;
+        }
+
+        .reveal {
+            animation: arrive .65s both;
+        }
+
+        .float {
+            animation: mark-bob 4s ease-in-out infinite;
+        }
+
+        @keyframes arrive {
+            from {
+                opacity: 0;
+                transform: translateY(14px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes drift {
+            from {
+                transform: translate(0, 0) rotate(0);
+            }
+
+            to {
+                transform: translate(-12px, 9px) rotate(8deg);
+            }
+        }
+
+        @keyframes mark-bob {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-7px);
+            }
+        }
+
+        @keyframes title-hit {
+
+            0%,
+            72%,
+            100% {
+                transform: translateY(0);
+            }
+
+            8% {
+                transform: translateY(17px);
+            }
+
+            15% {
+                transform: translateY(7px);
+            }
+
+            21% {
+                transform: translateY(17px);
+            }
+
+            27% {
+                transform: translateY(11px);
+            }
+
+            33% {
+                transform: translateY(17px);
+            }
+
+            42% {
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            animation: title-hit 3.2s ease-in-out infinite;
+            will-change: transform;
+        }
+
+        @media (max-width: 760px) {
+            .wrap {
+                width: min(100% - 32px, 620px);
+            }
+
+            .topbar {
+                min-height: 66px;
+                align-items: flex-start;
+                flex-direction: column;
+                justify-content: center;
+                gap: 3px;
+                padding-block: 10px;
+            }
+
+            .nav {
+                gap: 16px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                padding-block: 42px 48px;
+            }
+
+            .hero-art {
+                min-height: 210px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .card {
+                min-height: 0;
+                padding: 19px;
+            }
+
+            .card-note {
+                padding-top: 12px;
+            }
+
+            .card-cta {
+            margin-top: 14px;
+            color: var(--green);
+            font-weight: 700;
+            text-decoration: none;
+        }
+        .card-cta:hover, .card-cta:focus-visible { text-decoration: underline; }
+
+        .guide {
+                grid-template-columns: 1fr;
+                gap: 14px;
+                padding: 20px;
+            }
+
+            .section {
+                padding-bottom: 42px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .wrap {
+                width: calc(100% - 24px);
+            }
+
+            .nav {
+                gap: 11px;
+                font-size: .84rem;
+            }
+
+            .actions {
+                flex-direction: column;
+            }
+
+            .button {
+                width: 100%;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">رفتن به محتوای اصلی</a>
+    <header class="wrap topbar">
+        <a class="brand" href="#top" aria-label="MCD Code Up، خانه">MCD Code Up</a>
+        <nav class="nav" aria-label="منوی اصلی">
+            <a href="#paths">مسیرهای یادگیری</a>
+            <a href="#guide">راهنمای شروع</a>
+            <a href="#faq">پرسش‌های رایج</a>
+        </nav>
+    </header>
+    <main id="main" class="wrap">
+        <section id="top" class="hero" aria-labelledby="main-title">
+            <div class="reveal">
+                <span class="eyebrow">یادگیری برنامه‌نویسی از صفر</span>
+                <h1 id="main-title">برنامه‌نویسی را با یک قدم ساده شروع کن</h1>
+                <hr class="title-rule">
+                <p class="hero-copy">به <strong>MCD Code Up</strong> خوش اومدی؛ جایی برای آشنایی با آموزش برنامه‌نویسی،
+                    طراحی وب و ساخت بازی. مسیرت رو انتخاب کن، مفاهیم رو قدم‌به‌قدم یاد بگیر و اولین پروژه‌ات رو بساز.
+                </p>
+                <div class="actions">
+                    <a class="button" href="#paths">دیدن مسیرهای یادگیری <span aria-hidden="true">←</span></a>
+                    <a class="button secondary" href="#guide">برای شروع راهنمایی می‌خوام</a>
+                </div>
+            </div>
+            <div class="hero-art" aria-label="نماد کدنویسی">
+                <span class="code-mark" aria-hidden="true">&lt;/&gt;</span>
+                <span class="art-caption">ایده‌ات رو به کد تبدیل کن</span>
+            </div>
+        </section>
+        <section id="paths" class="section" aria-labelledby="paths-title">
+            <div class="section-heading">
+                <h2 id="paths-title">کدوم مسیر برنامه‌نویسی برای تو جذابه؟</h2>
+                <p>لازم نیست از همین اول همه‌چیز رو بدونی. با موضوعی شروع کن که بیشتر کنجکاوت می‌کنه.</p>
+            </div>
+            <div class="cards">
+                <article class="card">
+                    <span class="card-number">مسیر ۱ · وب</span>
+                    <h3>طراحی و برنامه‌نویسی وب</h3>
+                    <p>یاد بگیر صفحه‌های وب چطور ساخته می‌شن؛ از ساختار HTML تا استایل CSS و تعامل با JavaScript.</p>
+                    <span class="card-note">برای ساخت سایت و تجربه‌های تعاملی</span>
+                    <a class="card-cta" href="lessons/programmong_web/programming_web.html">برای مشاهده کلیک کنید ←</a>
+                </article>
+                <article class="card">
+                    <span class="card-number">مسیر ۲ · بازی</span>
+                    <h3>برنامه‌نویسی و ساخت بازی</h3>
+                    <p>با منطق بازی، حرکت شخصیت‌ها و اجزای اصلی یک بازی آشنا شو و ایده‌ات رو مرحله‌به‌مرحله بساز.</p>
+                    <span class="card-note">برای علاقه‌مندان بازی و خلق دنیاهای تازه</span>
+                    <a class="card-cta" href="lessons/programming_game/programming_game.html">برای مشاهده کلیک کنید ←</a>
+                </article>
+                <article class="card">
+                    <span class="card-number">مسیر ۳ · شروع</span>
+                    <h3>راهنمای شروع برنامه‌نویسی</h3>
+                    <p>اگر هنوز انتخاب نکردی، با شناخت هدف‌ها و علاقه‌هات مسیر مناسب خودت رو پیدا کن.</p>
+                    <span class="card-note">برای شروع بدون سردرگمی</span>
+                    <a class="card-cta" href="lessons/get_started_program/get_start.html">برای مشاهده کلیک کنید ←</a>
+                </article>
+            </div>
+        </section>
+        <section id="guide" class="section" aria-labelledby="guide-title">
+            <div class="guide">
+                <div>
+                    <h2 id="guide-title">برای شروع برنامه‌نویسی چی کار کنم؟</h2>
+                    <p>شروع لازم نیست پیچیده باشه. یک مسیر کوچک انتخاب کن و با تمرین ادامه بده.</p>
+                </div>
+                <ol class="steps">
+                    <li>هدفت رو مشخص کن: سایت می‌خوای بسازی یا بازی؟</li>
+                    <li>مفاهیم پایه و ابزارهای همون مسیر رو یاد بگیر.</li>
+                    <li>یک پروژهٔ کوچک انتخاب کن و با آزمون‌وخطا کاملش کن.</li>
+                </ol>
+            </div>
+        </section>
+        <section id="faq" class="section" aria-labelledby="faq-title">
+            <div class="section-heading">
+                <h2 id="faq-title">پرسش‌های رایج دربارهٔ یادگیری برنامه‌نویسی</h2>
+                <p>چند جواب کوتاه برای قدم اول.</p>
+            </div>
+            <div class="faq">
+                <details>
+                    <summary>برای یادگیری برنامه‌نویسی باید از قبل تجربه داشته باشم؟</summary>
+                    <p>نه؛ می‌تونی از مفاهیم پایه شروع کنی. تمرین منظم و ساخت پروژه‌های کوچک بهت کمک می‌کنه آموخته‌هات
+                        رو به کار ببری.</p>
+                </details>
+                <details>
+                    <summary>برای طراحی سایت از کجا شروع کنم؟</summary>
+                    <p>معمولاً HTML برای ساختار صفحه، CSS برای ظاهر و سپس JavaScript برای افزودن تعامل، مسیر مناسبی برای
+                        شروع طراحی وب است.</p>
+                </details>
+                <details>
+                    <summary>اگر هنوز نمی‌دونم چه زبانی انتخاب کنم چی؟</summary>
+                    <p>اول مشخص کن دوست داری چه چیزی بسازی. بعد یک مسیر مرتبط انتخاب کن و پیش از رفتن سراغ چند زبان،
+                        مبانی همان مسیر را تمرین کن.</p>
+                </details>
+            </div>
+        </section>
+    </main>
+    <footer class="wrap">MCD Code Up · قدم‌به‌قدم تا اولین پروژهٔ برنامه‌نویسی</footer>
+</body>
+
+</html>

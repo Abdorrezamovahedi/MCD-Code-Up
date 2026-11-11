@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="با مسیر طراحی و برنامه‌نویسی وب آشنا شو؛ HTML، CSS و JavaScript را به‌ترتیب یاد بگیر و صفحهٔ وب خودت را بساز.">
+    <meta name="theme-color" content="#07110b">
+    <title>آموزش برنامه‌نویسی وب | MCD Code Up</title>
+    <style>
+        :root {
+            color-scheme: dark;
+            --bg: #07110b;
+            --panel: #0d1b12;
+            --line: #294333;
+            --text: #f2fff4;
+            --muted: #b9cbbd;
+            --green: #48f477;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font: 16px/1.9 Tahoma, Arial, sans-serif;
+        }
+
+        main {
+            width: min(820px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 30px 0 56px;
+            animation: enter .45s ease-out both;
+        }
+
+        a {
+            color: var(--green);
+        }
+
+        .back {
+            display: inline-block;
+            margin-bottom: 26px;
+            text-decoration: none;
+        }
+
+        .back:hover {
+            text-decoration: underline;
+        }
+
+        .tag {
+            color: var(--green);
+            font-weight: 700;
+        }
+
+        h1 {
+            margin: 8px 0 12px;
+            font-size: clamp(1.8rem, 5vw, 2.7rem);
+            line-height: 1.4;
+        }
+
+        .lead {
+            color: var(--muted);
+            font-size: 1.08rem;
+        }
+
+        section {
+            margin-top: 24px;
+            padding: 20px;
+            border: 1px solid var(--line);
+            border-right: 4px solid var(--green);
+            background: var(--panel);
+        }
+
+        h2 {
+            margin: 0 0 8px;
+            font-size: 1.25rem;
+        }
+
+        p {
+            margin: 8px 0;
+        }
+
+        ul,
+        ol {
+            margin: 8px 0 0;
+            padding-right: 24px;
+        }
+
+        li {
+            margin: 6px 0;
+        }
+
+        @keyframes enter {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation: none !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <a class="back" href="../../index.html">← بازگشت به صفحهٔ اصلی</a>
+        <span class="tag">MCD Code Up · مسیر یادگیری</span>
+        <h1>معرفی فرانت اند و آشنایی با آن</h1>
+        <p class="lead">در این قسمت با فرانت اند آشنا می شوید و متوجه می‌شوید که کجاها به درد می‌خوره</p>
+        <section>
+            <h2>فرانت اند چیست؟</h2>
+            <p>فرانت اند یک مدل برنامه نویسی وب هست که فقط با مرورگر کار می‌کند و اطلاعاتی سمت سرور ارسال نمی‌شود
+                مثل سایت‌های معرفی محصول و....</p>
+        </section>
+        <section>
+            <h2>کارایی فرانت اند چیست؟</h2>
+            <ol>
+                <li>فرانت اند معمولاً به درد سایت‌های استاتیک می‌خوره</li>
+                <li>فرانت اند با زبون‌های html ، css و جاوا اسکریپت و زبان‌هایی که اطلاعاتی به سمت سرور ارسال نمی‌کنند کار می‌شود</li>
+                <li style="color: red;">شما با یادگیری فرانت اند می‌توانید سایت‌هایی بسازید برای خودتان که بدون لاگین هستند  بدون دریافت اطلاعات از کاربر و هر چیزی که اطلاعاتی رو دریافت می‌کند تا در سرور و دیتاها ذخیره کند</li>
+                <li style="color: aqua;">اگر می‌خواهید فرانت اند رو یاد بگیرید کلیک کنید و به ما اعتماد کنید که ما می‌توانیم به شما کمک کنیم</li>
+            </ol>
+        </section>
+        <section>
+            <h2>نکته:!!</h2>
+            <p>یادگیری فرانت اند و بک اند می‌تواند خیلی در توانایی شما در سایت سازی کمک کند و شما را خیلی حرفه‌ای کند</p>
+            <p style="background-color: #07110b;">اگر می‌خواهید بدونید بک اند چیست<a href="#" style="color: red; text-shadow: -10px 10px 5px red;"> کلیک کنید </a></p>
+        </section>
+    </main>
+</body>
+
+</html>
