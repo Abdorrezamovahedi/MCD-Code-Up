@@ -143,6 +143,128 @@
         scroll-behavior: auto !important;
       }
     }
+
+    /* Subtle motion that keeps lesson pages feeling responsive and alive. */
+    a {
+      text-decoration-color: transparent;
+      text-decoration-thickness: 1px;
+      text-underline-offset: .24em;
+      transition: color .22s ease, text-shadow .22s ease, text-decoration-color .22s ease, transform .22s ease, background-color .22s ease, border-color .22s ease;
+    }
+
+    a:hover,
+    a:focus-visible {
+      color: #9bffb3;
+      text-decoration-line: underline;
+      text-decoration-color: currentColor;
+      text-shadow: 0 0 14px rgba(72, 244, 119, .28);
+    }
+
+    a:focus-visible {
+      outline: 2px solid rgba(84, 229, 192, .85);
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+
+    .back {
+      padding: 5px 12px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      transition: color .22s ease, background-color .22s ease, border-color .22s ease, box-shadow .22s ease, transform .22s ease;
+    }
+
+    .back:hover,
+    .back:focus-visible {
+      border-color: rgba(72, 244, 119, .35);
+      background: rgba(72, 244, 119, .07);
+      box-shadow: 0 0 22px rgba(72, 244, 119, .1);
+      text-decoration: none;
+      transform: translateX(3px);
+    }
+
+    .tag::before {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      margin-inline-end: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 12px var(--green);
+      content: "";
+      animation: signal-pulse 2.8s ease-in-out infinite;
+    }
+
+    h1 {
+      text-shadow: 0 0 24px rgba(72, 244, 119, .1);
+      animation: heading-breathe 7s ease-in-out infinite;
+    }
+
+    h2::after {
+      display: block;
+      width: 42px;
+      height: 2px;
+      margin-top: 7px;
+      border-radius: 2px;
+      background: linear-gradient(90deg, var(--green), transparent);
+      box-shadow: 0 0 12px rgba(72, 244, 119, .3);
+      content: "";
+      transform-origin: right;
+      animation: line-breathe 5s ease-in-out infinite;
+    }
+
+    section {
+      transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease;
+      animation: panel-breathe 10s ease-in-out infinite;
+    }
+
+    section:nth-of-type(even) { animation-delay: -5s; }
+
+    img {
+      border-radius: 10px;
+      transition: transform .35s ease, filter .35s ease;
+    }
+
+    @keyframes signal-pulse {
+      0%, 100% { opacity: .65; box-shadow: 0 0 7px rgba(72, 244, 119, .55); }
+      50% { opacity: 1; box-shadow: 0 0 15px rgba(72, 244, 119, .95); }
+    }
+
+    @keyframes heading-breathe {
+      0%, 100% { text-shadow: 0 0 16px rgba(72, 244, 119, .06); }
+      50% { text-shadow: 0 0 25px rgba(72, 244, 119, .17); }
+    }
+
+    @keyframes line-breathe {
+      0%, 100% { width: 34px; opacity: .65; }
+      50% { width: 58px; opacity: 1; }
+    }
+
+    @keyframes panel-breathe {
+      0%, 100% { box-shadow: 0 0 0 rgba(72, 244, 119, 0); }
+      50% { box-shadow: 0 10px 28px -22px rgba(72, 244, 119, .36); }
+    }
+
+    @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+      section:hover {
+        transform: translateY(-2px);
+        border-color: rgba(72, 244, 119, .4);
+        box-shadow: 0 14px 32px -24px rgba(72, 244, 119, .45);
+        animation-play-state: paused;
+      }
+
+      img:hover {
+        filter: drop-shadow(0 8px 18px rgba(72, 244, 119, .2));
+        transform: scale(1.015);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
   </style>
 </head>
 
@@ -161,16 +283,16 @@
     <section>
       <h2>قدم‌های پیشنهادی (<a href="front_end_text.html">فرانت اند؟</a>)</h2>
       <ol>
-        <li>با تگ‌های <a href="#"> HTML </a> یک صفحهٔ ساده بساز.</li>
-        <li>با <a href="#"> CSS </a> رنگ، فاصله و چیدمان صفحه را تنظیم کن.</li>
-        <li>مبانی <a href="#">JavaScript</a> را برای تعامل‌هایی مثل دکمه‌ها یاد بگیر.</li>
+        <li>با تگ‌های <a href="../programmong_web/fontend_teach/html_teache/index.html"> HTML </a> یک صفحهٔ ساده بساز.</li>
+        <li>با <a href="../programmong_web/fontend_teach/css_teache/index.html"> CSS </a> رنگ، فاصله و چیدمان صفحه را تنظیم کن.</li>
+        <li>مبانی <a href="../programmong_web/fontend_teach/javaScript_teache/index.html">JavaScript</a> را برای تعامل‌هایی مثل دکمه‌ها یاد بگیر.</li>
         <li style="color: aqua;">به ما اعتماد کن و در همین سایت شروع به یادگیری برنامه نویسی کن</li>
       </ol>
     </section>
     <section class="gif-promo">
-      <p style="color: aqua;">برای یادگیری برنامه‌نویسی فرانت‌اند <a href="front_end_text.html" style="color: red;">کلیک
+      <p style="color: aqua;">برای یادگیری برنامه‌نویسی فرانت‌اند <a href="../programmong_web/fontend_teach/index.html" style="color: red;">کلیک
           کنید</a></p>
-      <img src="../../gifs/Neon Front-End Code Orbit (1.5x).gif" alt="انیمیشن کدنویسی فرانت‌اند"
+      <img src="../../gifs/neon-front-end-code-orbit.gif" alt="انیمیشن کدنویسی فرانت‌اند"
         style="display: block; max-width: 100%; height: auto;">
     </section>
     <!-- ! bakend -->
@@ -190,7 +312,7 @@
     <section class="gif-promo">
       <p style="color: aqua;">برای یادگیری برنامه‌نویسی فرانت‌اند <a href="lessons/programmong_web/fontend_teach/index.html" style="color: red;">کلیک
           کنید</a></p>
-      <img src="../../gifs/Neon Code-to-Cloud Data Transfer.gif" alt="انیمیشن کدنویسی فرانت‌اند"
+      <img src="../../gifs/neon-code-to-cloud-data-transfer.gif" alt="انیمیشن کدنویسی فرانت‌اند"
         style="display: block; max-width: 100%; height: auto;">
     </section>
     <!-- ! bakend -->

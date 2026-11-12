@@ -907,6 +907,42 @@
             }
         }
 
+        main a:not(.button):not(.card-cta) {
+            text-decoration-thickness: 1px;
+            text-underline-offset: .22em;
+            text-decoration-color: rgba(72, 244, 119, .38);
+            transition: color .22s ease, text-shadow .22s ease, text-decoration-color .22s ease;
+        }
+
+        main a:not(.button):not(.card-cta):hover,
+        main a:not(.button):not(.card-cta):focus-visible {
+            color: var(--mint);
+            text-decoration-color: currentColor;
+            text-shadow: 0 0 14px rgba(72, 244, 119, .32);
+        }
+
+        main a:focus-visible,
+        .button:focus-visible,
+        .card-cta:focus-visible {
+            outline: 2px solid rgba(84, 229, 192, .82);
+            outline-offset: 4px;
+            border-radius: 5px;
+        }
+
+        .button::before {
+            animation: button-sweep 8s ease-in-out infinite;
+        }
+
+        .button:active,
+        .card-cta:active {
+            transform: translateY(0) scale(.97);
+        }
+
+        @keyframes button-sweep {
+            0%, 72%, 100% { left: -70%; }
+            88% { left: 135%; }
+        }
+
         @media (prefers-reduced-motion: reduce) {
 
             *,
@@ -952,14 +988,14 @@
         </section>
         <section id="paths" class="section" aria-labelledby="paths-title">
             <div class="section-heading">
-                <h2 id="paths-title">کدوم مسیر برنامه‌نویسی برای تو جذابه؟</h2>
+                <h2 id="paths-title">کدوم مسیر <a href="lessons/get_started_program/get_start.html">برنامه‌نویسی</a> برای تو جذابه؟</h2>
                 <p>لازم نیست از همین اول همه‌چیز رو بدونی. با موضوعی شروع کن که بیشتر کنجکاوت می‌کنه.</p>
             </div>
             <div class="cards">
                 <article class="card">
                     <span class="card-number">مسیر ۱ · وب</span>
                     <h3>طراحی و برنامه‌نویسی وب</h3>
-                    <p>یاد بگیر صفحه‌های وب چطور ساخته می‌شن؛ از ساختار HTML تا استایل CSS و تعامل با JavaScript.</p>
+                    <p>یاد بگیر صفحه‌های وب چطور ساخته می‌شن؛ از ساختار HTML تا استایل <a href="lessons/programmong_web/fontend_teach/javaScript_teache/index.html">CSS</a> و تعامل با <a href="lessons/programmong_web/fontend_teach/javaScript_teache/index.html"> JavaScript </a>.</p>
                     <span class="card-note">برای ساخت سایت و تجربه‌های تعاملی</span>
                     <a class="card-cta" href="lessons/programmong_web/programming_web.html">برای مشاهده کلیک کنید ←</a>
                 </article>
