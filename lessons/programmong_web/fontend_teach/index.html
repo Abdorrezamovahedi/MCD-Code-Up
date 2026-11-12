@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="با مسیر طراحی و برنامه‌نویسی وب آشنا شو؛ HTML، CSS و JavaScript را به‌ترتیب یاد بگیر و صفحهٔ وب خودت را بساز.">
+    <meta name="theme-color" content="#07110b">
+    <title>آموزش برنامه‌نویسی وب | MCD Code Up</title>
+    <style>
+        :root {
+            color-scheme: dark;
+            --bg: #07110b;
+            --panel: #0d1b12;
+            --line: #294333;
+            --text: #f2fff4;
+            --muted: #b9cbbd;
+            --green: #48f477;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font: 16px/1.9 Tahoma, Arial, sans-serif;
+        }
+
+        main {
+            width: min(820px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 30px 0 56px;
+            animation: enter .45s ease-out both;
+        }
+
+        a {
+            color: var(--green);
+        }
+
+        .back {
+            display: inline-block;
+            margin-bottom: 26px;
+            text-decoration: none;
+        }
+
+        .back:hover {
+            text-decoration: underline;
+        }
+
+        .tag {
+            color: var(--green);
+            font-weight: 700;
+        }
+
+        h1 {
+            margin: 8px 0 12px;
+            font-size: clamp(1.8rem, 5vw, 2.7rem);
+            line-height: 1.4;
+        }
+
+        .lead {
+            color: var(--muted);
+            font-size: 1.08rem;
+        }
+
+        section {
+            margin-top: 24px;
+            padding: 20px;
+            border: 1px solid var(--line);
+            border-right: 4px solid var(--green);
+            background: var(--panel);
+        }
+
+        h2 {
+            margin: 0 0 8px;
+            font-size: 1.25rem;
+        }
+
+        p {
+            margin: 8px 0;
+        }
+
+        .gif-promo {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .gif-promo p {
+            flex: 1;
+            font-size: 1.1rem;
+        }
+
+        .gif-promo img {
+            flex: 1;
+            width: 50%;
+        }
+
+        .gif-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .gif-card {
+            margin: 0;
+            min-width: 0;
+            text-align: center;
+        }
+
+        .gif-card img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            object-fit: contain;
+            background: var(--bg);
+            border-radius: 8px;
+        }
+
+        .gif-card figcaption {
+            margin-top: 10px;
+            color: var(--muted);
+        }
+
+        @media (max-width: 560px) {
+            .gif-promo {
+                align-items: stretch;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .gif-promo img {
+                width: 100%;
+            }
+        }
+
+        ul,
+        ol {
+            margin: 8px 0 0;
+            padding-right: 24px;
+        }
+
+        li {
+            margin: 6px 0;
+        }
+
+        @keyframes enter {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation: none !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <a class="back" href="../../../index.html">← بازگشت به صفحهٔ اصلی</a>
+        <span class="tag">MCD Code Up · مسیر یادگیری</span>
+        <h1>فرانت اند را از اینجا شروع کن</h1>
+        <p class="lead">این جا ما فرانت اند رو به تو یاد میدیم از جمله html , css , javaScript و ...</p>
+        <section>
+            <h2>می خوای شروع کنی ؟ اول html</h2>
+            <p>پیشنهاد ما برای شروع سایتت سازی با فرانت اند اینه که از <a href="html_teache/index.html"> html </a>شروع
+                کنی .</p>
+        </section>
+        <section>
+            <h2>قدم‌های پیشنهادی </h2>
+            <ol>
+                <li>اول از <a href="html_teache/index.html"> html </a>شروع کن تا بتوانی اولین صففحه سایت خودت رو بسازی
+                    تا بعدا از زبان های دیگه اسستفاده کنی</li>
+                <li>با <a href="#"> CSS </a> رنگ، فاصله و چیدمان صفحه را تنظیم کن.</li>
+                <li>مبانی <a href="#">JavaScript</a> را برای تعامل‌هایی مثل دکمه‌ها یاد بگیر.</li>
+                <li style="color: aqua;">به ما اعتماد کن و در همین سایت شروع به یادگیری برنامه نویسی کن</li>
+            </ol>
+        </section>
+        <section class="gif-promo">
+            <p style="color: aqua;">برای یادگیری برنامه‌نویسی فرانت‌اند <a href="../../front_end_text.html"
+                    style="color: red;">کلیک
+                    کنید</a></p>
+            <img src="../../gifs/Neon Front-End Code Orbit (1.5x).gif" alt="انیمیشن کدنویسی فرانت‌اند"
+                style="display: block; max-width: 100%; height: auto;">
+        </section>
+        <!-- ! bakend -->
+        <section>
+            <h2>قدم‌های پیشنهادی (<a href="../../back_end_text.html">بک اند؟</a>)</h2>
+            <ol>
+                <li>JavaScript (Node.js) محبوب‌ترین و پرطرفدارترین زبان برای برنامه نویسی بک اند است</li>
+                <li>python مناسب API، هوش مصنوعی، اتوماسیون و پردازش داده</li>
+                <li>PHP برای توسعه وب‌سایت‌ها و سیستم‌های مدیریت محتوا مثل WordPress.</li>
+                <li>Java مناسب سیستم‌های بزرگ، بانکی و سازمانی.</li>
+                <li>C# برای بک‌اند سازمانی با ASP.NET Core.</li>
+                <li>Go (Golang) مناسب سرورهای سریع، مقیاس‌پذیر و سیستم‌های توزیع‌شده.</li>
+                <li>Ruby برای توسعه سریع وب با فریم‌ورک Ruby on Rails.</li>
+                <li style="color: aqua;">به ما اعتماد کن و در همین سایت شروع به یادگیری برنامه نویسی کن</li>
+            </ol>
+        </section>
+        <section>
+            <h2>گیف‌های آموزشی فرانت‌اند</h2>
+            <div class="gif-gallery">
+                <figure class="gif-card">
+                    <img src="/gifs/front_end_gif/html_gif.gif" alt="آموزش HTML">
+                    <figcaption>متن دلخواه شما برای گیف اول</figcaption>
+                </figure>
+                <figure class="gif-card">
+                    <img src="/gifs/front_end_gif/css_gif.gif" alt="آموزش CSS">
+                    <figcaption>متن دلخواه شما برای گیف دوم</figcaption>
+                </figure>
+                <figure class="gif-card">
+                    <img src="/gifs/front_end_gif/js_gif.gif" alt="گیف سوم">
+                    <figcaption>متن دلخواه شما برای گیف سوم</figcaption>
+                </figure>
+            </div>
+        </section>
+        <!-- ! bakend -->
+        <section>
+            <p>این سایت بهترین سایت مرجع برنامه نویسی برای مبتدیان و خبره های برنامه نویسی است</p>
+        </section>
+    </main>
+</body>
+
+</html>
