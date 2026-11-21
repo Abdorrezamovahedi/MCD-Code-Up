@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="با مسیر طراحی و برنامه‌نویسی وب آشنا شو؛ HTML، CSS و JavaScript را به‌ترتیب یاد بگیر و صفحه وب خودت را بساز.">
+
+    <meta name="theme-color" content="#07110b">
+
+    <title>آموزش برنامه‌نویسی وب | MCD Code Up - سرفصل‌های HTML</title>
+
+    <style>
+        :root {
+            color-scheme: dark;
+            --bg: #07110b;
+            --panel: #0d1b12;
+            --line: #294333;
+            --text: #f2fff4;
+            --muted: #b9cbbd;
+            --green: #48f477;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font: 16px/1.9 Tahoma, Arial, sans-serif;
+        }
+
+        main {
+            width: min(820px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 30px 0 56px;
+            animation: enter .45s ease-out both;
+        }
+
+        a {
+            color: var(--green);
+            text-decoration-color: transparent;
+            text-decoration-thickness: 1px;
+            text-underline-offset: .24em;
+            transition: .22s ease;
+        }
+
+        a:hover,
+        a:focus-visible {
+            color: #9bfff7;
+            text-decoration: underline;
+            text-shadow: 0 0 14px rgb(0, 238, 255);
+        }
+
+        a:focus-visible {
+            outline: 2px solid rgba(84, 229, 192, .85);
+            outline-offset: 4px;
+            border-radius: 4px;
+        }
+
+        .back {
+            display: inline-block;
+            margin-bottom: 26px;
+            padding: 5px 12px;
+            border: 1px solid transparent;
+            border-radius: 999px;
+            text-decoration: none;
+        }
+
+        .back:hover {
+            border-color: rgba(72, 244, 119, .35);
+            background: rgba(72, 244, 119, .07);
+            box-shadow: 0 0 22px rgba(72, 244, 119, .1);
+            transform: translateX(3px);
+        }
+
+        .tag {
+            color: var(--green);
+            font-weight: 700;
+        }
+
+        .tag::before {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            margin-inline-end: 8px;
+            border-radius: 50%;
+            background: var(--green);
+            box-shadow: 0 0 12px var(--green);
+            content: "";
+            animation: signal-pulse 2.8s ease-in-out infinite;
+        }
+
+        h1 {
+            margin: 8px 0 12px;
+            font-size: clamp(1.8rem, 5vw, 2.7rem);
+            line-height: 1.4;
+            text-shadow: 0 0 24px rgba(72, 244, 119, .1);
+            animation: heading-breathe 7s ease-in-out infinite;
+        }
+
+        .lead {
+            color: var(--muted);
+            font-size: 1.08rem;
+        }
+
+        section {
+            margin-top: 24px;
+            padding: 20px;
+            border: 1px solid var(--line);
+            border-right: 4px solid var(--green);
+            background: var(--panel);
+            transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease;
+            animation: panel-breathe 10s ease-in-out infinite;
+        }
+
+        section:nth-of-type(even) {
+            animation-delay: -5s;
+        }
+
+        h2 {
+            margin: 0 0 8px;
+            font-size: 1.25rem;
+        }
+
+        h2::after {
+            display: block;
+            width: 42px;
+            height: 2px;
+            margin-top: 7px;
+            border-radius: 2px;
+            background: linear-gradient(90deg, var(--green), transparent);
+            box-shadow: 0 0 12px rgba(72, 244, 119, .3);
+            content: "";
+            transform-origin: right;
+            animation: line-breathe 5s ease-in-out infinite;
+        }
+
+        p {
+            margin: 8px 0;
+        }
+
+        ul,
+        ol {
+            margin: 8px 0 0;
+            padding-right: 24px;
+        }
+
+        li {
+            margin: 6px 0;
+        }
+
+        li a {
+            display: inline-block;
+        }
+
+        .topic-list li {
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(41, 67, 51, .35);
+        }
+
+        .topic-list li:last-child {
+            border-bottom: none;
+        }
+
+        .note {
+            background-color: #07110b;
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        @keyframes enter {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes signal-pulse {
+            0%, 100% {
+                opacity: .65;
+                box-shadow: 0 0 7px rgba(72, 244, 119, .55);
+            }
+
+            50% {
+                opacity: 1;
+                box-shadow: 0 0 15px rgba(72, 244, 119, .95);
+            }
+        }
+
+        @keyframes heading-breathe {
+            0%, 100% {
+                text-shadow: 0 0 16px rgba(72, 244, 119, .06);
+            }
+
+            50% {
+                text-shadow: 0 0 25px rgba(72, 244, 119, .17);
+            }
+        }
+
+        @keyframes line-breathe {
+            0%, 100% {
+                width: 34px;
+                opacity: .65;
+            }
+
+            50% {
+                width: 58px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes panel-breathe {
+            0%, 100% {
+                box-shadow: 0 0 0 rgba(72, 244, 119, 0);
+            }
+
+            50% {
+                box-shadow: 0 10px 28px -22px rgba(72, 244, 119, .36);
+            }
+        }
+
+        @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+            section:hover {
+                transform: translateY(-2px);
+                border-color: rgba(72, 244, 119, .4);
+                box-shadow: 0 14px 32px -24px rgba(72, 244, 119, .45);
+                animation-play-state: paused;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation: none !important;
+                scroll-behavior: auto !important;
+                transition-duration: .01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+
+        <a class="back" href="../../index.html">← بازگشت به صفحهٔ اصلی</a>
+
+        <span class="tag">MCD Code Up · مسیر یادگیری</span>
+
+        <h1>
+            با سرفصل‌های
+            <a href="../../../html_teache/index.html">HTML</a>
+            آشنا شوید!
+        </h1>
+
+        <p class="lead">
+            با سرفصل‌های HTML آشنا شوید تا تجربه بهتر و آشنایی دقیق‌تر داشته باشید.
+        </p>
+
+        <section>
+            <h2>درباره سرفصل‌های HTML بدانید!</h2>
+
+            <p>
+                بهتره که به اینجا یک نگاهی بندازی تا بفهمی قضیه چیه
+                تا بهتر HTML رو درک کنی و متوجه بشی که الان کجای کار هستی.
+            </p>
+        </section>
+
+        <section>
+            <h2>لیست سرفصل‌های HTML</h2>
+
+            <ol class="topic-list">
+
+                <!-- مقدمات -->
+                <li><a href="../mogadame/start.html">مقدمه (Introduction)</a></li>
+                <li><a href="../mogadame/2_editors/editors.html">ویرایشگرها (Editors)</a></li>
+                <li><a href="#">پایه‌ها (Basic)</a></li>
+                <li><a href="#">المان‌ها (Elements)</a></li>
+                <li><a href="#">ویژگی‌ها (Attributes)</a></li>
+                <li><a href="#">سرفصل‌ها (Headings)</a></li>
+                <li><a href="#">پاراگراف‌ها (Paragraphs)</a></li>
+                <li><a href="#">استایل‌ها (Styles)</a></li>
+                <li><a href="#">قالب‌بندی متن (Formatting)</a></li>
+                <li><a href="#">نقل قول‌ها (Quotations)</a></li>
+                <li><a href="#">توضیحات (Comments)</a></li>
+
+                <!-- رنگ‌ها -->
+                <li><a href="#">رنگ‌ها (Colors)</a></li>
+                <li><a href="#">مدل RGB (RGB)</a></li>
+                <li><a href="#">مدل HEX (HEX)</a></li>
+                <li><a href="#">مدل HSL (HSL)</a></li>
+
+                <!-- CSS -->
+                <li><a href="#">استفاده از CSS (CSS)</a></li>
+
+                <!-- لینک‌ها -->
+                <li><a href="#">لینک‌ها (Links)</a></li>
+                <li><a href="#">رنگ لینک‌ها (Link Colors)</a></li>
+                <li><a href="#">نشانه‌های لینک (Link Bookmarks)</a></li>
+
+                <!-- تصاویر -->
+                <li><a href="#">تصاویر (Images)</a></li>
+                <li><a href="#">نقشه تصویر (Image Map)</a></li>
+                <li><a href="#">تصویر پس‌زمینه (Background Images)</a></li>
+                <li><a href="#">المان Picture (The Picture Element)</a></li>
+                <li><a href="#">فاوآیکون (Favicon)</a></li>
+
+                <!-- عنوان صفحه -->
+                <li><a href="#">عنوان صفحه (Page Title)</a></li>
+
+                <!-- جداول -->
+                <li><a href="#">جداول (Tables)</a></li>
+                <li><a href="#">مرزهای جدول (Table Borders)</a></li>
+                <li><a href="#">اندازه‌های جدول (Table Sizes)</a></li>
+                <li><a href="#">سربرگ‌های جدول (Table Headers)</a></li>
+                <li><a href="#">فاصله داخلی و بیرونی جدول (Padding & Spacing)</a></li>
+                <li><a href="#">ادغام سلول‌ها (Colspan & Rowspan)</a></li>
+                <li><a href="#">استایل‌دهی جدول (Table Styling)</a></li>
+                <li><a href="#">گروه ستون‌ها (Table Colgroup)</a></li>
+
+                <!-- لیست‌ها -->
+                <li><a href="#">فهرست‌ها (Lists)</a></li>
+                <li><a href="#">فهرست نامرتب (Unordered Lists)</a></li>
+                <li><a href="#">فهرست مرتب (Ordered Lists)</a></li>
+                <li><a href="#">سایر فهرست‌ها (Other Lists)</a></li>
+
+                <!-- ساختار -->
+                <li><a href="#">بلوک‌ها و درون‌خطی‌ها (Block & Inline)</a></li>
+                <li><a href="#">المان Div (Div)</a></li>
+                <li><a href="#">کلاس‌ها (Classes)</a></li>
+                <li><a href="#">شناسه‌ها (Id)</a></li>
+                <li><a href="#">فریم‌ها (Iframes)</a></li>
+
+                <!-- برنامه‌نویسی -->
+                <li><a href="#">جاوااسکریپت (JavaScript)</a></li>
+                <li><a href="#">مسیر فایل‌ها (File Paths)</a></li>
+                <li><a href="#">بخش Head (Head)</a></li>
+
+                <!-- طراحی -->
+                <li><a href="#">چیدمان (Layout)</a></li>
+                <li><a href="#">طراحی واکنش‌گرا (Responsive)</a></li>
+                <li><a href="#">کدهای رایانه‌ای (Computer Code)</a></li>
+                <li><a href="#">المان‌های معنایی (Semantics)</a></li>
+                <li><a href="#">راهنمای نگارش (Style Guide)</a></li>
+
+                <!-- متن و کاراکتر -->
+                <li><a href="#">نهادها (Entities)</a></li>
+                <li><a href="#">نمادها (Symbols)</a></li>
+                <li><a href="#">ایموجی‌ها (Emojis)</a></li>
+                <li><a href="#">کدگذاری نویسه‌ها (Charsets)</a></li>
+                <li><a href="#">رمزگذاری URL (URL Encode)</a></li>
+                <li><a href="#">مقایسه با XHTML (vs. XHTML)</a></li>
+
+                <!-- فرم‌ها -->
+                <li><a href="#">فرم‌ها (Forms)</a></li>
+                <li><a href="#">ویژگی‌های فرم (Form Attributes)</a></li>
+                <li><a href="#">المان‌های فرم (Form Elements)</a></li>
+                <li><a href="#">انواع ورودی (Input Types)</a></li>
+                <li><a href="#">ویژگی‌های ورودی (Input Attributes)</a></li>
+
+                <!-- گرافیک -->
+                <li><a href="#">بوم نقاشی (Canvas)</a></li>
+                <li><a href="#">بردارهای گرافیکی (SVG)</a></li>
+
+                <!-- رسانه -->
+                <li><a href="#">رسانه‌ها (Media)</a></li>
+                <li><a href="#">ویدیو (Video)</a></li>
+                <li><a href="#">صدا (Audio)</a></li>
+                <li><a href="#">افزونه‌ها (Plug-ins)</a></li>
+                <li><a href="#">یوتیوب (YouTube)</a></li>
+
+                <!-- API -->
+                <li><a href="#">رابط‌های وب (Web APIs)</a></li>
+                <li><a href="#">مکان‌یابی جغرافیایی (Geolocation)</a></li>
+                <li><a href="#">کشیدن و رها کردن (Drag and Drop)</a></li>
+                <li><a href="#">ذخیره‌سازی وب (Web Storage)</a></li>
+                <li><a href="#">کارگران وب (Web Workers)</a></li>
+                <li><a href="#">رویدادهای ارسالی از سرور (Server-Sent Events - SSE)</a></li>
+
+                <!-- تگ‌های HTML -->
+
+                <li><a href="#">توضیح (Comment)</a></li>
+                <li><a href="#">اعلان نوع سند (DOCTYPE)</a></li>
+                <li><a href="#">پیوند (a)</a></li>
+                <li><a href="#">اختصار (abbr)</a></li>
+                <li><a href="#">سرنام (acronym)</a></li>
+                <li><a href="#">آدرس (address)</a></li>
+                <li><a href="#">اپلت (applet)</a></li>
+                <li><a href="#">ناحیه نقشه (area)</a></li>
+                <li><a href="#">مقاله (article)</a></li>
+                <li><a href="#">کنار‌نویس (aside)</a></li>
+                <li><a href="#">صوت (audio)</a></li>
+                <li><a href="#">پررنگ (b)</a></li>
+                <li><a href="#">پایه (base)</a></li>
+                <li><a href="#">فونت پایه (basefont)</a></li>
+                <li><a href="#">جداساز دوطرفه (bdi)</a></li>
+                <li><a href="#">جهت متن (bdo)</a></li>
+                <li><a href="#">بزرگ (big)</a></li>
+                <li><a href="#">بلوک نقل (blockquote)</a></li>
+                <li><a href="#">بدنه (body)</a></li>
+                <li><a href="#">خط جدید (br)</a></li>
+                <li><a href="#">دکمه (button)</a></li>
+                <li><a href="#">بوم (canvas)</a></li>
+                <li><a href="#">عنوان جدول (caption)</a></li>
+                <li><a href="#">مرکز (center)</a></li>
+                <li><a href="#">ارجاع (cite)</a></li>
+                <li><a href="#">کد (code)</a></li>
+                <li><a href="#">ستون (col)</a></li>
+                <li><a href="#">گروه ستون (colgroup)</a></li>
+                <li><a href="#">داده (data)</a></li>
+                <li><a href="#">فهرست داده (datalist)</a></li>
+                <li><a href="#">تعریف شرح (dd)</a></li>
+                <li><a href="#">حذف (del)</a></li>
+                <li><a href="#">جزئیات (details)</a></li>
+                <li><a href="#">اصطلاح (dfn)</a></li>
+                <li><a href="#">دایرکتوری (dir)</a></li>
+                <li><a href="#">بخش (div)</a></li>
+                <li><a href="#">فهرست تعاریف (dl)</a></li>
+                <li><a href="#">عنوان تعریف (dt)</a></li>
+                <li><a href="#">تأکید (em)</a></li>
+                <li><a href="#">جاسازی (embed)</a></li>
+                <li><a href="#">مجموعه فیلدها (fieldset)</a></li>
+                <li><a href="#">عنوان شکل (figcaption)</a></li>
+                <li><a href="#">شکل (figure)</a></li>
+                <li><a href="#">فونت (font)</a></li>
+                <li><a href="#">پاورقی (footer)</a></li>
+                <li><a href="#">فرم (form)</a></li>
+                <li><a href="#">فریم (frame)</a></li>
+                <li><a href="#">مجموعه فریم‌ها (frameset)</a></li>
+                <li><a href="#">سرفصل‌ها (h1–h6)</a></li>
+                <li><a href="#">سر (head)</a></li>
+                <li><a href="#">سربرگ (header)</a></li>
+                <li><a href="#">گروه عنوان (hgroup)</a></li>
+                <li><a href="#">خط افقی (hr)</a></li>
+                <li><a href="#">سند HTML (html)</a></li>
+                <li><a href="#">مورب (i)</a></li>
+                <li><a href="#">چارچوب درون صفحه‌ای (iframe)</a></li>
+                <li><a href="#">تصویر (img)</a></li>
+                <li><a href="#">ورودی (input)</a></li>
+                <li><a href="#">درج (ins)</a></li>
+                <li><a href="#">صفحه‌کلید (kbd)</a></li>
+                <li><a href="#">برچسب (label)</a></li>
+                <li><a href="#">افسانه (legend)</a></li>
+                <li><a href="#">مورد فهرست (li)</a></li>
+                <li><a href="#">پیوند منبع (link)</a></li>
+                <li><a href="#">بخش اصلی (main)</a></li>
+                <li><a href="#">نقشه تصویر (map)</a></li>
+                <li><a href="#">نشانه‌گذاری (mark)</a></li>
+                <li><a href="#">منو (menu)</a></li>
+                <li><a href="#">فراداده (meta)</a></li>
+                <li><a href="#">سنجش (meter)</a></li>
+                <li><a href="#">ناوبری (nav)</a></li>
+                <li><a href="#">بدون فریم (noframes)</a></li>
+                <li><a href="#">بدون اسکریپت (noscript)</a></li>
+                <li><a href="#">شیء (object)</a></li>
+                <li><a href="#">فهرست مرتب (ol)</a></li>
+                <li><a href="#">گروه گزینه‌ها (optgroup)</a></li>
+                <li><a href="#">گزینه (option)</a></li>
+                <li><a href="#">خروجی (output)</a></li>
+                <li><a href="#">پاراگراف (p)</a></li>
+                <li><a href="#">پارامتر (param)</a></li>
+                <li><a href="#">تصویر پاسخ‌گو (picture)</a></li>
+                <li><a href="#">پیش‌قالب (pre)</a></li>
+                <li><a href="#">پیشرفت (progress)</a></li>
+                <li><a href="#">نقل قول کوتاه (q)</a></li>
+                <li><a href="#">پرانتز روبی (rp)</a></li>
+                <li><a href="#">متن روبی (rt)</a></li>
+                <li><a href="#">روبی (ruby)</a></li>
+                <li><a href="#">خط‌زده (s)</a></li>
+                <li><a href="#">نمونه خروجی (samp)</a></li>
+                <li><a href="#">اسکریپت (script)</a></li>
+                <li><a href="#">جستجو (search)</a></li>
+                <li><a href="#">بخش (section)</a></li>
+                <li><a href="#">انتخاب (select)</a></li>
+                <li><a href="#">کوچک (small)</a></li>
+                <li><a href="#">منبع (source)</a></li>
+                <li><a href="#">دامنه (span)</a></li>
+                <li><a href="#">خط بطلان (strike)</a></li>
+                <li><a href="#">پررنگ معنایی (strong)</a></li>
+                <li><a href="#">سبک (style)</a></li>
+                <li><a href="#">زیرنویس (sub)</a></li>
+                <li><a href="#">خلاصه (summary)</a></li>
+                <li><a href="#">بالانویس (sup)</a></li>
+                <li><a href="#">بردار گرافیکی (svg)</a></li>
+                <li><a href="#">جدول (table)</a></li>
+                <li><a href="#">بدنه جدول (tbody)</a></li>
+                <li><a href="#">سلول جدول (td)</a></li>
+                <li><a href="#">الگو (template)</a></li>
+                <li><a href="#">ناحیه متن (textarea)</a></li>
+                <li><a href="#">پاورقی جدول (tfoot)</a></li>
+                <li><a href="#">سرستون جدول (th)</a></li>
+                <li><a href="#">سربرگ جدول (thead)</a></li>
+                <li><a href="#">زمان (time)</a></li>
+                <li><a href="#">عنوان (title)</a></li>
+                <li><a href="#">سطر جدول (tr)</a></li>
+                <li><a href="#">زیرنویس رسانه (track)</a></li>
+                <li><a href="#">تله‌تایپ (tt)</a></li>
+                <li><a href="#">زیرخط‌دار (u)</a></li>
+                <li><a href="#">فهرست نامرتب (ul)</a></li>
+                <li><a href="#">متغیر (var)</a></li>
+                <li><a href="#">ویدیو (video)</a></li>
+
+            </ol>
+        </section>
+
+        <section>
+            <h2>نکته!</h2>
+
+            <p>
+                یادگیری فرانت‌اند و بک‌اند می‌تواند خیلی در توانایی شما در سایت‌سازی
+                کمک کند و شما را خیلی حرفه‌ای کند.
+            </p>
+
+            <p class="note">
+                اگر می‌خواهید بدانید بک‌اند چیست،
+                <a href="../programmong_web/back_end_text.html" style="color:red;">
+                    کلیک کنید
+                </a>
+            </p>
+        </section>
+
+    </main>
+
+    <script src="../../js/scroll-motion-blur.js" defer></script>
+
+</body>
+
+</html>

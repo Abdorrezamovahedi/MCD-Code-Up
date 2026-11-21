@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="آموزش و دانلود برنامه Visual Studio Code برای برنامه نویسی HTML، CSS و JavaScript">
+
+    <meta name="theme-color" content="#07110b">
+
+    <title>ویرایشگرها (Editors) | HTML Teach</title>
+
+    <style>
+        :root {
+            color-scheme: dark;
+
+            --bg: #07110b;
+            --panel: #0d1b12;
+            --panel-light: #112319;
+            --line: #294333;
+
+            --text: #f2fff4;
+            --muted: #b9cbbd;
+
+            --green: #48f477;
+            --green-soft: rgba(72, 244, 119, .08);
+
+            --content-width: 850px;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background: var(--bg);
+        }
+
+        body {
+            margin: 0;
+            min-width: 320px;
+            overflow-x: hidden;
+
+            background: var(--bg);
+            color: var(--text);
+
+            font: 16px/2 Tahoma, Arial, sans-serif;
+        }
+
+        main {
+            width: min(var(--content-width), calc(100% - 40px));
+            margin: 0 auto;
+            padding: 35px 0 65px;
+        }
+
+        a {
+            color: var(--green);
+            text-decoration: none;
+            transition: .2s ease;
+        }
+
+        a:hover {
+            color: #a1ffb7;
+        }
+
+        a:focus-visible {
+            outline: 2px solid var(--green);
+            outline-offset: 5px;
+        }
+
+        /* دکمه بازگشت */
+
+        .back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            margin-bottom: 25px;
+            padding: 7px 15px;
+
+            border: 1px solid var(--line);
+            border-radius: 8px;
+
+            color: var(--muted);
+            background: var(--panel);
+
+            font-size: .9rem;
+            transition: .2s ease;
+        }
+
+        .back:hover {
+            color: var(--green);
+            border-color: var(--green);
+            background: var(--green-soft);
+        }
+
+        /* معرفی درس */
+
+        .lesson-hero {
+            margin-bottom: 25px;
+            padding: 25px;
+
+            border: 1px solid var(--line);
+            border-radius: 12px;
+
+            background: var(--panel);
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+
+            color: var(--green);
+            font-size: .9rem;
+            font-weight: bold;
+        }
+
+        .tag::before {
+            width: 8px;
+            height: 8px;
+
+            border-radius: 50%;
+            background: var(--green);
+
+            content: "";
+        }
+
+        h1 {
+            margin: 12px 0 15px;
+
+            font-size: clamp(1.8rem, 5vw, 2.6rem);
+            line-height: 1.5;
+        }
+
+        .lead {
+            max-width: 760px;
+
+            margin: 0;
+            padding-right: 15px;
+
+            border-right: 3px solid var(--green);
+
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 2.2;
+        }
+
+        /* بخش آموزش */
+
+        .lesson-section {
+            padding: 25px;
+
+            border: 1px solid var(--line);
+            border-radius: 12px;
+
+            background: var(--panel);
+
+            counter-reset: lesson-step;
+        }
+
+        .lesson-section h2 {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            margin: 35px 0 18px;
+            padding-bottom: 12px;
+
+            border-bottom: 1px solid var(--line);
+
+            font-size: 1.3rem;
+            line-height: 1.8;
+        }
+
+        .lesson-section h2:first-child {
+            margin-top: 0;
+        }
+
+        .lesson-section h2::before {
+            display: grid;
+            place-items: center;
+
+            flex: 0 0 34px;
+            width: 34px;
+            height: 34px;
+
+            border: 1px solid rgba(72, 244, 119, .3);
+            border-radius: 8px;
+
+            background: var(--green-soft);
+            color: var(--green);
+
+            content: counter(lesson-step, decimal-leading-zero);
+            counter-increment: lesson-step;
+
+            font-size: .75rem;
+            direction: ltr;
+        }
+
+        .lesson-section p {
+            margin: 12px 0;
+
+            color: var(--muted);
+            font-size: .97rem;
+            line-height: 2.3;
+        }
+
+        code {
+            display: inline-block;
+
+            padding: 2px 8px;
+
+            border: 1px solid rgba(72, 244, 119, .2);
+            border-radius: 5px;
+
+            background: var(--green-soft);
+            color: var(--green);
+
+            font-family: Consolas, monospace;
+            font-size: .95em;
+            direction: ltr;
+        }
+
+        /* نکته آموزشی */
+
+        .note {
+            margin: 22px 0;
+            padding: 15px 18px;
+
+            border: 1px solid rgba(72, 244, 119, .2);
+            border-right: 4px solid var(--green);
+            border-radius: 8px;
+
+            background: var(--green-soft);
+
+            color: var(--muted);
+            font-size: .95rem;
+            line-height: 2.2;
+        }
+
+        /* تصویر اصلی VS Code */
+
+        .vscode-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            margin: 25px 0;
+            padding: 20px;
+
+            min-height: 180px;
+
+            border: 1px solid var(--line);
+            border-radius: 12px;
+
+            background: #09150d;
+        }
+
+        .vscode-image img {
+            display: block;
+
+            width: 140px;
+            height: 140px;
+            max-width: 100%;
+
+            object-fit: contain;
+        }
+
+        /* عنوان دانلود */
+
+        .download-heading {
+            margin-top: 30px !important;
+        }
+
+        .download-intro {
+            margin-bottom: 20px !important;
+        }
+
+        /* کارت‌های دانلود */
+
+        .download-wrapper {
+            margin: 25px 0;
+        }
+
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        /* کارت */
+
+        .download-card {
+            display: flex;
+            flex-direction: column;
+
+            min-width: 0;
+            padding: 20px;
+
+            border: 1px solid var(--line);
+            border-radius: 13px;
+
+            background: var(--panel-light);
+
+            transition:
+                border-color .25s ease,
+                transform .25s ease,
+                background .25s ease;
+        }
+
+        .download-card:hover {
+            border-color: var(--green);
+            background: #13271a;
+            transform: translateY(-4px);
+        }
+
+        /* بالای کارت */
+
+        .card-top {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            margin-bottom: 15px;
+        }
+
+        .vscode-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            flex: 0 0 52px;
+            width: 52px;
+            height: 52px;
+
+            overflow: hidden;
+
+            border: 1px solid var(--line);
+            border-radius: 10px;
+
+            background: #07110b;
+        }
+
+        .vscode-icon img {
+            display: block;
+
+            width: 38px;
+            height: 38px;
+            max-width: 100%;
+
+            object-fit: contain;
+        }
+
+        .card-title {
+            min-width: 0;
+        }
+
+        .card-title h3 {
+            margin: 0;
+
+            color: var(--text);
+            font-size: .95rem;
+            line-height: 1.8;
+        }
+
+        .card-title span {
+            color: var(--green);
+            font-size: .75rem;
+        }
+
+        /* توضیحات */
+
+        .download-card p {
+            margin: 0 0 15px;
+
+            color: var(--muted);
+            font-size: .85rem;
+            line-height: 2;
+        }
+
+        /* اطلاعات نسخه */
+
+        .download-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+
+            margin-top: auto;
+            margin-bottom: 17px;
+        }
+
+        .download-details span {
+            padding: 4px 9px;
+
+            border: 1px solid var(--line);
+            border-radius: 6px;
+
+            background: var(--bg);
+
+            color: var(--muted);
+            font-size: .72rem;
+            direction: ltr;
+        }
+
+        /* دکمه دانلود مستقیم */
+
+        .download-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+
+            width: 100%;
+            min-height: 45px;
+            padding: 10px;
+
+            border: 1px solid rgba(72, 244, 119, .3);
+            border-radius: 8px;
+
+            background: var(--green);
+            color: #07110b;
+
+            font-size: .85rem;
+            font-weight: bold;
+
+            transition: .2s ease;
+            text-align: center;
+        }
+
+        .download-button:hover {
+            background: #2be35f;
+            color: #07110b;
+            transform: scale(1.02);
+        }
+
+        .download-button:active {
+            transform: scale(.98);
+        }
+
+        /* لینک سایت رسمی */
+
+        .official-download {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+
+            margin-top: 20px;
+            padding: 13px;
+
+            border: 1px solid var(--line);
+            border-radius: 9px;
+
+            background: var(--panel);
+
+            text-align: center;
+            font-size: .9rem;
+        }
+
+        .official-download:hover {
+            border-color: var(--green);
+            background: var(--green-soft);
+        }
+
+        /* فهرست توضیحات */
+
+        .explanation-list {
+            margin: 15px 0;
+            padding: 0;
+
+            list-style: none;
+            counter-reset: explanation;
+        }
+
+        .explanation-list li {
+            position: relative;
+
+            margin: 0;
+            padding: 16px 48px 16px 12px;
+
+            border-bottom: 1px solid rgba(185, 203, 189, .12);
+
+            color: var(--muted);
+            font-size: .95rem;
+            line-height: 2.3;
+
+            counter-increment: explanation;
+        }
+
+        .explanation-list li:last-child {
+            border-bottom: 0;
+        }
+
+        .explanation-list li::before {
+            position: absolute;
+            right: 5px;
+            top: 20px;
+
+            display: grid;
+            place-items: center;
+
+            width: 28px;
+            height: 28px;
+
+            border: 1px solid rgba(72, 244, 119, .25);
+            border-radius: 7px;
+
+            background: var(--green-soft);
+            color: var(--green);
+
+            content: counter(explanation);
+
+            font-size: .8rem;
+            font-weight: bold;
+        }
+
+        .explanation-list li code {
+            margin: 0 2px;
+        }
+
+        /* کامپیوتر */
+
+        @media (min-width: 1024px) {
+            main {
+                padding-top: 40px;
+            }
+
+            .lesson-section {
+                padding: 28px;
+            }
+        }
+
+        /* تبلت */
+
+        @media (min-width: 600px) and (max-width: 1023px) {
+            main {
+                width: calc(100% - 48px);
+            }
+
+            .lesson-section {
+                padding: 22px;
+            }
+
+            .download-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        /* موبایل */
+
+        @media (max-width: 599px) {
+
+            body {
+                font-size: 14px;
+                line-height: 1.9;
+            }
+
+            main {
+                width: calc(100% - 26px);
+                padding: 20px 0 40px;
+            }
+
+            .back {
+                margin-bottom: 17px;
+                padding: 6px 11px;
+                font-size: .83rem;
+            }
+
+            .lesson-hero {
+                margin-bottom: 16px;
+                padding: 17px;
+            }
+
+            h1 {
+                font-size: clamp(1.55rem, 7vw, 2rem);
+            }
+
+            .lead {
+                font-size: .88rem;
+                line-height: 2.2;
+            }
+
+            .lesson-section {
+                padding: 16px;
+            }
+
+            .lesson-section h2 {
+                margin-top: 27px;
+                gap: 9px;
+                font-size: 1.08rem;
+            }
+
+            .lesson-section h2::before {
+                flex-basis: 30px;
+                width: 30px;
+                height: 30px;
+                font-size: .7rem;
+            }
+
+            .lesson-section p {
+                font-size: .9rem;
+                line-height: 2.25;
+            }
+
+            .note {
+                padding: 12px 14px;
+                font-size: .88rem;
+            }
+
+            /* کارت‌ها در موبایل افقی اسکرول می‌شوند */
+
+            .download-grid {
+                display: flex;
+                gap: 12px;
+
+                overflow-x: auto;
+                overflow-y: hidden;
+
+                padding: 5px 2px 15px;
+
+                scroll-snap-type: x mandatory;
+                scroll-behavior: smooth;
+
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .download-card {
+                flex: 0 0 85%;
+                max-width: 340px;
+
+                scroll-snap-align: start;
+            }
+
+            .download-grid::-webkit-scrollbar {
+                height: 5px;
+            }
+
+            .download-grid::-webkit-scrollbar-track {
+                background: var(--panel);
+                border-radius: 10px;
+            }
+
+            .download-grid::-webkit-scrollbar-thumb {
+                background: var(--green);
+                border-radius: 10px;
+            }
+
+            .download-card:hover {
+                transform: none;
+            }
+
+            .explanation-list li {
+                padding: 13px 40px 13px 3px;
+                font-size: .89rem;
+                line-height: 2.25;
+            }
+
+            .explanation-list li::before {
+                right: 2px;
+                top: 17px;
+
+                width: 25px;
+                height: 25px;
+            }
+        }
+
+        /* موبایل‌های کوچک */
+
+        @media (max-width: 360px) {
+
+            main {
+                width: calc(100% - 20px);
+            }
+
+            .lesson-section {
+                padding: 12px;
+            }
+
+            .download-card {
+                flex-basis: 90%;
+            }
+        }
+
+        /* کاهش حرکت برای کاربران نیازمند حرکت کمتر */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: .01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+
+        <a class="back" href="../../../../../../../index.html">
+            ← بازگشت به صفحه اصلی
+        </a>
+
+        <br>
+
+        <a style="font-size: 30px; color: red;"
+            class="back"
+            href="../../sar-fasl/sarfasl.html">
+            ← سرفصل ها HTML را ببینید
+        </a>
+
+        <!-- معرفی درس -->
+
+        <header class="lesson-hero">
+
+            <span class="tag">MCD</span>
+
+            <h1>ویرایشگرها (Editors)</h1>
+
+            <p class="lead" style="color: aqua;">
+
+                ما به تو در این قسمت می گیم که از چه برنامه هایی
+                در ویندوز و ...(سیستم عامل های دیگر)
+                می توانند کد های
+
+                <a href="../../../index.html">HTML</a>
+
+                خود را اجرا کنید تا سایت خود را بسازید و کیف کنید 😉
+
+                ⁂
+
+            </p>
+
+        </header>
+
+        <!-- محتوای درس -->
+
+        <section class="lesson-section">
+
+            <h2>
+                برنامه های پیشنهادی ما برای سیستم عامل های ویندوز و...:
+            </h2>
+
+            <p>
+
+                من به شما برنامه ای رو پیشنهاد می دم که اکثر برنامه نویسان
+                حرفه ای از اون استفاده می کنند و این برنامه 👇
+
+                <br>
+
+                حرف نداره 😎
+
+            </p>
+
+            <div class="note">
+
+                نکته: برنامه ای که ما معرفی می کنیم رو می توان داخلش
+
+                <a href="../../../index.html">
+                    HTML
+                </a>
+
+                و
+
+                <a href="../../../../css_teache/">
+                    CSS
+                </a>
+
+                و
+
+                <a href="../../../../javaScript_teache/">
+                    JavaScript
+                </a>
+
+                و
+
+                <span style="color: red; font-size: 20px;">
+                    تمام زبان های برنامه نویسی جهان حتی به غیر از سایت سایت سازی را کد نویسی کرد 😎
+                </span>
+
+            </div>
+
+            <h2>اون برنامه چیزی نیست جز:</h2>
+
+            <!-- تصویر VS Code -->
+
+            <figure class="vscode-image">
+
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUjBHweCjQWZ3WXdWQMq2ttZ6QpEvb4HlOXg92lHbcNhYKdpPGvOqo_t7T&s=10"
+                    alt="تصویر Visual Studio Code"
+                    loading="lazy">
+
+            </figure>
+
+            <h2>
+
+                اسم برنامه :
+
+                <a href="https://code.visualstudio.com/download"
+                    rel="nofollow">
+
+                    VS Code
+
+                </a>
+
+            </h2>
+
+            <p class="download-intro">
+
+                در این قسمت می توانید نسخه مناسب سیستم خود را انتخاب کنید.
+                کارت های دانلود در کامپیوتر به صورت شبکه ای و در موبایل
+                به صورت افقی قابل مشاهده هستند.
+
+            </p>
+
+            <!-- کارت‌های دانلود -->
+
+            <div class="download-wrapper">
+
+                <div class="download-grid">
+
+                    <!-- کارت اول: Windows -->
+
+                    <article class="download-card">
+
+                        <div class="card-top">
+
+                            <div class="vscode-icon">
+
+                                <img
+                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxzK4kQ5O4uTDj_sqkWH7c5S4o6AsXfxc5JFpxcckfKQ&s"
+                                    alt="VS Code"
+                                    loading="lazy">
+
+                            </div>
+
+                            <div class="card-title">
+
+                                <h3>Windows</h3>
+
+                                <span>نسخه پیشنهادی</span>
+
+                            </div>
+
+                        </div>
+
+                        <p>
+
+                            نسخه معمولی و پیشنهادی برای اکثر کاربران ویندوز.
+                            نصب آن برای حساب کاربری فعلی انجام می‌شود.
+
+                        </p>
+
+                        <div class="download-details">
+
+                            <span>Windows</span>
+                            <span>x64</span>
+                            <span>User Installer</span>
+
+                        </div>
+
+                        <a
+                            class="download-button"
+                            href="https://update.code.visualstudio.com/latest/win32-x64-user/stable">
+
+                            ↓ دانلود مستقیم نسخه Windows
+
+                        </a>
+
+                    </article>
+
+                    <!-- کارت دوم: macOS -->
+
+                    <article class="download-card">
+
+                        <div class="card-top">
+
+                            <div class="vscode-icon">
+
+                                <img
+                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxzK4kQ5O4uTDj_sqkWH7c5S4o6AsXfxc5JFpxcckfKQ&s"
+                                    alt="VS Code"
+                                    loading="lazy">
+
+                            </div>
+
+                            <div class="card-title">
+
+                                <h3>macOS</h3>
+
+                                <span>نسخه Universal</span>
+
+                            </div>
+
+                        </div>
+
+                        <p>
+
+                            نسخه‌ای که برای سیستم‌عامل macOS طراحی شده
+                            و با پردازنده‌های سازگار مک قابل استفاده است.
+
+                        </p>
+
+                        <div class="download-details">
+
+                            <span>macOS</span>
+                            <span>Universal</span>
+                            <span>Stable</span>
+
+                        </div>
+
+                        <a
+                            class="download-button"
+                            href="https://update.code.visualstudio.com/latest/darwin-universal/stable">
+
+                            ↓ دانلود مستقیم نسخه macOS
+
+                        </a>
+
+                    </article>
+
+                    <!-- کارت سوم: Linux -->
+
+                    <article class="download-card">
+
+                        <div class="card-top">
+
+                            <div class="vscode-icon">
+
+                                <img
+                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxzK4kQ5O4uTDj_sqkWH7c5S4o6AsXfxc5JFpxcckfKQ&s"
+                                    alt="VS Code"
+                                    loading="lazy">
+
+                            </div>
+
+                            <div class="card-title">
+
+                                <h3>Linux</h3>
+
+                                <span>نسخه Debian / Ubuntu</span>
+
+                            </div>
+
+                        </div>
+
+                        <p>
+
+                            نسخه مناسب توزیع‌های لینوکس مبتنی بر Debian
+                            و Ubuntu با معماری x64.
+
+                        </p>
+
+                        <div class="download-details">
+
+                            <span>Linux</span>
+                            <span>x64</span>
+                            <span>.deb</span>
+
+                        </div>
+
+                        <a
+                            class="download-button"
+                            href="https://update.code.visualstudio.com/latest/linux-deb-x64/stable">
+
+                            ↓ دانلود مستقیم نسخه Linux
+
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+            <!-- لینک سایت رسمی -->
+
+            <a
+                class="official-download"
+                href="https://code.visualstudio.com/download"
+                target="_blank"
+                rel="nofollow noopener noreferrer">
+
+                مشاهده تمام نسخه‌ها در سایت رسمی VS Code ↗
+
+            </a>
+
+            <div class="note">
+
+                اگر نمی‌دانید کدام نسخه را دانلود کنید،
+                معمولاً نسخه
+
+                <code>Windows User Installer x64</code>
+
+                برای کامپیوترهای معمولی ویندوز مناسب است.
+
+            </div>
+
+            <h2>چرا VS Code را پیشنهاد می‌کنیم؟</h2>
+
+            <ol class="explanation-list">
+
+                <li>
+
+                    این برنامه برای نوشتن کدهای HTML، CSS و JavaScript
+                    بسیار مناسب است.
+
+                </li>
+
+                <li>
+
+                    می‌توان در آن پروژه‌های مختلف برنامه‌نویسی ایجاد کرد.
+
+                </li>
+
+                <li>
+
+                    افزونه‌های زیادی دارد که امکانات برنامه را بیشتر می‌کنند.
+
+                </li>
+
+                <li>
+
+                    محیط آن قابل تنظیم است و می‌توان ظاهر آن را تغییر داد.
+
+                </li>
+
+                <li>
+
+                    برای شروع یادگیری برنامه‌نویسی و توسعه پروژه‌های
+                    حرفه‌ای کاربرد دارد.
+
+                </li>
+
+            </ol>
+
+        </section>
+
+    </main>
+
+    <script src="../../../../../../../js/scroll-motion-blur.js" defer></script>
+
+</body>
+
+</html>
