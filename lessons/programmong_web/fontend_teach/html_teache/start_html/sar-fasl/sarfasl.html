@@ -1,539 +1,242 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
 
+<html dir="rtl" lang="fa">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-        content="با مسیر طراحی و برنامه‌نویسی وب آشنا شو؛ HTML، CSS و JavaScript را به‌ترتیب یاد بگیر و صفحه وب خودت را بساز.">
-
-    <meta name="theme-color" content="#07110b">
-
-    <title>آموزش برنامه‌نویسی وب | MCD Code Up - سرفصل‌های HTML</title>
-
-    <style>
-        :root {
-            color-scheme: dark;
-            --bg: #07110b;
-            --panel: #0d1b12;
-            --line: #294333;
-            --text: #f2fff4;
-            --muted: #b9cbbd;
-            --green: #48f477;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            background: var(--bg);
-            color: var(--text);
-            font: 16px/1.9 Tahoma, Arial, sans-serif;
-        }
-
-        main {
-            width: min(820px, calc(100% - 32px));
-            margin: 0 auto;
-            padding: 30px 0 56px;
-            animation: enter .45s ease-out both;
-        }
-
-        a {
-            color: var(--green);
-            text-decoration-color: transparent;
-            text-decoration-thickness: 1px;
-            text-underline-offset: .24em;
-            transition: .22s ease;
-        }
-
-        a:hover,
-        a:focus-visible {
-            color: #9bfff7;
-            text-decoration: underline;
-            text-shadow: 0 0 14px rgb(0, 238, 255);
-        }
-
-        a:focus-visible {
-            outline: 2px solid rgba(84, 229, 192, .85);
-            outline-offset: 4px;
-            border-radius: 4px;
-        }
-
-        .back {
-            display: inline-block;
-            margin-bottom: 26px;
-            padding: 5px 12px;
-            border: 1px solid transparent;
-            border-radius: 999px;
-            text-decoration: none;
-        }
-
-        .back:hover {
-            border-color: rgba(72, 244, 119, .35);
-            background: rgba(72, 244, 119, .07);
-            box-shadow: 0 0 22px rgba(72, 244, 119, .1);
-            transform: translateX(3px);
-        }
-
-        .tag {
-            color: var(--green);
-            font-weight: 700;
-        }
-
-        .tag::before {
-            display: inline-block;
-            width: 7px;
-            height: 7px;
-            margin-inline-end: 8px;
-            border-radius: 50%;
-            background: var(--green);
-            box-shadow: 0 0 12px var(--green);
-            content: "";
-            animation: signal-pulse 2.8s ease-in-out infinite;
-        }
-
-        h1 {
-            margin: 8px 0 12px;
-            font-size: clamp(1.8rem, 5vw, 2.7rem);
-            line-height: 1.4;
-            text-shadow: 0 0 24px rgba(72, 244, 119, .1);
-            animation: heading-breathe 7s ease-in-out infinite;
-        }
-
-        .lead {
-            color: var(--muted);
-            font-size: 1.08rem;
-        }
-
-        section {
-            margin-top: 24px;
-            padding: 20px;
-            border: 1px solid var(--line);
-            border-right: 4px solid var(--green);
-            background: var(--panel);
-            transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease;
-            animation: panel-breathe 10s ease-in-out infinite;
-        }
-
-        section:nth-of-type(even) {
-            animation-delay: -5s;
-        }
-
-        h2 {
-            margin: 0 0 8px;
-            font-size: 1.25rem;
-        }
-
-        h2::after {
-            display: block;
-            width: 42px;
-            height: 2px;
-            margin-top: 7px;
-            border-radius: 2px;
-            background: linear-gradient(90deg, var(--green), transparent);
-            box-shadow: 0 0 12px rgba(72, 244, 119, .3);
-            content: "";
-            transform-origin: right;
-            animation: line-breathe 5s ease-in-out infinite;
-        }
-
-        p {
-            margin: 8px 0;
-        }
-
-        ul,
-        ol {
-            margin: 8px 0 0;
-            padding-right: 24px;
-        }
-
-        li {
-            margin: 6px 0;
-        }
-
-        li a {
-            display: inline-block;
-        }
-
-        .topic-list li {
-            padding: 5px 0;
-            border-bottom: 1px solid rgba(41, 67, 51, .35);
-        }
-
-        .topic-list li:last-child {
-            border-bottom: none;
-        }
-
-        .note {
-            background-color: #07110b;
-            padding: 12px;
-            border-radius: 8px;
-        }
-
-        @keyframes enter {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes signal-pulse {
-            0%, 100% {
-                opacity: .65;
-                box-shadow: 0 0 7px rgba(72, 244, 119, .55);
-            }
-
-            50% {
-                opacity: 1;
-                box-shadow: 0 0 15px rgba(72, 244, 119, .95);
-            }
-        }
-
-        @keyframes heading-breathe {
-            0%, 100% {
-                text-shadow: 0 0 16px rgba(72, 244, 119, .06);
-            }
-
-            50% {
-                text-shadow: 0 0 25px rgba(72, 244, 119, .17);
-            }
-        }
-
-        @keyframes line-breathe {
-            0%, 100% {
-                width: 34px;
-                opacity: .65;
-            }
-
-            50% {
-                width: 58px;
-                opacity: 1;
-            }
-        }
-
-        @keyframes panel-breathe {
-            0%, 100% {
-                box-shadow: 0 0 0 rgba(72, 244, 119, 0);
-            }
-
-            50% {
-                box-shadow: 0 10px 28px -22px rgba(72, 244, 119, .36);
-            }
-        }
-
-        @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-            section:hover {
-                transform: translateY(-2px);
-                border-color: rgba(72, 244, 119, .4);
-                box-shadow: 0 14px 32px -24px rgba(72, 244, 119, .45);
-                animation-play-state: paused;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation: none !important;
-                scroll-behavior: auto !important;
-                transition-duration: .01ms !important;
-            }
-        }
-    </style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script id="mcd-theme-boot">(function(){try{var saved=localStorage.getItem('mcd-theme');var dark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.dataset.theme=(saved==='light'||saved==='dark')?saved:(dark?'dark':'light');}catch(e){document.documentElement.dataset.theme='light';}})();</script>
+<meta content="فهرست کامل و مرتب سرفصل‌های HTML در MCD Code Up؛ از مبانی HTML تا عناصر و تگ‌های این زبان." name="description"/>
+<meta content="#edf3ed" name="theme-color"/>
+<title>فهرست سرفصل‌های HTML | MCD Code Up</title>
+<style>
+:root{
+  color-scheme:light;
+  --page:#edf3ed;
+  --ink:#1c3024;
+  --muted:#64756a;
+  --green:#24764e;
+  --green-deep:#164b34;
+  --green-soft:#dceee1;
+  --line:#d5e1d7;
+  --surface:#fbfcf8;
+  --cream:#f3efe2;
+  --sage:#e5eee7;
+  --shadow:0 14px 38px rgba(32,69,47,.07);
+  --radius:22px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(ellipse at 8% 4%,rgba(189,220,197,.42),transparent 34rem),
+    radial-gradient(ellipse at 96% 38%,rgba(229,218,184,.30),transparent 30rem),
+    var(--page);
+  color:var(--ink);
+  font:15px/1.9 Tahoma,Arial,sans-serif;
+}
+a{color:inherit}
+button,input{font:inherit}
+.page-shell{width:min(1120px,calc(100% - 36px));margin:0 auto;padding:26px 0 76px}
+.topline{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:20px}
+.back-link{
+  display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid var(--line);
+  border-radius:999px;background:rgba(251,252,248,.72);color:#365845;text-decoration:none;
+  transition:background .2s ease,border-color .2s ease,transform .2s ease;
+}
+.back-link:hover{background:#fff;border-color:#9cbea6;transform:translateY(-1px)}
+.brand-mark{display:flex;align-items:center;gap:9px;color:#43634e;font-size:13px;font-weight:700}
+.brand-icon{width:30px;height:30px;display:grid;place-items:center;background:var(--green-deep);color:#fff;border-radius:10px;font-weight:800;letter-spacing:-1px}
+.hero{
+  position:relative;overflow:hidden;padding:clamp(26px,5vw,54px);border:1px solid #d5e6d8;border-radius:30px;
+  background:linear-gradient(122deg,#e0f0e4 0%,#f4f1e4 58%,#e8efea 100%);box-shadow:var(--shadow);
+}
+.hero:before,.hero:after{content:"";position:absolute;pointer-events:none;border-radius:50%;filter:blur(1px)}
+.hero:before{width:260px;height:260px;left:-75px;top:-105px;background:rgba(137,195,153,.18)}
+.hero:after{width:180px;height:180px;right:40%;bottom:-125px;background:rgba(255,255,255,.34)}
+.hero-content{position:relative;z-index:1;max-width:790px}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.66);color:var(--green-deep);font-size:12px;font-weight:700}
+.eyebrow-dot{width:7px;height:7px;border-radius:50%;background:#309564;box-shadow:0 0 0 4px rgba(48,149,100,.12)}
+h1{margin:17px 0 10px;font-size:clamp(29px,4.4vw,47px);line-height:1.42;letter-spacing:-1.2px;color:#1c3b2a}
+.lead{max-width:720px;margin:0;color:#5c7162;font-size:16px}
+.hero-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:23px}
+.meta-pill{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border:1px solid rgba(66,119,81,.16);border-radius:999px;background:rgba(255,255,255,.58);color:#365d43;font-size:12px;font-weight:700}
+.meta-pill strong{font-size:15px;color:#175c3b}
+.intro-card{margin-top:22px;padding:20px 23px;border:1px solid #e8dfc9;border-right:4px solid #b69b5c;border-radius:18px;background:var(--cream);color:#5e5848}
+.intro-card h2{margin:0 0 5px;color:#4a4938;font-size:17px}
+.intro-card p{margin:0}
+.list-section{margin-top:34px}
+.section-heading{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:17px}
+.section-heading h2{margin:0;font-size:clamp(22px,3vw,29px);color:#1d422d}
+.section-heading p{margin:4px 0 0;color:var(--muted);font-size:13px}
+.total-count{flex:none;padding:7px 12px;border-radius:999px;background:#dceee1;color:#1f6845;font-size:12px;font-weight:700}
+.search-panel{display:flex;align-items:center;gap:12px;margin:0 0 18px;padding:12px 15px;border:1px solid #d9e4da;border-radius:17px;background:rgba(251,252,248,.78);box-shadow:0 5px 18px rgba(36,76,49,.035)}
+.search-icon{color:#477354;font-size:19px;line-height:1}
+.search-panel input{width:100%;min-width:0;border:0;outline:0;background:transparent;color:var(--ink);font-size:14px}
+.search-panel input::placeholder{color:#87968a}
+.search-clear{flex:none;border:0;border-radius:10px;background:#e7efe8;color:#3e684b;padding:5px 10px;cursor:pointer;font-size:12px}
+.search-clear:hover{background:#d8e9dc}
+.search-status{margin:-7px 2px 17px;color:#718074;font-size:12px}
+.topic-groups{display:grid;gap:16px}
+.topic-group{padding:21px;border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 7px 23px rgba(37,73,48,.035);transition:transform .25s ease,box-shadow .25s ease;animation:rise-in .45s ease both}
+.topic-group:nth-child(4n+1){background:#f9fbf7}
+.topic-group:nth-child(4n+2){background:#e6f0e8;border-color:#d1e1d4}
+.topic-group:nth-child(4n+3){background:#f3efe3;border-color:#e7dfc9}
+.topic-group:nth-child(4n+4){background:#e9efed;border-color:#d7e0dc}
+.topic-group:hover{box-shadow:0 12px 28px rgba(37,73,48,.07)}
+.topic-group[hidden]{display:none}
+.group-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:13px}
+.group-title-wrap{display:flex;align-items:center;gap:10px;min-width:0}
+.group-accent{width:5px;height:29px;flex:none;border-radius:99px;background:linear-gradient(#258557,#9acba5)}
+.group-head h3{margin:0;color:#244c34;font-size:17px;line-height:1.5}
+.group-desc{margin:3px 0 0 15px;color:#738075;font-size:12px}
+.group-count{flex:none;padding:4px 9px;border-radius:999px;background:rgba(255,255,255,.62);color:#55715b;font-size:11px}
+.topic-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:0;padding:0;list-style:none}
+.topic-list.tags-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.topic-list li{min-width:0}
+.topic-link{
+  min-height:51px;height:100%;display:flex;align-items:center;gap:10px;padding:9px 11px;
+  border:1px solid rgba(190,207,192,.72);border-radius:13px;background:rgba(255,255,255,.68);
+  text-decoration:none;transition:transform .18s ease,border-color .18s ease,background .18s ease,box-shadow .18s ease;
+}
+.topic-link:hover{transform:translateY(-2px);border-color:#8db99a;background:#fff;box-shadow:0 7px 17px rgba(31,85,49,.07)}
+.topic-number{width:27px;height:27px;flex:none;display:grid;place-items:center;border-radius:9px;background:#e1eee3;color:#2c7149;font-size:10px;font-weight:800;font-variant-numeric:tabular-nums}
+.topic-text{min-width:0;display:flex;flex-direction:column;gap:1px;flex:1}
+.topic-fa{color:#2b3d31;font-size:12.5px;font-weight:700;line-height:1.6}
+.topic-en{color:#829087;font-size:10px;direction:ltr;text-align:right;line-height:1.45;overflow-wrap:anywhere}
+.topic-arrow{flex:none;color:#7c9a83;font-size:14px;transition:transform .18s ease}
+.topic-link:hover .topic-arrow{transform:translateX(-3px);color:var(--green)}
+.topic-link.is-pending{cursor:default;background:rgba(248,250,247,.48);border-style:dashed;border-color:#cbd7cd}
+.topic-link.is-pending:hover{transform:none;box-shadow:none;background:rgba(248,250,247,.65);border-color:#cbd7cd}
+.topic-link.is-pending .topic-number{background:#e8ece7;color:#78867b}
+.topic-link.is-pending .topic-arrow{font-size:0}
+.topic-link.is-pending .topic-arrow:after{content:"•";font-size:17px;color:#b1bdb3}
+.pending-note{display:flex;align-items:flex-start;gap:9px;margin:0 0 16px;padding:11px 13px;border:1px solid #e4dfc9;border-radius:13px;background:#f6f2e8;color:#6d644f;font-size:12px}
+.pending-note b{color:#625635}
+.empty-state{display:none;padding:28px;text-align:center;border:1px dashed #b7cbb9;border-radius:17px;background:#f8faf6;color:#66786a}
+.empty-state.show{display:block}
+.note-card{margin-top:23px;padding:20px 22px;border:1px solid #cddfd1;border-radius:18px;background:#e3efe5;color:#3e6349}
+.note-card h2{margin:0 0 5px;font-size:17px;color:#28573a}
+.note-card p{margin:0}
+.note-card a{color:#176d43;font-weight:700;text-decoration-thickness:1px;text-underline-offset:3px}
+.toast{position:fixed;right:50%;bottom:22px;z-index:30;max-width:calc(100% - 32px);transform:translate(50%,18px);opacity:0;pointer-events:none;padding:12px 17px;border:1px solid #cbdaca;border-radius:14px;background:#183d2a;color:#f5fff6;box-shadow:0 12px 30px rgba(15,47,28,.2);font-size:13px;transition:opacity .25s ease,transform .25s ease}
+.toast.show{opacity:1;transform:translate(50%,0)}
+.footer{margin-top:26px;text-align:center;color:#8a978c;font-size:11px}
+.reveal{animation:rise-in .48s ease both}
+@keyframes rise-in{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:900px){.topic-list.tags-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){
+  body{font-size:14px}.page-shell{width:min(100% - 24px,1120px);padding:14px 0 48px}
+  .topline{margin-bottom:13px}.brand-mark{font-size:11px}.brand-icon{width:27px;height:27px}
+  .hero{padding:26px 20px;border-radius:22px}.lead{font-size:14px}
+  .intro-card{padding:16px}.section-heading{align-items:start;flex-direction:column;gap:7px}
+  .topic-group{padding:15px;border-radius:18px}.group-head{align-items:flex-start}.group-head h3{font-size:15px}
+  .topic-list,.topic-list.tags-grid{grid-template-columns:1fr;gap:7px}
+  .topic-link{min-height:48px;padding:8px 10px}.topic-fa{font-size:12.5px}
+  .search-panel{padding:10px 12px}.search-status{line-height:1.7}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+@media print{
+  body{background:#fff}.page-shell{width:100%;padding:0}.topline,.search-panel,.search-status,.pending-note,.toast,.footer{display:none!important}
+  .hero,.intro-card,.topic-group,.note-card{box-shadow:none;break-inside:avoid}.topic-group{margin-bottom:10px}
+  .topic-link{background:#fff}.topic-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+</style>
+<link href="../../../../../../css/mcd-green-system.css" rel="stylesheet"/>
+<link href="../../../../../../css/mcd-interactions.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&amp;display=swap" media="print" onload="this.media='all'" rel="stylesheet"/>
+<noscript><link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/></noscript>
 </head>
-
 <body>
-
-    <main>
-
-        <a class="back" href="../../index.html">← بازگشت به صفحهٔ اصلی</a>
-
-        <span class="tag">MCD Code Up · مسیر یادگیری</span>
-
-        <h1>
-            با سرفصل‌های
-            <a href="../../../html_teache/index.html">HTML</a>
-            آشنا شوید!
-        </h1>
-
-        <p class="lead">
-            با سرفصل‌های HTML آشنا شوید تا تجربه بهتر و آشنایی دقیق‌تر داشته باشید.
-        </p>
-
-        <section>
-            <h2>درباره سرفصل‌های HTML بدانید!</h2>
-
-            <p>
-                بهتره که به اینجا یک نگاهی بندازی تا بفهمی قضیه چیه
-                تا بهتر HTML رو درک کنی و متوجه بشی که الان کجای کار هستی.
-            </p>
-        </section>
-
-        <section>
-            <h2>لیست سرفصل‌های HTML</h2>
-
-            <ol class="topic-list">
-
-                <!-- مقدمات -->
-                <li><a href="../mogadame/start.html">مقدمه (Introduction)</a></li>
-                <li><a href="../mogadame/2_editors/editors.html">ویرایشگرها (Editors)</a></li>
-                <li><a href="#">پایه‌ها (Basic)</a></li>
-                <li><a href="#">المان‌ها (Elements)</a></li>
-                <li><a href="#">ویژگی‌ها (Attributes)</a></li>
-                <li><a href="#">سرفصل‌ها (Headings)</a></li>
-                <li><a href="#">پاراگراف‌ها (Paragraphs)</a></li>
-                <li><a href="#">استایل‌ها (Styles)</a></li>
-                <li><a href="#">قالب‌بندی متن (Formatting)</a></li>
-                <li><a href="#">نقل قول‌ها (Quotations)</a></li>
-                <li><a href="#">توضیحات (Comments)</a></li>
-
-                <!-- رنگ‌ها -->
-                <li><a href="#">رنگ‌ها (Colors)</a></li>
-                <li><a href="#">مدل RGB (RGB)</a></li>
-                <li><a href="#">مدل HEX (HEX)</a></li>
-                <li><a href="#">مدل HSL (HSL)</a></li>
-
-                <!-- CSS -->
-                <li><a href="#">استفاده از CSS (CSS)</a></li>
-
-                <!-- لینک‌ها -->
-                <li><a href="#">لینک‌ها (Links)</a></li>
-                <li><a href="#">رنگ لینک‌ها (Link Colors)</a></li>
-                <li><a href="#">نشانه‌های لینک (Link Bookmarks)</a></li>
-
-                <!-- تصاویر -->
-                <li><a href="#">تصاویر (Images)</a></li>
-                <li><a href="#">نقشه تصویر (Image Map)</a></li>
-                <li><a href="#">تصویر پس‌زمینه (Background Images)</a></li>
-                <li><a href="#">المان Picture (The Picture Element)</a></li>
-                <li><a href="#">فاوآیکون (Favicon)</a></li>
-
-                <!-- عنوان صفحه -->
-                <li><a href="#">عنوان صفحه (Page Title)</a></li>
-
-                <!-- جداول -->
-                <li><a href="#">جداول (Tables)</a></li>
-                <li><a href="#">مرزهای جدول (Table Borders)</a></li>
-                <li><a href="#">اندازه‌های جدول (Table Sizes)</a></li>
-                <li><a href="#">سربرگ‌های جدول (Table Headers)</a></li>
-                <li><a href="#">فاصله داخلی و بیرونی جدول (Padding & Spacing)</a></li>
-                <li><a href="#">ادغام سلول‌ها (Colspan & Rowspan)</a></li>
-                <li><a href="#">استایل‌دهی جدول (Table Styling)</a></li>
-                <li><a href="#">گروه ستون‌ها (Table Colgroup)</a></li>
-
-                <!-- لیست‌ها -->
-                <li><a href="#">فهرست‌ها (Lists)</a></li>
-                <li><a href="#">فهرست نامرتب (Unordered Lists)</a></li>
-                <li><a href="#">فهرست مرتب (Ordered Lists)</a></li>
-                <li><a href="#">سایر فهرست‌ها (Other Lists)</a></li>
-
-                <!-- ساختار -->
-                <li><a href="#">بلوک‌ها و درون‌خطی‌ها (Block & Inline)</a></li>
-                <li><a href="#">المان Div (Div)</a></li>
-                <li><a href="#">کلاس‌ها (Classes)</a></li>
-                <li><a href="#">شناسه‌ها (Id)</a></li>
-                <li><a href="#">فریم‌ها (Iframes)</a></li>
-
-                <!-- برنامه‌نویسی -->
-                <li><a href="#">جاوااسکریپت (JavaScript)</a></li>
-                <li><a href="#">مسیر فایل‌ها (File Paths)</a></li>
-                <li><a href="#">بخش Head (Head)</a></li>
-
-                <!-- طراحی -->
-                <li><a href="#">چیدمان (Layout)</a></li>
-                <li><a href="#">طراحی واکنش‌گرا (Responsive)</a></li>
-                <li><a href="#">کدهای رایانه‌ای (Computer Code)</a></li>
-                <li><a href="#">المان‌های معنایی (Semantics)</a></li>
-                <li><a href="#">راهنمای نگارش (Style Guide)</a></li>
-
-                <!-- متن و کاراکتر -->
-                <li><a href="#">نهادها (Entities)</a></li>
-                <li><a href="#">نمادها (Symbols)</a></li>
-                <li><a href="#">ایموجی‌ها (Emojis)</a></li>
-                <li><a href="#">کدگذاری نویسه‌ها (Charsets)</a></li>
-                <li><a href="#">رمزگذاری URL (URL Encode)</a></li>
-                <li><a href="#">مقایسه با XHTML (vs. XHTML)</a></li>
-
-                <!-- فرم‌ها -->
-                <li><a href="#">فرم‌ها (Forms)</a></li>
-                <li><a href="#">ویژگی‌های فرم (Form Attributes)</a></li>
-                <li><a href="#">المان‌های فرم (Form Elements)</a></li>
-                <li><a href="#">انواع ورودی (Input Types)</a></li>
-                <li><a href="#">ویژگی‌های ورودی (Input Attributes)</a></li>
-
-                <!-- گرافیک -->
-                <li><a href="#">بوم نقاشی (Canvas)</a></li>
-                <li><a href="#">بردارهای گرافیکی (SVG)</a></li>
-
-                <!-- رسانه -->
-                <li><a href="#">رسانه‌ها (Media)</a></li>
-                <li><a href="#">ویدیو (Video)</a></li>
-                <li><a href="#">صدا (Audio)</a></li>
-                <li><a href="#">افزونه‌ها (Plug-ins)</a></li>
-                <li><a href="#">یوتیوب (YouTube)</a></li>
-
-                <!-- API -->
-                <li><a href="#">رابط‌های وب (Web APIs)</a></li>
-                <li><a href="#">مکان‌یابی جغرافیایی (Geolocation)</a></li>
-                <li><a href="#">کشیدن و رها کردن (Drag and Drop)</a></li>
-                <li><a href="#">ذخیره‌سازی وب (Web Storage)</a></li>
-                <li><a href="#">کارگران وب (Web Workers)</a></li>
-                <li><a href="#">رویدادهای ارسالی از سرور (Server-Sent Events - SSE)</a></li>
-
-                <!-- تگ‌های HTML -->
-
-                <li><a href="#">توضیح (Comment)</a></li>
-                <li><a href="#">اعلان نوع سند (DOCTYPE)</a></li>
-                <li><a href="#">پیوند (a)</a></li>
-                <li><a href="#">اختصار (abbr)</a></li>
-                <li><a href="#">سرنام (acronym)</a></li>
-                <li><a href="#">آدرس (address)</a></li>
-                <li><a href="#">اپلت (applet)</a></li>
-                <li><a href="#">ناحیه نقشه (area)</a></li>
-                <li><a href="#">مقاله (article)</a></li>
-                <li><a href="#">کنار‌نویس (aside)</a></li>
-                <li><a href="#">صوت (audio)</a></li>
-                <li><a href="#">پررنگ (b)</a></li>
-                <li><a href="#">پایه (base)</a></li>
-                <li><a href="#">فونت پایه (basefont)</a></li>
-                <li><a href="#">جداساز دوطرفه (bdi)</a></li>
-                <li><a href="#">جهت متن (bdo)</a></li>
-                <li><a href="#">بزرگ (big)</a></li>
-                <li><a href="#">بلوک نقل (blockquote)</a></li>
-                <li><a href="#">بدنه (body)</a></li>
-                <li><a href="#">خط جدید (br)</a></li>
-                <li><a href="#">دکمه (button)</a></li>
-                <li><a href="#">بوم (canvas)</a></li>
-                <li><a href="#">عنوان جدول (caption)</a></li>
-                <li><a href="#">مرکز (center)</a></li>
-                <li><a href="#">ارجاع (cite)</a></li>
-                <li><a href="#">کد (code)</a></li>
-                <li><a href="#">ستون (col)</a></li>
-                <li><a href="#">گروه ستون (colgroup)</a></li>
-                <li><a href="#">داده (data)</a></li>
-                <li><a href="#">فهرست داده (datalist)</a></li>
-                <li><a href="#">تعریف شرح (dd)</a></li>
-                <li><a href="#">حذف (del)</a></li>
-                <li><a href="#">جزئیات (details)</a></li>
-                <li><a href="#">اصطلاح (dfn)</a></li>
-                <li><a href="#">دایرکتوری (dir)</a></li>
-                <li><a href="#">بخش (div)</a></li>
-                <li><a href="#">فهرست تعاریف (dl)</a></li>
-                <li><a href="#">عنوان تعریف (dt)</a></li>
-                <li><a href="#">تأکید (em)</a></li>
-                <li><a href="#">جاسازی (embed)</a></li>
-                <li><a href="#">مجموعه فیلدها (fieldset)</a></li>
-                <li><a href="#">عنوان شکل (figcaption)</a></li>
-                <li><a href="#">شکل (figure)</a></li>
-                <li><a href="#">فونت (font)</a></li>
-                <li><a href="#">پاورقی (footer)</a></li>
-                <li><a href="#">فرم (form)</a></li>
-                <li><a href="#">فریم (frame)</a></li>
-                <li><a href="#">مجموعه فریم‌ها (frameset)</a></li>
-                <li><a href="#">سرفصل‌ها (h1–h6)</a></li>
-                <li><a href="#">سر (head)</a></li>
-                <li><a href="#">سربرگ (header)</a></li>
-                <li><a href="#">گروه عنوان (hgroup)</a></li>
-                <li><a href="#">خط افقی (hr)</a></li>
-                <li><a href="#">سند HTML (html)</a></li>
-                <li><a href="#">مورب (i)</a></li>
-                <li><a href="#">چارچوب درون صفحه‌ای (iframe)</a></li>
-                <li><a href="#">تصویر (img)</a></li>
-                <li><a href="#">ورودی (input)</a></li>
-                <li><a href="#">درج (ins)</a></li>
-                <li><a href="#">صفحه‌کلید (kbd)</a></li>
-                <li><a href="#">برچسب (label)</a></li>
-                <li><a href="#">افسانه (legend)</a></li>
-                <li><a href="#">مورد فهرست (li)</a></li>
-                <li><a href="#">پیوند منبع (link)</a></li>
-                <li><a href="#">بخش اصلی (main)</a></li>
-                <li><a href="#">نقشه تصویر (map)</a></li>
-                <li><a href="#">نشانه‌گذاری (mark)</a></li>
-                <li><a href="#">منو (menu)</a></li>
-                <li><a href="#">فراداده (meta)</a></li>
-                <li><a href="#">سنجش (meter)</a></li>
-                <li><a href="#">ناوبری (nav)</a></li>
-                <li><a href="#">بدون فریم (noframes)</a></li>
-                <li><a href="#">بدون اسکریپت (noscript)</a></li>
-                <li><a href="#">شیء (object)</a></li>
-                <li><a href="#">فهرست مرتب (ol)</a></li>
-                <li><a href="#">گروه گزینه‌ها (optgroup)</a></li>
-                <li><a href="#">گزینه (option)</a></li>
-                <li><a href="#">خروجی (output)</a></li>
-                <li><a href="#">پاراگراف (p)</a></li>
-                <li><a href="#">پارامتر (param)</a></li>
-                <li><a href="#">تصویر پاسخ‌گو (picture)</a></li>
-                <li><a href="#">پیش‌قالب (pre)</a></li>
-                <li><a href="#">پیشرفت (progress)</a></li>
-                <li><a href="#">نقل قول کوتاه (q)</a></li>
-                <li><a href="#">پرانتز روبی (rp)</a></li>
-                <li><a href="#">متن روبی (rt)</a></li>
-                <li><a href="#">روبی (ruby)</a></li>
-                <li><a href="#">خط‌زده (s)</a></li>
-                <li><a href="#">نمونه خروجی (samp)</a></li>
-                <li><a href="#">اسکریپت (script)</a></li>
-                <li><a href="#">جستجو (search)</a></li>
-                <li><a href="#">بخش (section)</a></li>
-                <li><a href="#">انتخاب (select)</a></li>
-                <li><a href="#">کوچک (small)</a></li>
-                <li><a href="#">منبع (source)</a></li>
-                <li><a href="#">دامنه (span)</a></li>
-                <li><a href="#">خط بطلان (strike)</a></li>
-                <li><a href="#">پررنگ معنایی (strong)</a></li>
-                <li><a href="#">سبک (style)</a></li>
-                <li><a href="#">زیرنویس (sub)</a></li>
-                <li><a href="#">خلاصه (summary)</a></li>
-                <li><a href="#">بالانویس (sup)</a></li>
-                <li><a href="#">بردار گرافیکی (svg)</a></li>
-                <li><a href="#">جدول (table)</a></li>
-                <li><a href="#">بدنه جدول (tbody)</a></li>
-                <li><a href="#">سلول جدول (td)</a></li>
-                <li><a href="#">الگو (template)</a></li>
-                <li><a href="#">ناحیه متن (textarea)</a></li>
-                <li><a href="#">پاورقی جدول (tfoot)</a></li>
-                <li><a href="#">سرستون جدول (th)</a></li>
-                <li><a href="#">سربرگ جدول (thead)</a></li>
-                <li><a href="#">زمان (time)</a></li>
-                <li><a href="#">عنوان (title)</a></li>
-                <li><a href="#">سطر جدول (tr)</a></li>
-                <li><a href="#">زیرنویس رسانه (track)</a></li>
-                <li><a href="#">تله‌تایپ (tt)</a></li>
-                <li><a href="#">زیرخط‌دار (u)</a></li>
-                <li><a href="#">فهرست نامرتب (ul)</a></li>
-                <li><a href="#">متغیر (var)</a></li>
-                <li><a href="#">ویدیو (video)</a></li>
-
-            </ol>
-        </section>
-
-        <section>
-            <h2>نکته!</h2>
-
-            <p>
-                یادگیری فرانت‌اند و بک‌اند می‌تواند خیلی در توانایی شما در سایت‌سازی
-                کمک کند و شما را خیلی حرفه‌ای کند.
-            </p>
-
-            <p class="note">
-                اگر می‌خواهید بدانید بک‌اند چیست،
-                <a href="../programmong_web/back_end_text.html" style="color:red;">
-                    کلیک کنید
-                </a>
-            </p>
-        </section>
-
-    </main>
-
-    <script src="../../js/scroll-motion-blur.js" defer></script>
-
+<main class="page-shell"><nav aria-label="ناوبری درس قبل و بعد" class="mcd-lesson-nav"><div class="mcd-lesson-nav-inner"><a class="mcd-nav-prev" href="../mogadame/3_moror_html/moror.html">→ مرور HTML</a><span class="mcd-nav-spacer"></span></div></nav>
+<div class="topline">
+<a class="back-link" href="../../index.html"><span aria-hidden="true">→</span> بازگشت به آموزش HTML</a>
+<div class="brand-mark"><span class="brand-icon">M</span><span>MCD Code Up</span></div>
+</div>
+<header class="hero reveal">
+<div class="hero-content">
+<span class="eyebrow"><span class="eyebrow-dot"></span> مسیر یادگیری · HTML</span>
+<h1>فهرست کامل سرفصل‌های HTML</h1>
+<p class="lead">از مفاهیم پایه شروع کن و قدم‌به‌قدم با عناصر، قابلیت‌ها و تگ‌های HTML آشنا شو. برای پیدا کردن موضوع موردنظرت می‌توانی از جست‌وجوی سرفصل‌ها استفاده کنی.</p>
+<div class="hero-meta">
+<span class="meta-pill"><strong>۱۹۴</strong> سرفصل در فهرست</span>
+<span class="meta-pill">از مقدمات تا مرجع تگ‌ها</span>
+<span class="meta-pill">ترتیب اصلی حفظ شده</span>
+</div>
+</div>
+</header>
+<section class="intro-card reveal">
+<h2>پیش از شروع مسیر یادگیری</h2>
+<p>بهتره که به اینجا یک نگاهی بندازی تا بفهمی قضیه چیه تا بهتر <a href="../../index.html">HTML</a> رو درک کنی و متوجه بشی که الان کجای کار هستی.</p>
+</section>
+<section aria-labelledby="syllabus-title" class="list-section">
+<div class="section-heading">
+<div><h2 id="syllabus-title">همه سرفصل‌های HTML، یک‌جا</h2><p>موضوع‌ها بر اساس دسته‌بندی فایل اصلی مرتب شده‌اند و هیچ سرفصلی از فهرست حذف نشده است.</p></div>
+<span class="total-count" id="totalCount">۱۹۴ سرفصل</span>
+</div>
+<label class="search-panel" for="topicSearch">
+<span aria-hidden="true" class="search-icon">⌕</span>
+<input autocomplete="off" id="topicSearch" placeholder="جست‌وجو در عنوان فارسی یا نام انگلیسی سرفصل..." type="search"/>
+<button class="search-clear" id="clearSearch" type="button">پاک کردن</button>
+</label>
+<p aria-live="polite" class="search-status" id="searchStatus">در حال نمایش همه ۱۹۴ سرفصل</p>
+<div class="pending-note"><span aria-hidden="true">ⓘ</span><span><b>درباره پیوندها:</b> دو سرفصل نخست به صفحه آموزشی متصل هستند. برای مواردی که هنوز مقصد اختصاصی ندارند، عنوان در فهرست حفظ شده و با انتخاب آن پیام اطلاع‌رسانی نمایش داده می‌شود.</span></div>
+<div class="topic-groups" id="topicGroups">
+<section class="topic-group reveal" data-group="1" style="animation-delay:0.000s"><div class="group-head"><div class="group-title-wrap"><span class="group-accent"></span><div><h3>مقدمات <a href="../../index.html">HTML</a></h3><p class="group-desc">از آشنایی اولیه تا شناخت اجزای اصلی سند <a href="../../index.html">HTML</a></p></div></div><span class="group-count">۱۱ سرفصل</span></div><ol class="topic-list" start="1"><li data-search="شروع یادگیری html introduction"><a aria-label="شروع یادگیری HTML (Introduction)" class="topic-link" href="../mogadame/start.html"><span class="topic-number">۱</span><span class="topic-text"><span class="topic-fa">شروع یادگیری HTML</span><span class="topic-en" lang="en">Introduction</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="انتخاب و راه‌اندازی ویرایشگر کد editors"><a aria-label="انتخاب و راه‌اندازی ویرایشگر کد (Editors)" class="topic-link" href="../mogadame/2_editors/editors.html"><span class="topic-number">۲</span><span class="topic-text"><span class="topic-fa">انتخاب و راه‌اندازی ویرایشگر کد</span><span class="topic-en" lang="en">Editors</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="مبانی و ساختار اولیه html basic"><a aria-disabled="true" aria-label="مبانی و ساختار اولیه HTML (Basic)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۳</span><span class="topic-text"><span class="topic-fa">مبانی و ساختار اولیه HTML</span><span class="topic-en" lang="en">Basic</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="عناصر و تگ‌های html elements"><a aria-disabled="true" aria-label="عناصر و تگ‌های HTML (Elements)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۴</span><span class="topic-text"><span class="topic-fa">عناصر و تگ‌های HTML</span><span class="topic-en" lang="en">Elements</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="ویژگی‌های عناصر html attributes"><a aria-disabled="true" aria-label="ویژگی‌های عناصر HTML (Attributes)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۵</span><span class="topic-text"><span class="topic-fa">ویژگی‌های عناصر HTML</span><span class="topic-en" lang="en">Attributes</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="عنوان‌ها و تیترهای html headings"><a aria-disabled="true" aria-label="عنوان‌ها و تیترهای HTML (Headings)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۶</span><span class="topic-text"><span class="topic-fa">عنوان‌ها و تیترهای HTML</span><span class="topic-en" lang="en">Headings</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نوشتن پاراگراف در html paragraphs"><a aria-disabled="true" aria-label="نوشتن پاراگراف در HTML (Paragraphs)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۷</span><span class="topic-text"><span class="topic-fa">نوشتن پاراگراف در HTML</span><span class="topic-en" lang="en">Paragraphs</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="تنظیم ظاهر عناصر با style styles"><a aria-disabled="true" aria-label="تنظیم ظاهر عناصر با Style (Styles)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۸</span><span class="topic-text"><span class="topic-fa">تنظیم ظاهر عناصر با Style</span><span class="topic-en" lang="en">Styles</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="قالب‌بندی و برجسته‌سازی متن formatting"><a aria-disabled="true" aria-label="قالب‌بندی و برجسته‌سازی متن (Formatting)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۹</span><span class="topic-text"><span class="topic-fa">قالب‌بندی و برجسته‌سازی متن</span><span class="topic-en" lang="en">Formatting</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نمایش نقل‌قول‌ها در html quotations"><a aria-disabled="true" aria-label="نمایش نقل‌قول‌ها در HTML (Quotations)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۰</span><span class="topic-text"><span class="topic-fa">نمایش نقل‌قول‌ها در HTML</span><span class="topic-en" lang="en">Quotations</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نوشتن توضیحات در کد html comments"><a aria-disabled="true" aria-label="نوشتن توضیحات در کد HTML (Comments)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۱</span><span class="topic-text"><span class="topic-fa">نوشتن توضیحات در کد HTML</span><span class="topic-en" lang="en">Comments</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li></ol></section><section class="topic-group reveal" data-group="2" style="animation-delay:0.035s"><div class="group-head"><div class="group-title-wrap"><span class="group-accent"></span><div><h3>رنگ‌ها در <a href="../../index.html">HTML</a></h3><p class="group-desc">شناخت روش‌های مختلف تعریف و نمایش رنگ</p></div></div><span class="group-count">۴ سرفصل</span></div><ol class="topic-list" start="12"><li data-search="آشنایی با رنگ‌ها در html colors"><a aria-disabled="true" aria-label="آشنایی با رنگ‌ها در HTML (Colors)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۲</span><span class="topic-text"><span class="topic-fa">آشنایی با رنگ‌ها در HTML</span><span class="topic-en" lang="en">Colors</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نمایش رنگ با مدل rgb rgb"><a aria-disabled="true" aria-label="نمایش رنگ با مدل RGB (RGB)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۳</span><span class="topic-text"><span class="topic-fa">نمایش رنگ با مدل RGB</span><span class="topic-en" lang="en">RGB</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نمایش رنگ با کد hex hex"><a aria-disabled="true" aria-label="نمایش رنگ با کد HEX (HEX)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۴</span><span class="topic-text"><span class="topic-fa">نمایش رنگ با کد HEX</span><span class="topic-en" lang="en">HEX</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نمایش رنگ با مدل hsl hsl"><a aria-disabled="true" aria-label="نمایش رنگ با مدل HSL (HSL)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۵</span><span class="topic-text"><span class="topic-fa">نمایش رنگ با مدل HSL</span><span class="topic-en" lang="en">HSL</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li></ol></section><section class="topic-group reveal" data-group="3" style="animation-delay:0.070s"><div class="group-head"><div class="group-title-wrap"><span class="group-accent"></span><div><h3>کار با <a href="../../../css_teache/index.html">CSS</a></h3><p class="group-desc">آشنایی با اتصال و استفاده از <a href="../../../css_teache/index.html">CSS</a></p></div></div><span class="group-count">۱ سرفصل</span></div><ol class="topic-list" start="16"><li data-search="اتصال css و استفاده از آن در html css"><a aria-disabled="true" aria-label="اتصال CSS و استفاده از آن در HTML (CSS)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۶</span><span class="topic-text"><span class="topic-fa">اتصال CSS و استفاده از آن در HTML</span><span class="topic-en" lang="en">CSS</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li></ol></section><section class="topic-group reveal" data-group="4" style="animation-delay:0.105s"><div class="group-head"><div class="group-title-wrap"><span class="group-accent"></span><div><h3>پیوندها و مسیرهای دسترسی</h3><p class="group-desc">ساخت پیوند و هدایت کاربر به بخش‌های مختلف</p></div></div><span class="group-count">۳ سرفصل</span></div><ol class="topic-list" start="17"><li data-search="ساخت و استفاده از پیوندها links"><a aria-disabled="true" aria-label="ساخت و استفاده از پیوندها (Links)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۷</span><span class="topic-text"><span class="topic-fa">ساخت و استفاده از پیوندها</span><span class="topic-en" lang="en">Links</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="تغییر رنگ و ظاهر پیوندها link colors"><a aria-disabled="true" aria-label="تغییر رنگ و ظاهر پیوندها (Link Colors)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۸</span><span class="topic-text"><span class="topic-fa">تغییر رنگ و ظاهر پیوندها</span><span class="topic-en" lang="en">Link Colors</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="پیوند مستقیم به بخش‌های یک صفحه link bookmarks"><a aria-disabled="true" aria-label="پیوند مستقیم به بخش‌های یک صفحه (Link Bookmarks)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۹</span><span class="topic-text"><span class="topic-fa">پیوند مستقیم به بخش‌های یک صفحه</span><span class="topic-en" lang="en">Link Bookmarks</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li></ol></section><section class="topic-group reveal" data-group="5" style="animation-delay:0.140s"><div class="group-head"><div class="group-title-wrap"><span class="group-accent"></span><div><h3>تصاویر و هویت بصری صفحه</h3><p class="group-desc">افزودن تصویر، تصویر پس‌زمینه و آیکون سایت</p></div></div><span class="group-count">۵ سرفصل</span></div><ol class="topic-list" start="20"><li data-search="افزودن تصویر به صفحه وب images"><a aria-disabled="true" aria-label="افزودن تصویر به صفحه وب (Images)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۲۰</span><span class="topic-text"><span class="topic-fa">افزودن تصویر به صفحه وب</span><span class="topic-en" lang="en">Images</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="ساخت نقشه تصویری و ناحیه‌های قابل کلیک image map"><a aria-disabled="true" aria-label="ساخت نقشه تصویری و ناحیه‌های قابل کلیک (Image Map)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۲۱</span><span class="topic-text"><span class="topic-fa">ساخت نقشه تصویری و ناحیه‌های قابل کلیک</span><span class="topic-en" lang="en">Image Map</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="استفاده از تصویر پس‌زمینه background images"><a aria-disabled="true" aria-label="استفاده از تصویر پس‌زمینه (Background Images)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۲۲</span><span class="topic-text"><span class="topic-fa">استفاده از تصویر پس‌زمینه</span><span class="topic-en" lang="en">Background Images</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نمایش تصویر با عنصر picture the picture element"><a aria-disabled="true" aria-label="نمایش تصویر با عنصر Picture (The Picture Element)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۲۳</span><span class="topic-text"><span class="topic-fa">نمایش تصویر با عنصر Picture</span><span class="topic-en" lang="en">The Picture Element</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="افزودن آیکون اختصاصی سایت (favicon) favicon"><a aria-disabled="true" aria-label="افزودن آیکون اختصاصی سایت (Favicon) (Favicon)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۲۴</span><span class="topic-text"><span class="topic-fa">افزودن آیکون اختصاصی سایت (Favicon)</span><span class="topic-en" lang="en">Favicon</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li></ol></section><section class="topic-group reveal" data-group="6" style="animation-delay:0.175s"><div class="group-head"><div class="group-title-wrap"><span class="group-accent"></span><div><h3>عنوان صفحه</h3><p class="group-desc">تنظیم عنوانی که در زبانه مرورگر نمایش داده می‌شود</p></div></div><span class="group-count">۱ سرفصل</span></div><ol class="topic-list" start="25"><li data-search="تعیین عنوان صفحه وب page title"><a aria-disabled="true" aria-label="تعیین عنوان صفحه وب (Page Title)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۲۵</span><span class="topic-text"><span class="topic-fa">تعیین عنوان صفحه وب</span><span class="topic-en" lang="en">Page Title</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li></ol></section><section class="topic-group reveal" data-group="7" style="animation-delay:0.210s"><div class="group-head"><div class="group-title-wrap"><span class="group-accent"></span><div><h3>جدول‌ها</h3><p class="group-desc">ساخت، سازمان‌دهی و استایل‌دهی جدول‌ها</p></div></div><span class="group-count">۸ سرفصل</span></div><ol class="topic-list" start="26"><li data-search="ساخت جدول در html tables"><a aria-disabled="true" aria-label="ساخت جدول در HTML (Tables)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۲۶</span><span class="topic-text"><span class="topic-fa">ساخت جدول در HTML</span><span class="topic-en" lang="en">Tables</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="تنظیم کادر و حاشیه‌های جدول table borders"><a aria-disabled="true" aria-label="تنظیم کادر و حاشیه‌های جدول (Table Borders)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۲۷</span><span class="topic-text"><span class="topic-fa">تنظیم کادر و حاشیه‌های جدول</span><span class="topic-en" lang="en">Table Borders</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="تعیین اندازه سطرها و ستون‌های جدول table sizes"><a aria-disabled="true" aria-label="تعیین اندازه سطرها و ستون‌های جدول (Table Sizes)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۲۸</span><span class="topic-text"><span class="topic-fa">تعیین اندازه سطرها و ستون‌های جدول</span><span class="topic-en" lang="en">Table Sizes</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="ساخت عنوان و سرستون‌های جدول table headers"><a aria-disabled="true" aria-label="ساخت عنوان و سرستون‌های جدول (Table Headers)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۲۹</span><span class="topic-text"><span class="topic-fa">ساخت عنوان و سرستون‌های جدول</span><span class="topic-en" lang="en">Table Headers</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="تنظیم فاصله داخلی و فاصله بین سلول‌ها padding &amp; spacing"><a aria-disabled="true" aria-label="تنظیم فاصله داخلی و فاصله بین سلول‌ها (Padding &amp; Spacing)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۳۰</span><span class="topic-text"><span class="topic-fa">تنظیم فاصله داخلی و فاصله بین سلول‌ها</span><span class="topic-en" lang="en">Padding &amp; Spacing</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="ادغام افقی و عمودی سلول‌های جدول colspan &amp; rowspan"><a aria-disabled="true" aria-label="ادغام افقی و عمودی سلول‌های جدول (Colspan &amp; Rowspan)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۳۱</span><span class="topic-text"><span class="topic-fa">ادغام افقی و عمودی سلول‌های جدول</span><span class="topic-en" lang="en">Colspan &amp; Rowspan</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="زیباتر کردن جدول با css table styling"><a aria-disabled="true" aria-label="زیباتر کردن جدول با CSS (Table Styling)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۳۲</span><span class="topic-text"><span class="topic-fa">زیباتر کردن جدول با CSS</span><span class="topic-en" lang="en">Table Styling</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="گروه‌بندی ستون‌ها با colgroup table colgroup"><a aria-disabled="true" aria-label="گروه‌بندی ستون‌ها با Colgroup (Table Colgroup)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۳۳</span><span class="topic-text"><span class="topic-fa">گروه‌بندی ستون‌ها با Colgroup</span><span class="topic-en" lang="en">Table Colgroup</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li></ol></section><section class="topic-group reveal" data-group="8" style="animation-delay:0.245s"><div class="group-head"><div class="group-title-wrap"><span class="group-accent"></span><div><h3>فهرست‌ها</h3><p class="group-desc">ساخت فهرست‌های شماره‌دار، نشانه‌دار و دیگر گونه‌ها</p></div></div><span class="group-count">۴ سرفصل</span></div><ol class="topic-list" start="34"><li data-search="ساخت فهرست در html lists"><a aria-disabled="true" aria-label="ساخت فهرست در HTML (Lists)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۳۴</span><span class="topic-text"><span class="topic-fa">ساخت فهرست در HTML</span><span class="topic-en" lang="en">Lists</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="ساخت فهرست نشانه‌دار unordered lists"><a aria-disabled="true" aria-label="ساخت فهرست نشانه‌دار (Unordered Lists)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۳۵</span><span class="topic-text"><span class="topic-fa">ساخت فهرست نشانه‌دار</span><span class="topic-en" lang="en">Unordered Lists</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="ساخت فهرست شماره‌دار ordered lists"><a aria-disabled="true" aria-label="ساخت فهرست شماره‌دار (Ordered Lists)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۳۶</span><span class="topic-text"><span class="topic-fa">ساخت فهرست شماره‌دار</span><span class="topic-en" lang="en">Ordered Lists</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="آشنایی با گونه‌های دیگر فهرست‌ها other lists"><a aria-disabled="true" aria-label="آشنایی با گونه‌های دیگر فهرست‌ها (Other Lists)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۳۷</span><span class="topic-text"><span class="topic-fa">آشنایی با گونه‌های دیگر فهرست‌ها</span><span class="topic-en" lang="en">Other Lists</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li></ol></section><section class="topic-group reveal" data-group="9" style="animation-delay:0.280s"><div class="group-head"><div class="group-title-wrap"><span class="group-accent"></span><div><h3>ساختار و گروه‌بندی محتوا</h3><p class="group-desc">شناخت عناصر بلوکی، درون‌خطی و قاب‌های صفحه</p></div></div><span class="group-count">۵ سرفصل</span></div><ol class="topic-list" start="38"><li data-search="تفاوت عناصر بلوکی و درون‌خطی block &amp; inline"><a aria-disabled="true" aria-label="تفاوت عناصر بلوکی و درون‌خطی (Block &amp; Inline)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۳۸</span><span class="topic-text"><span class="topic-fa">تفاوت عناصر بلوکی و درون‌خطی</span><span class="topic-en" lang="en">Block &amp; Inline</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="گروه‌بندی محتوا با عنصر div div"><a aria-disabled="true" aria-label="گروه‌بندی محتوا با عنصر Div (Div)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۳۹</span><span class="topic-text"><span class="topic-fa">گروه‌بندی محتوا با عنصر Div</span><span class="topic-en" lang="en">Div</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="دسته‌بندی عناصر با ویژگی class classes"><a aria-disabled="true" aria-label="دسته‌بندی عناصر با ویژگی Class (Classes)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۴۰</span><span class="topic-text"><span class="topic-fa">دسته‌بندی عناصر با ویژگی Class</span><span class="topic-en" lang="en">Classes</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نشانه‌گذاری عناصر با ویژگی id id"><a aria-disabled="true" aria-label="نشانه‌گذاری عناصر با ویژگی ID (Id)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۴۱</span><span class="topic-text"><span class="topic-fa">نشانه‌گذاری عناصر با ویژگی ID</span><span class="topic-en" lang="en">Id</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نمایش صفحه دیگر با iframe iframes"><a aria-disabled="true" aria-label="نمایش صفحه دیگر با Iframe (Iframes)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۴۲</span><span class="topic-text"><span class="topic-fa">نمایش صفحه دیگر با Iframe</span><span class="topic-en" lang="en">Iframes</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li></ol></section><section class="topic-group reveal" data-group="10" style="animation-delay:0.315s"><div class="group-head"><div class="group-title-wrap"><span class="group-accent"></span><div><h3><a href="../../../javaScript_teache/index.html">JavaScript</a> و ساختار سند</h3><p class="group-desc">آشنایی با اسکریپت، مسیر فایل‌ها و بخش Head</p></div></div><span class="group-count">۳ سرفصل</span></div><ol class="topic-list" start="43"><li data-search="افزودن javascript به صفحه html javascript"><a aria-disabled="true" aria-label="افزودن JavaScript به صفحه HTML (JavaScript)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۴۳</span><span class="topic-text"><span class="topic-fa">افزودن JavaScript به صفحه HTML</span><span class="topic-en" lang="en">JavaScript</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="شناخت مسیر فایل‌ها و پوشه‌ها file paths"><a aria-disabled="true" aria-label="شناخت مسیر فایل‌ها و پوشه‌ها (File Paths)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۴۴</span><span class="topic-text"><span class="topic-fa">شناخت مسیر فایل‌ها و پوشه‌ها</span><span class="topic-en" lang="en">File Paths</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="آشنایی با بخش head سند html head"><a aria-disabled="true" aria-label="آشنایی با بخش Head سند HTML (Head)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۴۵</span><span class="topic-text"><span class="topic-fa">آشنایی با بخش Head سند HTML</span><span class="topic-en" lang="en">Head</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li></ol></section><section class="topic-group reveal" data-group="11" style="animation-delay:0.350s"><div class="group-head"><div class="group-title-wrap"><span class="group-accent"></span><div><h3>چیدمان و استانداردهای وب</h3><p class="group-desc">آشنایی با طراحی واکنش‌گرا و ساختار معنایی</p></div></div><span class="group-count">۵ سرفصل</span></div><ol class="topic-list" start="46"><li data-search="آشنایی با روش‌های چیدمان صفحه layout"><a aria-disabled="true" aria-label="آشنایی با روش‌های چیدمان صفحه (Layout)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۴۶</span><span class="topic-text"><span class="topic-fa">آشنایی با روش‌های چیدمان صفحه</span><span class="topic-en" lang="en">Layout</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="طراحی واکنش‌گرا برای نمایشگرهای مختلف responsive"><a aria-disabled="true" aria-label="طراحی واکنش‌گرا برای نمایشگرهای مختلف (Responsive)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۴۷</span><span class="topic-text"><span class="topic-fa">طراحی واکنش‌گرا برای نمایشگرهای مختلف</span><span class="topic-en" lang="en">Responsive</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نمایش و قالب‌بندی کدهای برنامه‌نویسی computer code"><a aria-disabled="true" aria-label="نمایش و قالب‌بندی کدهای برنامه‌نویسی (Computer Code)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۴۸</span><span class="topic-text"><span class="topic-fa">نمایش و قالب‌بندی کدهای برنامه‌نویسی</span><span class="topic-en" lang="en">Computer Code</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="استفاده از عناصر معنایی html semantics"><a aria-disabled="true" aria-label="استفاده از عناصر معنایی HTML (Semantics)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۴۹</span><span class="topic-text"><span class="topic-fa">استفاده از عناصر معنایی HTML</span><span class="topic-en" lang="en">Semantics</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="رعایت راهنمای نگارش و ساختار استاندارد style guide"><a aria-disabled="true" aria-label="رعایت راهنمای نگارش و ساختار استاندارد (Style Guide)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۵۰</span><span class="topic-text"><span class="topic-fa">رعایت راهنمای نگارش و ساختار استاندارد</span><span class="topic-en" lang="en">Style Guide</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li></ol></section><section class="topic-group reveal" data-group="12" style="animation-delay:0.385s"><div class="group-head"><div class="group-title-wrap"><span class="group-accent"></span><div><h3>نویسه‌ها و کاراکترها</h3><p class="group-desc">کار با نمادها، موجودیت‌ها و کدگذاری متن</p></div></div><span class="group-count">۶ سرفصل</span></div><ol class="topic-list" start="51"><li data-search="کار با موجودیت‌های کاراکتری html entities"><a aria-disabled="true" aria-label="کار با موجودیت‌های کاراکتری HTML (Entities)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۵۱</span><span class="topic-text"><span class="topic-fa">کار با موجودیت‌های کاراکتری HTML</span><span class="topic-en" lang="en">Entities</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="استفاده از نمادها و نویسه‌های ویژه symbols"><a aria-disabled="true" aria-label="استفاده از نمادها و نویسه‌های ویژه (Symbols)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۵۲</span><span class="topic-text"><span class="topic-fa">استفاده از نمادها و نویسه‌های ویژه</span><span class="topic-en" lang="en">Symbols</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نمایش ایموجی‌ها در html emojis"><a aria-disabled="true" aria-label="نمایش ایموجی‌ها در HTML (Emojis)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۵۳</span><span class="topic-text"><span class="topic-fa">نمایش ایموجی‌ها در HTML</span><span class="topic-en" lang="en">Emojis</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="تنظیم کدگذاری نویسه‌ها با charset charsets"><a aria-disabled="true" aria-label="تنظیم کدگذاری نویسه‌ها با Charset (Charsets)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۵۴</span><span class="topic-text"><span class="topic-fa">تنظیم کدگذاری نویسه‌ها با Charset</span><span class="topic-en" lang="en">Charsets</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="رمزگذاری نویسه‌ها در نشانی url url encode"><a aria-disabled="true" aria-label="رمزگذاری نویسه‌ها در نشانی URL (URL Encode)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۵۵</span><span class="topic-text"><span class="topic-fa">رمزگذاری نویسه‌ها در نشانی URL</span><span class="topic-en" lang="en">URL Encode</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="مقایسه html و xhtml vs. xhtml"><a aria-disabled="true" aria-label="مقایسه HTML و XHTML (vs. XHTML)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۵۶</span><span class="topic-text"><span class="topic-fa">مقایسه HTML و XHTML</span><span class="topic-en" lang="en">vs. XHTML</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li></ol></section><section class="topic-group reveal" data-group="13" style="animation-delay:0.420s"><div class="group-head"><div class="group-title-wrap"><span class="group-accent"></span><div><h3>فرم‌ها و ورودی‌ها</h3><p class="group-desc">ساخت فرم و تنظیم فیلدهای دریافت اطلاعات</p></div></div><span class="group-count">۵ سرفصل</span></div><ol class="topic-list" start="57"><li data-search="ساخت فرم برای دریافت اطلاعات کاربر forms"><a aria-disabled="true" aria-label="ساخت فرم برای دریافت اطلاعات کاربر (Forms)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۵۷</span><span class="topic-text"><span class="topic-fa">ساخت فرم برای دریافت اطلاعات کاربر</span><span class="topic-en" lang="en">Forms</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="تنظیم ویژگی‌های فرم form attributes"><a aria-disabled="true" aria-label="تنظیم ویژگی‌های فرم (Form Attributes)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۵۸</span><span class="topic-text"><span class="topic-fa">تنظیم ویژگی‌های فرم</span><span class="topic-en" lang="en">Form Attributes</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="شناخت عناصر سازنده فرم form elements"><a aria-disabled="true" aria-label="شناخت عناصر سازنده فرم (Form Elements)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۵۹</span><span class="topic-text"><span class="topic-fa">شناخت عناصر سازنده فرم</span><span class="topic-en" lang="en">Form Elements</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="انتخاب نوع مناسب فیلدهای ورودی input types"><a aria-disabled="true" aria-label="انتخاب نوع مناسب فیلدهای ورودی (Input Types)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۶۰</span><span class="topic-text"><span class="topic-fa">انتخاب نوع مناسب فیلدهای ورودی</span><span class="topic-en" lang="en">Input Types</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="تنظیم ویژگی‌های فیلدهای ورودی input attributes"><a aria-disabled="true" aria-label="تنظیم ویژگی‌های فیلدهای ورودی (Input Attributes)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۶۱</span><span class="topic-text"><span class="topic-fa">تنظیم ویژگی‌های فیلدهای ورودی</span><span class="topic-en" lang="en">Input Attributes</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li></ol></section><section class="topic-group reveal" data-group="14" style="animation-delay:0.455s"><div class="group-head"><div class="group-title-wrap"><span class="group-accent"></span><div><h3>گرافیک در <a href="../../index.html">HTML</a></h3><p class="group-desc">ترسیم با Canvas و نمایش گرافیک SVG</p></div></div><span class="group-count">۲ سرفصل</span></div><ol class="topic-list" start="62"><li data-search="ترسیم و طراحی با عنصر canvas canvas"><a aria-disabled="true" aria-label="ترسیم و طراحی با عنصر Canvas (Canvas)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۶۲</span><span class="topic-text"><span class="topic-fa">ترسیم و طراحی با عنصر Canvas</span><span class="topic-en" lang="en">Canvas</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="ساخت گرافیک برداری با svg svg"><a aria-disabled="true" aria-label="ساخت گرافیک برداری با SVG (SVG)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۶۳</span><span class="topic-text"><span class="topic-fa">ساخت گرافیک برداری با SVG</span><span class="topic-en" lang="en">SVG</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li></ol></section><section class="topic-group reveal" data-group="15" style="animation-delay:0.490s"><div class="group-head"><div class="group-title-wrap"><span class="group-accent"></span><div><h3>رسانه و محتوای چندرسانه‌ای</h3><p class="group-desc">افزودن صوت، ویدیو و محتوای تعبیه‌شده</p></div></div><span class="group-count">۵ سرفصل</span></div><ol class="topic-list" start="64"><li data-search="افزودن محتوای چندرسانه‌ای به صفحه media"><a aria-disabled="true" aria-label="افزودن محتوای چندرسانه‌ای به صفحه (Media)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۶۴</span><span class="topic-text"><span class="topic-fa">افزودن محتوای چندرسانه‌ای به صفحه</span><span class="topic-en" lang="en">Media</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="قرار دادن و پخش ویدیو در صفحه وب video"><a aria-disabled="true" aria-label="قرار دادن و پخش ویدیو در صفحه وب (Video)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۶۵</span><span class="topic-text"><span class="topic-fa">قرار دادن و پخش ویدیو در صفحه وب</span><span class="topic-en" lang="en">Video</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="افزودن و پخش فایل صوتی audio"><a aria-disabled="true" aria-label="افزودن و پخش فایل صوتی (Audio)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۶۶</span><span class="topic-text"><span class="topic-fa">افزودن و پخش فایل صوتی</span><span class="topic-en" lang="en">Audio</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="آشنایی با افزونه‌ها و محتوای تعبیه‌شده plug-ins"><a aria-disabled="true" aria-label="آشنایی با افزونه‌ها و محتوای تعبیه‌شده (Plug-ins)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۶۷</span><span class="topic-text"><span class="topic-fa">آشنایی با افزونه‌ها و محتوای تعبیه‌شده</span><span class="topic-en" lang="en">Plug-ins</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نمایش ویدیوهای youtube در صفحه youtube"><a aria-disabled="true" aria-label="نمایش ویدیوهای YouTube در صفحه (YouTube)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۶۸</span><span class="topic-text"><span class="topic-fa">نمایش ویدیوهای YouTube در صفحه</span><span class="topic-en" lang="en">YouTube</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li></ol></section><section class="topic-group reveal" data-group="16" style="animation-delay:0.500s"><div class="group-head"><div class="group-title-wrap"><span class="group-accent"></span><div><h3>رابط‌های <a href="../../../../programming_web.html">برنامه‌نویسی وب</a> (Web APIs)</h3><p class="group-desc">آشنایی با قابلیت‌های تعاملی و ارتباطی مرورگر</p></div></div><span class="group-count">۶ سرفصل</span></div><ol class="topic-list" start="69"><li data-search="آشنایی با رابط‌های برنامه‌نویسی وب web apis"><a aria-disabled="true" aria-label="آشنایی با رابط‌های برنامه‌نویسی وب (Web APIs)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۶۹</span><span class="topic-text"><span class="topic-fa">آشنایی با رابط‌های برنامه‌نویسی وب</span><span class="topic-en" lang="en">Web APIs</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="دریافت موقعیت جغرافیایی کاربر geolocation"><a aria-disabled="true" aria-label="دریافت موقعیت جغرافیایی کاربر (Geolocation)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۷۰</span><span class="topic-text"><span class="topic-fa">دریافت موقعیت جغرافیایی کاربر</span><span class="topic-en" lang="en">Geolocation</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="پیاده‌سازی قابلیت کشیدن و رها کردن drag and drop"><a aria-disabled="true" aria-label="پیاده‌سازی قابلیت کشیدن و رها کردن (Drag and Drop)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۷۱</span><span class="topic-text"><span class="topic-fa">پیاده‌سازی قابلیت کشیدن و رها کردن</span><span class="topic-en" lang="en">Drag and Drop</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="ذخیره اطلاعات در مرورگر با web storage web storage"><a aria-disabled="true" aria-label="ذخیره اطلاعات در مرورگر با Web Storage (Web Storage)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۷۲</span><span class="topic-text"><span class="topic-fa">ذخیره اطلاعات در مرورگر با Web Storage</span><span class="topic-en" lang="en">Web Storage</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="اجرای پردازش‌های پس‌زمینه با web workers web workers"><a aria-disabled="true" aria-label="اجرای پردازش‌های پس‌زمینه با Web Workers (Web Workers)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۷۳</span><span class="topic-text"><span class="topic-fa">اجرای پردازش‌های پس‌زمینه با Web Workers</span><span class="topic-en" lang="en">Web Workers</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="دریافت رویدادهای ارسالی از سرور (sse) server-sent events - sse"><a aria-disabled="true" aria-label="دریافت رویدادهای ارسالی از سرور (SSE) (Server-Sent Events - SSE)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۷۴</span><span class="topic-text"><span class="topic-fa">دریافت رویدادهای ارسالی از سرور (SSE)</span><span class="topic-en" lang="en">Server-Sent Events - SSE</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li></ol></section><section class="topic-group reveal" data-group="17" style="animation-delay:0.500s"><div class="group-head"><div class="group-title-wrap"><span class="group-accent"></span><div><h3>مرجع تگ‌های <a href="../../index.html">HTML</a></h3><p class="group-desc">فهرست تگ‌ها و عناصر <a href="../../index.html">HTML</a> به‌ترتیب فایل اصلی</p></div></div><span class="group-count">۱۲۰ سرفصل</span></div><ol class="topic-list tags-grid" start="75"><li data-search="نوشتن توضیح در کد با comment comment"><a aria-disabled="true" aria-label="نوشتن توضیح در کد با Comment (Comment)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۷۵</span><span class="topic-text"><span class="topic-fa">نوشتن توضیح در کد با Comment</span><span class="topic-en" lang="en">Comment</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="معرفی نوع سند با doctype doctype"><a aria-disabled="true" aria-label="معرفی نوع سند با DOCTYPE (DOCTYPE)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۷۶</span><span class="topic-text"><span class="topic-fa">معرفی نوع سند با DOCTYPE</span><span class="topic-en" lang="en">DOCTYPE</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="ایجاد پیوند با تگ a a"><a aria-disabled="true" aria-label="ایجاد پیوند با تگ a (a)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۷۷</span><span class="topic-text"><span class="topic-fa">ایجاد پیوند با تگ a</span><span class="topic-en" lang="en">a</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="تعریف عبارت کوتاه‌شده با abbr abbr"><a aria-disabled="true" aria-label="تعریف عبارت کوتاه‌شده با abbr (abbr)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۷۸</span><span class="topic-text"><span class="topic-fa">تعریف عبارت کوتاه‌شده با abbr</span><span class="topic-en" lang="en">abbr</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="معرفی سرواژه با acronym acronym"><a aria-disabled="true" aria-label="معرفی سرواژه با acronym (acronym)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۷۹</span><span class="topic-text"><span class="topic-fa">معرفی سرواژه با acronym</span><span class="topic-en" lang="en">acronym</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نمایش نشانی و اطلاعات تماس با address address"><a aria-disabled="true" aria-label="نمایش نشانی و اطلاعات تماس با address (address)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۸۰</span><span class="topic-text"><span class="topic-fa">نمایش نشانی و اطلاعات تماس با address</span><span class="topic-en" lang="en">address</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="افزودن اپلت با applet applet"><a aria-disabled="true" aria-label="افزودن اپلت با applet (applet)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۸۱</span><span class="topic-text"><span class="topic-fa">افزودن اپلت با applet</span><span class="topic-en" lang="en">applet</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="تعیین ناحیه قابل کلیک در نقشه تصویر با area area"><a aria-disabled="true" aria-label="تعیین ناحیه قابل کلیک در نقشه تصویر با area (area)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۸۲</span><span class="topic-text"><span class="topic-fa">تعیین ناحیه قابل کلیک در نقشه تصویر با area</span><span class="topic-en" lang="en">area</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="تعریف محتوای مستقل با article article"><a aria-disabled="true" aria-label="تعریف محتوای مستقل با article (article)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۸۳</span><span class="topic-text"><span class="topic-fa">تعریف محتوای مستقل با article</span><span class="topic-en" lang="en">article</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نمایش محتوای جانبی با aside aside"><a aria-disabled="true" aria-label="نمایش محتوای جانبی با aside (aside)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۸۴</span><span class="topic-text"><span class="topic-fa">نمایش محتوای جانبی با aside</span><span class="topic-en" lang="en">aside</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="افزودن محتوای صوتی با audio audio"><a aria-disabled="true" aria-label="افزودن محتوای صوتی با audio (audio)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۸۵</span><span class="topic-text"><span class="topic-fa">افزودن محتوای صوتی با audio</span><span class="topic-en" lang="en">audio</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="برجسته‌کردن ظاهری متن با b b"><a aria-disabled="true" aria-label="برجسته‌کردن ظاهری متن با b (b)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۸۶</span><span class="topic-text"><span class="topic-fa">برجسته‌کردن ظاهری متن با b</span><span class="topic-en" lang="en">b</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="تعیین نشانی پایه پیوندها با base base"><a aria-disabled="true" aria-label="تعیین نشانی پایه پیوندها با base (base)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۸۷</span><span class="topic-text"><span class="topic-fa">تعیین نشانی پایه پیوندها با base</span><span class="topic-en" lang="en">base</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="تنظیم فونت پایه صفحه با basefont basefont"><a aria-disabled="true" aria-label="تنظیم فونت پایه صفحه با basefont (basefont)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۸۸</span><span class="topic-text"><span class="topic-fa">تنظیم فونت پایه صفحه با basefont</span><span class="topic-en" lang="en">basefont</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="جداسازی متن‌های دوجهته با bdi bdi"><a aria-disabled="true" aria-label="جداسازی متن‌های دوجهته با bdi (bdi)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۸۹</span><span class="topic-text"><span class="topic-fa">جداسازی متن‌های دوجهته با bdi</span><span class="topic-en" lang="en">bdi</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="تعیین جهت نمایش متن با bdo bdo"><a aria-disabled="true" aria-label="تعیین جهت نمایش متن با bdo (bdo)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۹۰</span><span class="topic-text"><span class="topic-fa">تعیین جهت نمایش متن با bdo</span><span class="topic-en" lang="en">bdo</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="بزرگ‌نمایی متن با big big"><a aria-disabled="true" aria-label="بزرگ‌نمایی متن با big (big)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۹۱</span><span class="topic-text"><span class="topic-fa">بزرگ‌نمایی متن با big</span><span class="topic-en" lang="en">big</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نمایش نقل‌قول طولانی با blockquote blockquote"><a aria-disabled="true" aria-label="نمایش نقل‌قول طولانی با blockquote (blockquote)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۹۲</span><span class="topic-text"><span class="topic-fa">نمایش نقل‌قول طولانی با blockquote</span><span class="topic-en" lang="en">blockquote</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="تعریف بدنه سند با body body"><a aria-disabled="true" aria-label="تعریف بدنه سند با body (body)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۹۳</span><span class="topic-text"><span class="topic-fa">تعریف بدنه سند با body</span><span class="topic-en" lang="en">body</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="ایجاد شکست خط با br br"><a aria-disabled="true" aria-label="ایجاد شکست خط با br (br)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۹۴</span><span class="topic-text"><span class="topic-fa">ایجاد شکست خط با br</span><span class="topic-en" lang="en">br</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="ساخت دکمه با button button"><a aria-disabled="true" aria-label="ساخت دکمه با button (button)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۹۵</span><span class="topic-text"><span class="topic-fa">ساخت دکمه با button</span><span class="topic-en" lang="en">button</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="ایجاد فضای ترسیم با canvas canvas"><a aria-disabled="true" aria-label="ایجاد فضای ترسیم با canvas (canvas)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۹۶</span><span class="topic-text"><span class="topic-fa">ایجاد فضای ترسیم با canvas</span><span class="topic-en" lang="en">canvas</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="افزودن عنوان به جدول با caption caption"><a aria-disabled="true" aria-label="افزودن عنوان به جدول با caption (caption)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۹۷</span><span class="topic-text"><span class="topic-fa">افزودن عنوان به جدول با caption</span><span class="topic-en" lang="en">caption</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="قرار دادن محتوا در مرکز با center center"><a aria-disabled="true" aria-label="قرار دادن محتوا در مرکز با center (center)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۹۸</span><span class="topic-text"><span class="topic-fa">قرار دادن محتوا در مرکز با center</span><span class="topic-en" lang="en">center</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="ارجاع به عنوان یک اثر با cite cite"><a aria-disabled="true" aria-label="ارجاع به عنوان یک اثر با cite (cite)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۹۹</span><span class="topic-text"><span class="topic-fa">ارجاع به عنوان یک اثر با cite</span><span class="topic-en" lang="en">cite</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نمایش قطعه کد با code code"><a aria-disabled="true" aria-label="نمایش قطعه کد با code (code)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۰۰</span><span class="topic-text"><span class="topic-fa">نمایش قطعه کد با code</span><span class="topic-en" lang="en">code</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="تعریف ستون جدول با col col"><a aria-disabled="true" aria-label="تعریف ستون جدول با col (col)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۰۱</span><span class="topic-text"><span class="topic-fa">تعریف ستون جدول با col</span><span class="topic-en" lang="en">col</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="گروه‌بندی ستون‌های جدول با colgroup colgroup"><a aria-disabled="true" aria-label="گروه‌بندی ستون‌های جدول با colgroup (colgroup)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۰۲</span><span class="topic-text"><span class="topic-fa">گروه‌بندی ستون‌های جدول با colgroup</span><span class="topic-en" lang="en">colgroup</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نمایش داده با data data"><a aria-disabled="true" aria-label="نمایش داده با data (data)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۰۳</span><span class="topic-text"><span class="topic-fa">نمایش داده با data</span><span class="topic-en" lang="en">data</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="ارائه پیشنهادهای آماده برای ورودی با datalist datalist"><a aria-disabled="true" aria-label="ارائه پیشنهادهای آماده برای ورودی با datalist (datalist)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۰۴</span><span class="topic-text"><span class="topic-fa">ارائه پیشنهادهای آماده برای ورودی با datalist</span><span class="topic-en" lang="en">datalist</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نوشتن توضیح هر مورد با dd dd"><a aria-disabled="true" aria-label="نوشتن توضیح هر مورد با dd (dd)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۰۵</span><span class="topic-text"><span class="topic-fa">نوشتن توضیح هر مورد با dd</span><span class="topic-en" lang="en">dd</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="مشخص‌کردن متن حذف‌شده با del del"><a aria-disabled="true" aria-label="مشخص‌کردن متن حذف‌شده با del (del)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۰۶</span><span class="topic-text"><span class="topic-fa">مشخص‌کردن متن حذف‌شده با del</span><span class="topic-en" lang="en">del</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="ساخت بخش جزئیات باز و بسته‌شونده با details details"><a aria-disabled="true" aria-label="ساخت بخش جزئیات باز و بسته‌شونده با details (details)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۰۷</span><span class="topic-text"><span class="topic-fa">ساخت بخش جزئیات باز و بسته‌شونده با details</span><span class="topic-en" lang="en">details</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="معرفی اصطلاح با dfn dfn"><a aria-disabled="true" aria-label="معرفی اصطلاح با dfn (dfn)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۰۸</span><span class="topic-text"><span class="topic-fa">معرفی اصطلاح با dfn</span><span class="topic-en" lang="en">dfn</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="ساخت فهرست پوشه‌ها با dir dir"><a aria-disabled="true" aria-label="ساخت فهرست پوشه‌ها با dir (dir)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۰۹</span><span class="topic-text"><span class="topic-fa">ساخت فهرست پوشه‌ها با dir</span><span class="topic-en" lang="en">dir</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="گروه‌بندی محتوا با div div"><a aria-disabled="true" aria-label="گروه‌بندی محتوا با div (div)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۱۰</span><span class="topic-text"><span class="topic-fa">گروه‌بندی محتوا با div</span><span class="topic-en" lang="en">div</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="ساخت فهرست تعریفی با dl dl"><a aria-disabled="true" aria-label="ساخت فهرست تعریفی با dl (dl)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۱۱</span><span class="topic-text"><span class="topic-fa">ساخت فهرست تعریفی با dl</span><span class="topic-en" lang="en">dl</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="تعریف عنوان هر مورد با dt dt"><a aria-disabled="true" aria-label="تعریف عنوان هر مورد با dt (dt)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۱۲</span><span class="topic-text"><span class="topic-fa">تعریف عنوان هر مورد با dt</span><span class="topic-en" lang="en">dt</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="تأکید معنایی بر متن با em em"><a aria-disabled="true" aria-label="تأکید معنایی بر متن با em (em)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۱۳</span><span class="topic-text"><span class="topic-fa">تأکید معنایی بر متن با em</span><span class="topic-en" lang="en">em</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="جاسازی محتوای خارجی با embed embed"><a aria-disabled="true" aria-label="جاسازی محتوای خارجی با embed (embed)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۱۴</span><span class="topic-text"><span class="topic-fa">جاسازی محتوای خارجی با embed</span><span class="topic-en" lang="en">embed</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="گروه‌بندی فیلدهای مرتبط فرم با fieldset fieldset"><a aria-disabled="true" aria-label="گروه‌بندی فیلدهای مرتبط فرم با fieldset (fieldset)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۱۵</span><span class="topic-text"><span class="topic-fa">گروه‌بندی فیلدهای مرتبط فرم با fieldset</span><span class="topic-en" lang="en">fieldset</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="افزودن عنوان یا توضیح به شکل با figcaption figcaption"><a aria-disabled="true" aria-label="افزودن عنوان یا توضیح به شکل با figcaption (figcaption)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۱۶</span><span class="topic-text"><span class="topic-fa">افزودن عنوان یا توضیح به شکل با figcaption</span><span class="topic-en" lang="en">figcaption</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نمایش محتوای مستقل تصویری با figure figure"><a aria-disabled="true" aria-label="نمایش محتوای مستقل تصویری با figure (figure)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۱۷</span><span class="topic-text"><span class="topic-fa">نمایش محتوای مستقل تصویری با figure</span><span class="topic-en" lang="en">figure</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="تنظیم فونت متن با font font"><a aria-disabled="true" aria-label="تنظیم فونت متن با font (font)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۱۸</span><span class="topic-text"><span class="topic-fa">تنظیم فونت متن با font</span><span class="topic-en" lang="en">font</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="ساخت پاصفحه برای صفحه یا بخش با footer footer"><a aria-disabled="true" aria-label="ساخت پاصفحه برای صفحه یا بخش با footer (footer)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۱۹</span><span class="topic-text"><span class="topic-fa">ساخت پاصفحه برای صفحه یا بخش با footer</span><span class="topic-en" lang="en">footer</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="ایجاد فرم با form form"><a aria-disabled="true" aria-label="ایجاد فرم با form (form)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۲۰</span><span class="topic-text"><span class="topic-fa">ایجاد فرم با form</span><span class="topic-en" lang="en">form</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نمایش یک قاب با frame frame"><a aria-disabled="true" aria-label="نمایش یک قاب با frame (frame)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۲۱</span><span class="topic-text"><span class="topic-fa">نمایش یک قاب با frame</span><span class="topic-en" lang="en">frame</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="تعریف مجموعه قاب‌ها با frameset frameset"><a aria-disabled="true" aria-label="تعریف مجموعه قاب‌ها با frameset (frameset)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۲۲</span><span class="topic-text"><span class="topic-fa">تعریف مجموعه قاب‌ها با frameset</span><span class="topic-en" lang="en">frameset</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="استفاده از تیترهای h1 تا h6 h1–h6"><a aria-disabled="true" aria-label="استفاده از تیترهای h1 تا h6 (h1–h6)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۲۳</span><span class="topic-text"><span class="topic-fa">استفاده از تیترهای h1 تا h6</span><span class="topic-en" lang="en">h1–h6</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="تعریف بخش head سند head"><a aria-disabled="true" aria-label="تعریف بخش head سند (head)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۲۴</span><span class="topic-text"><span class="topic-fa">تعریف بخش head سند</span><span class="topic-en" lang="en">head</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="ساخت سربرگ صفحه یا بخش با header header"><a aria-disabled="true" aria-label="ساخت سربرگ صفحه یا بخش با header (header)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۲۵</span><span class="topic-text"><span class="topic-fa">ساخت سربرگ صفحه یا بخش با header</span><span class="topic-en" lang="en">header</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="گروه‌بندی عنوان و زیرعنوان با hgroup hgroup"><a aria-disabled="true" aria-label="گروه‌بندی عنوان و زیرعنوان با hgroup (hgroup)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۲۶</span><span class="topic-text"><span class="topic-fa">گروه‌بندی عنوان و زیرعنوان با hgroup</span><span class="topic-en" lang="en">hgroup</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="ایجاد جداکننده موضوعی با hr hr"><a aria-disabled="true" aria-label="ایجاد جداکننده موضوعی با hr (hr)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۲۷</span><span class="topic-text"><span class="topic-fa">ایجاد جداکننده موضوعی با hr</span><span class="topic-en" lang="en">hr</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="تعریف ریشه سند با html html"><a aria-disabled="true" aria-label="تعریف ریشه سند با html (html)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۲۸</span><span class="topic-text"><span class="topic-fa">تعریف ریشه سند با html</span><span class="topic-en" lang="en">html</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نمایش متن متمایز یا مورب با i i"><a aria-disabled="true" aria-label="نمایش متن متمایز یا مورب با i (i)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۲۹</span><span class="topic-text"><span class="topic-fa">نمایش متن متمایز یا مورب با i</span><span class="topic-en" lang="en">i</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="جاسازی صفحه‌ای دیگر با iframe iframe"><a aria-disabled="true" aria-label="جاسازی صفحه‌ای دیگر با iframe (iframe)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۳۰</span><span class="topic-text"><span class="topic-fa">جاسازی صفحه‌ای دیگر با iframe</span><span class="topic-en" lang="en">iframe</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="افزودن تصویر با img img"><a aria-disabled="true" aria-label="افزودن تصویر با img (img)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۳۱</span><span class="topic-text"><span class="topic-fa">افزودن تصویر با img</span><span class="topic-en" lang="en">img</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="ایجاد فیلد ورودی با input input"><a aria-disabled="true" aria-label="ایجاد فیلد ورودی با input (input)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۳۲</span><span class="topic-text"><span class="topic-fa">ایجاد فیلد ورودی با input</span><span class="topic-en" lang="en">input</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="مشخص‌کردن متن افزوده‌شده با ins ins"><a aria-disabled="true" aria-label="مشخص‌کردن متن افزوده‌شده با ins (ins)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۳۳</span><span class="topic-text"><span class="topic-fa">مشخص‌کردن متن افزوده‌شده با ins</span><span class="topic-en" lang="en">ins</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نمایش ورودی صفحه‌کلید با kbd kbd"><a aria-disabled="true" aria-label="نمایش ورودی صفحه‌کلید با kbd (kbd)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۳۴</span><span class="topic-text"><span class="topic-fa">نمایش ورودی صفحه‌کلید با kbd</span><span class="topic-en" lang="en">kbd</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="اتصال برچسب به فیلد فرم با label label"><a aria-disabled="true" aria-label="اتصال برچسب به فیلد فرم با label (label)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۳۵</span><span class="topic-text"><span class="topic-fa">اتصال برچسب به فیلد فرم با label</span><span class="topic-en" lang="en">label</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="تعیین عنوان گروه فیلدها با legend legend"><a aria-disabled="true" aria-label="تعیین عنوان گروه فیلدها با legend (legend)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۳۶</span><span class="topic-text"><span class="topic-fa">تعیین عنوان گروه فیلدها با legend</span><span class="topic-en" lang="en">legend</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="تعریف یک مورد در فهرست با li li"><a aria-disabled="true" aria-label="تعریف یک مورد در فهرست با li (li)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۳۷</span><span class="topic-text"><span class="topic-fa">تعریف یک مورد در فهرست با li</span><span class="topic-en" lang="en">li</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="اتصال سند به منبع خارجی با link link"><a aria-disabled="true" aria-label="اتصال سند به منبع خارجی با link (link)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۳۸</span><span class="topic-text"><span class="topic-fa">اتصال سند به منبع خارجی با link</span><span class="topic-en" lang="en">link</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="مشخص‌کردن محتوای اصلی صفحه با main main"><a aria-disabled="true" aria-label="مشخص‌کردن محتوای اصلی صفحه با main (main)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۳۹</span><span class="topic-text"><span class="topic-fa">مشخص‌کردن محتوای اصلی صفحه با main</span><span class="topic-en" lang="en">main</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="تعریف نقشه تصویری با map map"><a aria-disabled="true" aria-label="تعریف نقشه تصویری با map (map)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۴۰</span><span class="topic-text"><span class="topic-fa">تعریف نقشه تصویری با map</span><span class="topic-en" lang="en">map</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="برجسته‌سازی بخشی از متن با mark mark"><a aria-disabled="true" aria-label="برجسته‌سازی بخشی از متن با mark (mark)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۴۱</span><span class="topic-text"><span class="topic-fa">برجسته‌سازی بخشی از متن با mark</span><span class="topic-en" lang="en">mark</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="ساخت منو با menu menu"><a aria-disabled="true" aria-label="ساخت منو با menu (menu)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۴۲</span><span class="topic-text"><span class="topic-fa">ساخت منو با menu</span><span class="topic-en" lang="en">menu</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="افزودن فراداده به سند با meta meta"><a aria-disabled="true" aria-label="افزودن فراداده به سند با meta (meta)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۴۳</span><span class="topic-text"><span class="topic-fa">افزودن فراداده به سند با meta</span><span class="topic-en" lang="en">meta</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نمایش مقدار در یک بازه با meter meter"><a aria-disabled="true" aria-label="نمایش مقدار در یک بازه با meter (meter)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۴۴</span><span class="topic-text"><span class="topic-fa">نمایش مقدار در یک بازه با meter</span><span class="topic-en" lang="en">meter</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="ساخت بخش ناوبری با nav nav"><a aria-disabled="true" aria-label="ساخت بخش ناوبری با nav (nav)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۴۵</span><span class="topic-text"><span class="topic-fa">ساخت بخش ناوبری با nav</span><span class="topic-en" lang="en">nav</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="تعیین محتوای جایگزین برای noframes noframes"><a aria-disabled="true" aria-label="تعیین محتوای جایگزین برای noframes (noframes)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۴۶</span><span class="topic-text"><span class="topic-fa">تعیین محتوای جایگزین برای noframes</span><span class="topic-en" lang="en">noframes</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نمایش محتوای جایگزین در صورت اجرا نشدن اسکریپت با noscript noscript"><a aria-disabled="true" aria-label="نمایش محتوای جایگزین در صورت اجرا نشدن اسکریپت با noscript (noscript)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۴۷</span><span class="topic-text"><span class="topic-fa">نمایش محتوای جایگزین در صورت اجرا نشدن اسکریپت با noscript</span><span class="topic-en" lang="en">noscript</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="جاسازی یک شیء یا محتوای خارجی با object object"><a aria-disabled="true" aria-label="جاسازی یک شیء یا محتوای خارجی با object (object)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۴۸</span><span class="topic-text"><span class="topic-fa">جاسازی یک شیء یا محتوای خارجی با object</span><span class="topic-en" lang="en">object</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="ساخت فهرست شماره‌دار با ol ol"><a aria-disabled="true" aria-label="ساخت فهرست شماره‌دار با ol (ol)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۴۹</span><span class="topic-text"><span class="topic-fa">ساخت فهرست شماره‌دار با ol</span><span class="topic-en" lang="en">ol</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="گروه‌بندی گزینه‌های فهرست انتخاب با optgroup optgroup"><a aria-disabled="true" aria-label="گروه‌بندی گزینه‌های فهرست انتخاب با optgroup (optgroup)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۵۰</span><span class="topic-text"><span class="topic-fa">گروه‌بندی گزینه‌های فهرست انتخاب با optgroup</span><span class="topic-en" lang="en">optgroup</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="تعریف یک گزینه قابل انتخاب با option option"><a aria-disabled="true" aria-label="تعریف یک گزینه قابل انتخاب با option (option)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۵۱</span><span class="topic-text"><span class="topic-fa">تعریف یک گزینه قابل انتخاب با option</span><span class="topic-en" lang="en">option</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نمایش نتیجه محاسبه با output output"><a aria-disabled="true" aria-label="نمایش نتیجه محاسبه با output (output)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۵۲</span><span class="topic-text"><span class="topic-fa">نمایش نتیجه محاسبه با output</span><span class="topic-en" lang="en">output</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="ساخت پاراگراف با p p"><a aria-disabled="true" aria-label="ساخت پاراگراف با p (p)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۵۳</span><span class="topic-text"><span class="topic-fa">ساخت پاراگراف با p</span><span class="topic-en" lang="en">p</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="تعیین پارامتر برای محتوای تعبیه‌شده با param param"><a aria-disabled="true" aria-label="تعیین پارامتر برای محتوای تعبیه‌شده با param (param)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۵۴</span><span class="topic-text"><span class="topic-fa">تعیین پارامتر برای محتوای تعبیه‌شده با param</span><span class="topic-en" lang="en">param</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نمایش تصویر متناسب با نمایشگر با picture picture"><a aria-disabled="true" aria-label="نمایش تصویر متناسب با نمایشگر با picture (picture)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۵۵</span><span class="topic-text"><span class="topic-fa">نمایش تصویر متناسب با نمایشگر با picture</span><span class="topic-en" lang="en">picture</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نمایش متن با قالب‌بندی از پیش تعیین‌شده با pre pre"><a aria-disabled="true" aria-label="نمایش متن با قالب‌بندی از پیش تعیین‌شده با pre (pre)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۵۶</span><span class="topic-text"><span class="topic-fa">نمایش متن با قالب‌بندی از پیش تعیین‌شده با pre</span><span class="topic-en" lang="en">pre</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نمایش میزان پیشرفت یک کار با progress progress"><a aria-disabled="true" aria-label="نمایش میزان پیشرفت یک کار با progress (progress)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۵۷</span><span class="topic-text"><span class="topic-fa">نمایش میزان پیشرفت یک کار با progress</span><span class="topic-en" lang="en">progress</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="قرار دادن نقل‌قول کوتاه با q q"><a aria-disabled="true" aria-label="قرار دادن نقل‌قول کوتاه با q (q)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۵۸</span><span class="topic-text"><span class="topic-fa">قرار دادن نقل‌قول کوتاه با q</span><span class="topic-en" lang="en">q</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نمایش پرانتز جایگزین برای متن روبی با rp rp"><a aria-disabled="true" aria-label="نمایش پرانتز جایگزین برای متن روبی با rp (rp)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۵۹</span><span class="topic-text"><span class="topic-fa">نمایش پرانتز جایگزین برای متن روبی با rp</span><span class="topic-en" lang="en">rp</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نمایش متن راهنما در نشانه‌گذاری روبی با rt rt"><a aria-disabled="true" aria-label="نمایش متن راهنما در نشانه‌گذاری روبی با rt (rt)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۶۰</span><span class="topic-text"><span class="topic-fa">نمایش متن راهنما در نشانه‌گذاری روبی با rt</span><span class="topic-en" lang="en">rt</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نشانه‌گذاری نوشتار روبی با ruby ruby"><a aria-disabled="true" aria-label="نشانه‌گذاری نوشتار روبی با ruby (ruby)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۶۱</span><span class="topic-text"><span class="topic-fa">نشانه‌گذاری نوشتار روبی با ruby</span><span class="topic-en" lang="en">ruby</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نمایش متنی که دیگر معتبر نیست با s s"><a aria-disabled="true" aria-label="نمایش متنی که دیگر معتبر نیست با s (s)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۶۲</span><span class="topic-text"><span class="topic-fa">نمایش متنی که دیگر معتبر نیست با s</span><span class="topic-en" lang="en">s</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نمایش نمونه خروجی برنامه با samp samp"><a aria-disabled="true" aria-label="نمایش نمونه خروجی برنامه با samp (samp)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۶۳</span><span class="topic-text"><span class="topic-fa">نمایش نمونه خروجی برنامه با samp</span><span class="topic-en" lang="en">samp</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="افزودن کد javascript با script script"><a aria-disabled="true" aria-label="افزودن کد JavaScript با script (script)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۶۴</span><span class="topic-text"><span class="topic-fa">افزودن کد JavaScript با script</span><span class="topic-en" lang="en">script</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="مشخص‌کردن بخش جست‌وجو با search search"><a aria-disabled="true" aria-label="مشخص‌کردن بخش جست‌وجو با search (search)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۶۵</span><span class="topic-text"><span class="topic-fa">مشخص‌کردن بخش جست‌وجو با search</span><span class="topic-en" lang="en">search</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="ایجاد بخش مستقل در صفحه با section section"><a aria-disabled="true" aria-label="ایجاد بخش مستقل در صفحه با section (section)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۶۶</span><span class="topic-text"><span class="topic-fa">ایجاد بخش مستقل در صفحه با section</span><span class="topic-en" lang="en">section</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="ساخت فهرست انتخاب با select select"><a aria-disabled="true" aria-label="ساخت فهرست انتخاب با select (select)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۶۷</span><span class="topic-text"><span class="topic-fa">ساخت فهرست انتخاب با select</span><span class="topic-en" lang="en">select</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نمایش متن توضیحی با اندازه کوچک با small small"><a aria-disabled="true" aria-label="نمایش متن توضیحی با اندازه کوچک با small (small)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۶۸</span><span class="topic-text"><span class="topic-fa">نمایش متن توضیحی با اندازه کوچک با small</span><span class="topic-en" lang="en">small</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="معرفی منبع فایل رسانه‌ای با source source"><a aria-disabled="true" aria-label="معرفی منبع فایل رسانه‌ای با source (source)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۶۹</span><span class="topic-text"><span class="topic-fa">معرفی منبع فایل رسانه‌ای با source</span><span class="topic-en" lang="en">source</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="گروه‌بندی متن درون‌خطی با span span"><a aria-disabled="true" aria-label="گروه‌بندی متن درون‌خطی با span (span)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۷۰</span><span class="topic-text"><span class="topic-fa">گروه‌بندی متن درون‌خطی با span</span><span class="topic-en" lang="en">span</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نمایش متن خط‌خورده با strike strike"><a aria-disabled="true" aria-label="نمایش متن خط‌خورده با strike (strike)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۷۱</span><span class="topic-text"><span class="topic-fa">نمایش متن خط‌خورده با strike</span><span class="topic-en" lang="en">strike</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="ایجاد تأکید معنایی قوی با strong strong"><a aria-disabled="true" aria-label="ایجاد تأکید معنایی قوی با strong (strong)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۷۲</span><span class="topic-text"><span class="topic-fa">ایجاد تأکید معنایی قوی با strong</span><span class="topic-en" lang="en">strong</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="تعریف قوانین css با style style"><a aria-disabled="true" aria-label="تعریف قوانین CSS با style (style)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۷۳</span><span class="topic-text"><span class="topic-fa">تعریف قوانین CSS با style</span><span class="topic-en" lang="en">style</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نمایش زیرنویس با sub sub"><a aria-disabled="true" aria-label="نمایش زیرنویس با sub (sub)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۷۴</span><span class="topic-text"><span class="topic-fa">نمایش زیرنویس با sub</span><span class="topic-en" lang="en">sub</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="تعریف عنوان بخش جزئیات با summary summary"><a aria-disabled="true" aria-label="تعریف عنوان بخش جزئیات با summary (summary)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۷۵</span><span class="topic-text"><span class="topic-fa">تعریف عنوان بخش جزئیات با summary</span><span class="topic-en" lang="en">summary</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نمایش بالانویس با sup sup"><a aria-disabled="true" aria-label="نمایش بالانویس با sup (sup)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۷۶</span><span class="topic-text"><span class="topic-fa">نمایش بالانویس با sup</span><span class="topic-en" lang="en">sup</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="افزودن گرافیک برداری با svg svg"><a aria-disabled="true" aria-label="افزودن گرافیک برداری با svg (svg)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۷۷</span><span class="topic-text"><span class="topic-fa">افزودن گرافیک برداری با svg</span><span class="topic-en" lang="en">svg</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="ساخت جدول با table table"><a aria-disabled="true" aria-label="ساخت جدول با table (table)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۷۸</span><span class="topic-text"><span class="topic-fa">ساخت جدول با table</span><span class="topic-en" lang="en">table</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="تعریف بدنه جدول با tbody tbody"><a aria-disabled="true" aria-label="تعریف بدنه جدول با tbody (tbody)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۷۹</span><span class="topic-text"><span class="topic-fa">تعریف بدنه جدول با tbody</span><span class="topic-en" lang="en">tbody</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="تعریف سلول داده در جدول با td td"><a aria-disabled="true" aria-label="تعریف سلول داده در جدول با td (td)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۸۰</span><span class="topic-text"><span class="topic-fa">تعریف سلول داده در جدول با td</span><span class="topic-en" lang="en">td</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="تعریف قالب محتوای قابل استفاده مجدد با template template"><a aria-disabled="true" aria-label="تعریف قالب محتوای قابل استفاده مجدد با template (template)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۸۱</span><span class="topic-text"><span class="topic-fa">تعریف قالب محتوای قابل استفاده مجدد با template</span><span class="topic-en" lang="en">template</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="ساخت کادر ورود متن چندخطی با textarea textarea"><a aria-disabled="true" aria-label="ساخت کادر ورود متن چندخطی با textarea (textarea)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۸۲</span><span class="topic-text"><span class="topic-fa">ساخت کادر ورود متن چندخطی با textarea</span><span class="topic-en" lang="en">textarea</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="تعریف بخش پایانی جدول با tfoot tfoot"><a aria-disabled="true" aria-label="تعریف بخش پایانی جدول با tfoot (tfoot)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۸۳</span><span class="topic-text"><span class="topic-fa">تعریف بخش پایانی جدول با tfoot</span><span class="topic-en" lang="en">tfoot</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="تعریف سلول عنوان در جدول با th th"><a aria-disabled="true" aria-label="تعریف سلول عنوان در جدول با th (th)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۸۴</span><span class="topic-text"><span class="topic-fa">تعریف سلول عنوان در جدول با th</span><span class="topic-en" lang="en">th</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="گروه‌بندی ردیف‌های سربرگ جدول با thead thead"><a aria-disabled="true" aria-label="گروه‌بندی ردیف‌های سربرگ جدول با thead (thead)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۸۵</span><span class="topic-text"><span class="topic-fa">گروه‌بندی ردیف‌های سربرگ جدول با thead</span><span class="topic-en" lang="en">thead</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نمایش تاریخ یا زمان با time time"><a aria-disabled="true" aria-label="نمایش تاریخ یا زمان با time (time)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۸۶</span><span class="topic-text"><span class="topic-fa">نمایش تاریخ یا زمان با time</span><span class="topic-en" lang="en">time</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="تعیین عنوان سند با title title"><a aria-disabled="true" aria-label="تعیین عنوان سند با title (title)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۸۷</span><span class="topic-text"><span class="topic-fa">تعیین عنوان سند با title</span><span class="topic-en" lang="en">title</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="تعریف یک ردیف جدول با tr tr"><a aria-disabled="true" aria-label="تعریف یک ردیف جدول با tr (tr)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۸۸</span><span class="topic-text"><span class="topic-fa">تعریف یک ردیف جدول با tr</span><span class="topic-en" lang="en">tr</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="افزودن زیرنویس و مسیر متنی رسانه با track track"><a aria-disabled="true" aria-label="افزودن زیرنویس و مسیر متنی رسانه با track (track)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۸۹</span><span class="topic-text"><span class="topic-fa">افزودن زیرنویس و مسیر متنی رسانه با track</span><span class="topic-en" lang="en">track</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نمایش متن با فونت تایپ‌ماشینی با tt tt"><a aria-disabled="true" aria-label="نمایش متن با فونت تایپ‌ماشینی با tt (tt)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۹۰</span><span class="topic-text"><span class="topic-fa">نمایش متن با فونت تایپ‌ماشینی با tt</span><span class="topic-en" lang="en">tt</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نشانه‌گذاری متن با زیرخط با u u"><a aria-disabled="true" aria-label="نشانه‌گذاری متن با زیرخط با u (u)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۹۱</span><span class="topic-text"><span class="topic-fa">نشانه‌گذاری متن با زیرخط با u</span><span class="topic-en" lang="en">u</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="ساخت فهرست نشانه‌دار با ul ul"><a aria-disabled="true" aria-label="ساخت فهرست نشانه‌دار با ul (ul)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۹۲</span><span class="topic-text"><span class="topic-fa">ساخت فهرست نشانه‌دار با ul</span><span class="topic-en" lang="en">ul</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="نمایش نام متغیر در متن با var var"><a aria-disabled="true" aria-label="نمایش نام متغیر در متن با var (var)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۹۳</span><span class="topic-text"><span class="topic-fa">نمایش نام متغیر در متن با var</span><span class="topic-en" lang="en">var</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li><li data-search="افزودن ویدیو با video video"><a aria-disabled="true" aria-label="افزودن ویدیو با video (video)" class="topic-link is-pending" data-pending="true" href="#" tabindex="-1"><span class="topic-number">۱۹۴</span><span class="topic-text"><span class="topic-fa">افزودن ویدیو با video</span><span class="topic-en" lang="en">video</span></span><span aria-hidden="true" class="topic-arrow">←</span></a></li></ol></section>
+</div>
+<div class="empty-state" id="emptyState">سرفصلی با این عبارت پیدا نشد. عبارت دیگری را جست‌وجو کن.</div>
+</section>
+<section class="note-card reveal">
+<h2>یک نکته برای ادامه مسیر</h2>
+<p>یادگیری <a href="../../../../front_end_text.html">فرانت‌اند</a> و <a href="../../../../back_end_text.html">بک‌اند</a> می‌تواند خیلی در توانایی شما در سایت‌سازی کمک کند و شما را خیلی حرفه‌ای کند.</p>
+<p>اگر می‌خواهید بدانید <a href="../../../../back_end_text.html">بک‌اند</a> چیست، <a href="../../../../back_end_text.html">راهنمای آشنایی با بک‌اند را ببینید</a>.</p>
+</section>
+<footer class="footer">MCD Code Up · فهرست سرفصل‌های <a href="../../index.html">HTML</a></footer>
+<nav aria-label="ناوبری درس قبل و بعد" class="mcd-lesson-nav"><div class="mcd-lesson-nav-inner"><a class="mcd-nav-prev" href="../mogadame/3_moror_html/moror.html">→ مرور HTML</a><span class="mcd-nav-spacer"></span></div></nav></main>
+<div aria-live="polite" class="toast" id="pendingToast" role="status">صفحه آموزشی اختصاصی این سرفصل هنوز به سایت متصل نشده است.</div>
+<script>
+  (() => {
+    const search = document.getElementById('topicSearch');
+    const clear = document.getElementById('clearSearch');
+    const groups = [...document.querySelectorAll('.topic-group')];
+    const items = [...document.querySelectorAll('.topic-list li')];
+    const status = document.getElementById('searchStatus');
+    const total = document.getElementById('totalCount');
+    const empty = document.getElementById('emptyState');
+    const toast = document.getElementById('pendingToast');
+    const fa = n => Number(n).toLocaleString('fa-IR');
+    function filterTopics() {
+      const query = search.value.trim().toLocaleLowerCase('fa');
+      let visible = 0;
+      for (const group of groups) {
+        const rows = [...group.querySelectorAll('li')];
+        let inGroup = 0;
+        for (const row of rows) {
+          const match = !query || row.dataset.search.includes(query);
+          row.hidden = !match;
+          if (match) { inGroup++; visible++; }
+        }
+        group.hidden = inGroup === 0;
+      }
+      total.textContent = query ? `${fa(visible)} مورد` : '۱۹۴ سرفصل';
+      status.textContent = query ? `نمایش ${fa(visible)} نتیجه از ۱۹۴ سرفصل` : 'در حال نمایش همه ۱۹۴ سرفصل';
+      empty.classList.toggle('show', visible === 0);
+    }
+    search.addEventListener('input', filterTopics);
+    clear.addEventListener('click', () => { search.value=''; filterTopics(); search.focus(); });
+    document.querySelectorAll('[data-pending="true"]').forEach(link => link.addEventListener('click', event => {
+      event.preventDefault();
+      toast.classList.add('show');
+      window.clearTimeout(window.__mcdToastTimer);
+      window.__mcdToastTimer = window.setTimeout(() => toast.classList.remove('show'), 2800);
+    }));
+  })();
+  </script>
+<script defer="" src="../../../../../../js/scroll-motion-blur.js"></script>
+<script defer="" src="../../../../../../js/mcd-green-motion.js"></script>
 </body>
-
 </html>

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
 
+<html dir="rtl" lang="fa">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="برنامه‌نویسی را از کجا شروع کنیم؟ در این راهنما مسیر یادگیری برنامه‌نویسی از صفر، انتخاب زبان مناسب و شروع ساخت وب‌سایت، بازی و پروژه‌های کاربردی را یاد بگیرید.">
-  <meta name="theme-color" content="#07110b">
-  <title>راهنمای شروع برنامه‌نویسی | MCD Code Up</title>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script id="mcd-theme-boot">(function(){try{var saved=localStorage.getItem('mcd-theme');var dark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.dataset.theme=(saved==='light'||saved==='dark')?saved:(dark?'dark':'light');}catch(e){document.documentElement.dataset.theme='light';}})();</script>
+<meta content="برنامه‌نویسی را از کجا شروع کنیم؟ در این راهنما مسیر یادگیری برنامه‌نویسی از صفر، انتخاب زبان مناسب و شروع ساخت وب‌سایت، بازی و پروژه‌های کاربردی را یاد بگیرید." name="description"/>
+<meta content="#f6f8f6" name="theme-color"/>
+<title>راهنمای شروع برنامه‌نویسی | MCD Code Up</title>
+<style>
     :root {
       color-scheme: dark;
       --bg: #07110b;
@@ -275,115 +275,172 @@
       }
     }
   </style>
-</head>
+<style id="mcd-minimal-redesign">
+/* MCD Code Up — unified minimalist redesign (content and functionality preserved) */
+400;500;600;700;800&display=swap');
+:root{
+ color-scheme:light!important;
+ --bg:#f7f8f7!important;--panel:#fff!important;--surface:#fff!important;--surface-light:#f1f4f2!important;
+ --line:#e5e9e6!important;--text:#1d2420!important;--muted:#68736c!important;
+ --green:#25835b!important;--green-soft:#eaf4ee!important;--accent:#25835b!important;
+ --yellow:#c5a24a!important;--content-width:900px!important;
+}
+html,body{background:#f7f8f7!important;color:#1d2420!important;font-family:"Vazirmatn",Tahoma,Arial,sans-serif!important;line-height:1.95!important}
+body{min-width:320px!important;overflow-x:hidden!important}
+main{max-width:100%!important}
+a{color:#25835b!important;text-decoration:none!important}
+a:hover{color:#176b47!important}
+h1,h2,h3,h4{color:#202722!important;letter-spacing:-.025em!important;font-weight:700!important}
+h1{font-size:clamp(1.75rem,4vw,2.65rem)!important;line-height:1.45!important}
+h2{font-size:clamp(1.2rem,2.6vw,1.65rem)!important}
+p,li{color:#4f5b54!important}
+section,article,.card,.lesson-section,.faq,.note,.exercise,.topic-list,.download-card,.gif-card,.example-image-frame,.diagram-item,.step,.content-box,.panel,.box{
+ background:#fff!important;border-color:#e5e9e6!important;border-radius:16px!important;box-shadow:0 2px 12px rgba(22,40,28,.035)!important
+}
+section{border-right:1px solid #e5e9e6!important;border-top:1px solid #e5e9e6!important}
+.tag,.eyebrow,.badge,.label{color:#25835b!important}
+button,.button,.card-cta,.download-button{border-radius:12px!important;transition:transform .18s ease,background .18s ease!important}
+button:hover,.button:hover,.card-cta:hover,.download-button:hover{transform:translateY(-1px)!important}
+pre,code,.code-block,.code-box,.code-example,.example-code,.terminal,.editor,.code-window{
+ background:#202722!important;color:#e9f1eb!important;border-radius:12px!important;border-color:#303b34!important
+}
+pre{overflow:auto!important;max-width:100%!important}
+img{max-width:100%;height:auto}
+table{border-collapse:collapse!important;max-width:100%!important}
+th,td{border-color:#e5e9e6!important}
+input,textarea,select{background:#fff!important;color:#202722!important;border:1px solid #dfe5e1!important;border-radius:10px!important}
+:focus-visible{outline:2px solid #25835b!important;outline-offset:3px!important}
+hr{border:0!important;border-top:1px solid #e5e9e6!important}
+@media(max-width:600px){main{padding-top:22px!important}section,article,.card,.lesson-section{padding:clamp(14px,4vw,22px)!important}h1{font-size:1.85rem!important}}
 
+body::selection{background:#d5eadf;color:#1d2420}
+.topbar,.nav,.hero,.section,.guide,.faq,.paths,.section-heading,.hero-copy{background:transparent!important}
+.topbar{border-color:#e5e9e6!important}
+.card-number,.card-note{color:#68736c!important}
+.card-cta,.button,.nav a,.back{background:transparent!important}
+.hero,.lesson-hero{border-radius:20px!important}
+.tag,.back{font-weight:600!important}
+p[style*="background"],[style*="background-color: #07110b"],[style*="background-color: rgb(37, 37, 37)"]{background:#fff!important;color:#4f5b54!important}
+
+/* Homepage-specific polish */
+#index{}
+#top{background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important}
+.hero{background:transparent!important;border:0!important;box-shadow:none!important}
+.eyebrow{background:#eaf4ee!important;border:1px solid #d8e9df!important;box-shadow:none!important;animation:none!important;color:#25835b!important;padding:7px 13px!important}
+.hero h1{background:transparent!important;box-shadow:none!important}
+.title-rule{border-color:#dfe8e2!important}
+.hero-art{background:linear-gradient(145deg,#edf5f0,#f5f7f5)!important;border:1px solid #e2e9e4!important;box-shadow:none!important;animation:none!important}
+.code-mark{background:#fff!important;color:#25835b!important;border:1px solid #d6e6dc!important;box-shadow:0 10px 30px rgba(26,66,43,.08)!important;text-shadow:none!important;animation:none!important}
+.art-caption{background:#fff!important;color:#68736c!important;border:1px solid #e5e9e6!important;box-shadow:none!important;text-shadow:none!important}
+.button{background:#25835b!important;color:#fff!important;border-color:#25835b!important;box-shadow:none!important}
+.button.secondary{background:#fff!important;color:#202722!important;border-color:#e5e9e6!important}
+.button:hover{background:#176b47!important;color:#fff!important}
+.button.secondary:hover{background:#f1f5f2!important;color:#202722!important}
+
+.skip-link{position:absolute!important;top:-100px!important;left:auto!important;right:16px!important;z-index:50!important;background:#25835b!important;color:#fff!important;padding:8px 14px!important;border-radius:10px!important}.skip-link:focus{top:12px!important}
+</style>
+<link href="../../assets/mcd-mark.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../css/mcd-green-system.css" rel="stylesheet"/>
+<link href="../../css/mcd-interactions.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&amp;display=swap" media="print" onload="this.media='all'" rel="stylesheet"/>
+<noscript><link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/></noscript>
+</head>
 <body>
-  <main>
-    <a class="back" href="../../index.html">← بازگشت به صفحهٔ اصلی</a>
-    <span class="tag">MCD Code Up · مسیر یادگیری</span>
-    <h1>راهنمای شروع برنامه‌نویسی از صفر</h1>
-    <p class="lead">برای شروع برنامه‌نویسی لازم نیست از قبل چیزی بلد باشی. با هدفی روشن، تمرین کوتاه و پروژه‌های
+<main>
+<a class="back" href="../../index.html">← بازگشت به صفحهٔ اصلی</a>
+<span class="tag">MCD Code Up · مسیر یادگیری</span>
+<h1>راهنمای شروع برنامه‌نویسی از صفر</h1>
+<p class="lead">برای شروع برنامه‌نویسی لازم نیست از قبل چیزی بلد باشی. با هدفی روشن، تمرین کوتاه و پروژه‌های
       کوچک می‌توانی قدم‌به‌قدم پیشرفت کنی.</p>
-    <section>
-      <h2>از کجا شروع کنم؟</h2>
-      <p>اول فکر کن دوست داری چه چیزی بسازی: وب‌سایت، بازی یا ...؟ انتخاب هدف کمک می‌کند مسیر و تمرین‌های
+<section>
+<h2>از کجا شروع کنم؟</h2>
+<p>اول فکر کن دوست داری چه چیزی بسازی: وب‌سایت، بازی یا ...؟ انتخاب هدف کمک می‌کند مسیر و تمرین‌های
         مناسب‌تری پیدا کنی.</p>
-    </section>
-    <section>
-      <h2>قدم‌های پیشنهادی</h2>
-      <ol>
-        <li>یک هدف کوچک و قابل انجام انتخاب کن.</li>
-        <li>بعد مسیری که برای این هدف باید بگذرانی رو پیشبینی کن </li>
-        <li>بعد برو و زبان برنامه نویسی که برای هدفت انتخاب کردی رو باد بگیر مثلا اگر هدفت اینه که <a
-            href="../programmong_web/programming_web.html"> وب سایت بسازی </a>باید بری و اول زبان <a
-            href="../programmong_web/fontend_teach/html_teache/index.html"> HTML</a>رو یاد بگیری</li>
-        <li style="color: red;">برای هدفی که داری تلاش کن و خسته نشو مثل مرد تلاش کن</li>
-        <li>هیچ وقت خودت رو به یک زبان برنامه نویسی محدود نکن و در هدفی که داری خبره شو تا بهترین باشی</li>
-        <li style="color: aqua;">ما در سایتون کلی زبان برنامه نویسی برای هدف تو قراردادیم به ما اعتماد کن.</li>
-      </ol>
-    </section>
-    <section>
-      <h2>یک نکته برای ادامه</h2>
-      <p>لازم نیست چند زبان را هم‌زمان یاد بگیری. یک مسیر را انتخاب کن، پایه‌ها را خوب تمرین کن و بعد سراغ
+</section>
+<section>
+<h2>قدم‌های پیشنهادی</h2>
+<ol>
+<li>یک هدف کوچک و قابل انجام انتخاب کن.</li>
+<li>بعد مسیری که برای این هدف باید بگذرانی رو پیشبینی کن </li>
+<li>بعد برو و زبان برنامه نویسی که برای هدفت انتخاب کردی رو باد بگیر مثلا اگر هدفت اینه که  وب سایت بسازی باید بری و اول زبان  HTMLرو یاد بگیری</li>
+<li style="color: red;">برای هدفی که داری تلاش کن و خسته نشو مثل مرد تلاش کن</li>
+<li>هیچ وقت خودت رو به یک زبان برنامه نویسی محدود نکن و در هدفی که داری خبره شو تا بهترین باشی</li>
+<li style="color: aqua;">ما در سایتون کلی زبان برنامه نویسی برای هدف تو قراردادیم به ما اعتماد کن.</li>
+</ol>
+</section>
+<section>
+<h2>یک نکته برای ادامه</h2>
+<p>لازم نیست چند زبان را هم‌زمان یاد بگیری. یک مسیر را انتخاب کن، پایه‌ها را خوب تمرین کن و بعد سراغ
         ابزارهای بعدی برو.
         پس از همین الان شروع به برنامه نویسی کن کن </p>
-
-      <h2>لیست فعلی مسیر های یاد گیری ما برای تو:</h2>
-      <h3>لیست زبان ها برای سایت سازی :</h3>
-      <a style="color: chocolate;" href="../programmong_web/fontend_teach/index.html">راهنمای شروع سایت سازی (فرانت
+<h2>لیست فعلی مسیر های یاد گیری ما برای تو:</h2>
+<h3>لیست زبان ها برای سایت سازی :</h3>
+<a href="../programmong_web/fontend_teach/index.html" style="color: chocolate;">راهنمای شروع سایت سازی (فرانت
         اند)</a>
-      <br>
-      <a style="color: rgb(255, 172, 113);" href="../programmong_web/fontend_teach/html_teache/index.html">اموزش HTML
+<br/>
+<a href="../programmong_web/fontend_teach/html_teache/index.html" style="color: rgb(255, 172, 113);">اموزش HTML
         رایگان برای تازه کار ها و حرفه ای ها</a>
-      <br>
-      <a style="color: rgb(255, 172, 113);" href="../programmong_web/fontend_teach/css_teache/index.html">اموزش CSS
+<br/>
+<a href="../programmong_web/fontend_teach/css_teache/index.html" style="color: rgb(255, 172, 113);">اموزش CSS
         رایگان از صفر</a>
-      <br>
-      <a style="color: rgb(255, 190, 144);" href="../programmong_web/fontend_teach/javaScript_teache/index.html">اموزش
+<br/>
+<a href="../programmong_web/fontend_teach/javaScript_teache/index.html" style="color: rgb(255, 190, 144);">اموزش
         javaScript رایگان از صفر</a>
-      <!-- ! 
-JavaScript (Node.js) محبوب‌ترین و پرطرفدارترین زبان برای برنامه نویسی بک اند است
+ ! 
+<a href="../programmong_web/fontend_teach/javaScript_teache/index.html">JavaScript</a> (Node.<a href="../programmong_web/fontend_teach/javaScript_teache/index.html">js</a>) محبوب‌ترین و پرطرفدارترین زبان برای برنامه نویسی <a href="../programmong_web/back_end_text.html">بک اند</a> است
 python مناسب API، هوش مصنوعی، اتوماسیون و پردازش داده
 PHP برای توسعه وب‌سایت‌ها و سیستم‌های مدیریت محتوا مثل WordPress.
 Java مناسب سیستم‌های بزرگ، بانکی و سازمانی.
-C# برای بک‌اند سازمانی با ASP.NET Core.
+C# برای <a href="../programmong_web/back_end_text.html">بک‌اند</a> سازمانی با ASP.NET Core.
 Go (Golang) مناسب سرورهای سریع، مقیاس‌پذیر و سیستم‌های توزیع‌شده.
 Ruby برای توسعه سریع وب با فریم‌ورک Ruby on Rails.
--->
-      <h4 style="color: rgb(255, 174, 0);">بخش بک اند در سایت سازی:</h4>
-      <a href="../programmong_web/backend_teache/index.html">آموزش بک اند</a>
-      <br>
-      <a style="color: rgb(255, 208, 108);" href="#">آموزش JavaScript (Node.js) رایگان صفر تا صد حرفه ای</a>
-      <br>
-      <a style="color: rgb(255, 188, 87);" href="#">اموزش برنامه نویسی صفر تا صد python</a>
-      <br>
-      <a style="color: rgb(255, 188, 87);" href="#">اموزس PHP از صفر تا صد برای مبتدی ها </a>
-      <br>
-      <a style="color: rgb(255, 188, 87);" href="#">اموزش جامع زبان Go (Golang)</a>
-      <br>
-      <a style="color: rgb(255, 188, 87);" href="#">اموزش برنامه نویسی با C#</a>
-      <br>
-      <a style="color: rgb(255, 188, 87);" href="#">بهترین دوره برنامه نویسی با Ruby</a>
-      <!-- ! -->
-      <br>
-      <br>
-      <br>
-      <h2 style="color: aqua;">برای بازی سازی می تونی این زباه ها رو یاد بگیری:</h2>
-      <a style="color: aquamarine;" href="#">بهترین زبان برنامه نویسی برای بازی سازی(C#)</a>
-      <br>
-      <a style="color: aquamarine;" href="#">بهترین اموزش C++</a>
-      <br>
-      <a style="color: aquamarine;" href="#">اموزش برنامه نویسی صفر تا صد پایتون (Python)</a>
-      <br>
-      <a style="color: aquamarine;" href="#">اموزش ساخت بازی تحت وب با JavaScript</a>
 
-
-
-<section id="programming-faq"
-    aria-labelledby="faq-title"
-    style="background-color: rgb(37, 37, 37); padding: 22px; border-radius: 12px;">
-
-    <h2 id="faq-title" style="color: rgb(250, 183, 0);">
+<h4 style="color: rgb(255, 174, 0);">بخش <a href="../programmong_web/back_end_text.html">بک اند</a> در سایت سازی:</h4>
+<a href="../programmong_web/backend_teache/index.html">آموزش بک اند</a>
+<br/>
+<a href="#" style="color: rgb(255, 208, 108);">آموزش JavaScript (Node.js) رایگان صفر تا صد حرفه ای</a>
+<br/>
+<a href="#" style="color: rgb(255, 188, 87);">اموزش برنامه نویسی صفر تا صد python</a>
+<br/>
+<a href="#" style="color: rgb(255, 188, 87);">اموزس PHP از صفر تا صد برای مبتدی ها </a>
+<br/>
+<a href="#" style="color: rgb(255, 188, 87);">اموزش جامع زبان Go (Golang)</a>
+<br/>
+<a href="#" style="color: rgb(255, 188, 87);">اموزش برنامه نویسی با C#</a>
+<br/>
+<a href="#" style="color: rgb(255, 188, 87);">بهترین دوره برنامه نویسی با Ruby</a>
+<!-- ! -->
+<br/>
+<br/>
+<br/>
+<h2 style="color: aqua;">برای بازی سازی می تونی این زباه ها رو یاد بگیری:</h2>
+<a href="#" style="color: aquamarine;">بهترین زبان برنامه نویسی برای بازی سازی(C#)</a>
+<br/>
+<a href="#" style="color: aquamarine;">بهترین اموزش C++</a>
+<br/>
+<a href="#" style="color: aquamarine;">اموزش برنامه نویسی صفر تا صد پایتون (Python)</a>
+<br/>
+<a href="#" style="color: aquamarine;">اموزش ساخت بازی تحت وب با JavaScript</a>
+<section aria-labelledby="faq-title" id="programming-faq" style="background-color: rgb(37, 37, 37); padding: 22px; border-radius: 12px;">
+<h2 id="faq-title" style="color: rgb(250, 183, 0);">
         سؤالات متداول درباره شروع برنامه‌نویسی از صفر
     </h2>
-
-    <p>
+<p>
         اگر قصد داری برنامه‌نویسی رو یاد بگیری، احتمالاً سؤال‌های مختلفی
         درباره انتخاب زبان، مسیر یادگیری، درآمد و آینده این حوزه داری.
         اینجا سعی کردیم به مهم‌ترین سؤال‌ها پاسخ بدیم تا قبل از شروع،
         دید بهتری نسبت به دنیای برنامه‌نویسی پیدا کنی و بتونی با آگاهی
         بیشتری مسیر مناسب خودت رو انتخاب کنی.
     </p>
-
-    <hr>
-
-    <h3 style="color: rgb(0, 180, 230);">
-        <span style="color: burlywood;">1.</span>
+<hr/>
+<h3 style="color: rgb(0, 180, 230);">
+<span style="color: burlywood;">1.</span>
         برای شروع برنامه‌نویسی از صفر باید از کجا شروع کنم؟
     </h3>
-
-    <p>
-        <strong style="color: red;">پاسخ:</strong>
+<p>
+<strong style="color: red;">پاسخ:</strong>
         برای شروع برنامه‌نویسی لازم نیست از قبل تجربه یا دانش تخصصی
         داشته باشی. بهتره ابتدا مشخص کنی که دوست داری چه چیزی بسازی.
         مثلاً می‌خوای وب‌سایت طراحی کنی، بازی بسازی، نرم‌افزار تولید کنی
@@ -402,68 +459,60 @@ Ruby برای توسعه سریع وب با فریم‌ورک Ruby on Rails.
         مهم اینه که مسیر یادگیری مشخصی داشته باشی و مطالب رو
         فقط حفظ نکنی، بلکه بتونی ازشون استفاده کنی.
     </p>
-
-    <hr>
-
-    <h3 style="color: rgb(28, 179, 238);">
-        <span style="color: burlywood;">2.</span>
+<hr/>
+<h3 style="color: rgb(28, 179, 238);">
+<span style="color: burlywood;">2.</span>
         بهترین زبان برنامه‌نویسی برای شروع چیه؟
     </h3>
-
-    <p>
-        <strong style="color: red;">پاسخ:</strong>
+<p>
+<strong style="color: red;">پاسخ:</strong>
         انتخاب بهترین زبان برنامه‌نویسی به هدفی که داری بستگی داره.
         هیچ زبانی برای همه افراد و همه کاربردها بهترین انتخاب نیست.
 
         برای مثال:
     </p>
-
-    <ul>
-        <li>
-            <strong>JavaScript:</strong>
-            برای برنامه‌نویسی وب و ایجاد قابلیت‌های تعاملی در صفحات اینترنتی.
+<ul>
+<li>
+<strong><a href="../programmong_web/fontend_teach/javaScript_teache/index.html">JavaScript</a>:</strong>
+            برای <a href="../programmong_web/programming_web.html">برنامه‌نویسی وب</a> و ایجاد قابلیت‌های تعاملی در صفحات اینترنتی.
         </li>
-        <li>
-            <strong>Python:</strong>
+<li>
+<strong>Python:</strong>
             برای یادگیری برنامه‌نویسی، اتوماسیون، تحلیل داده و هوش مصنوعی.
         </li>
-        <li>
-            <strong>C#:</strong>
-            برای ساخت بازی با موتور Unity و همچنین توسعه نرم‌افزار.
+<li>
+<strong>C#:</strong>
+            برای <a href="../programming_game/programming_game.html">ساخت بازی</a> با موتور Unity و همچنین توسعه نرم‌افزار.
         </li>
-        <li>
-            <strong>C++:</strong>
-            برای توسعه نرم‌افزارهای سطح پایین و بازی‌سازی با موتورهایی
+<li>
+<strong>C++:</strong>
+            برای توسعه نرم‌افزارهای سطح پایین و <a href="../programming_game/programming_game.html">بازی‌سازی</a> با موتورهایی
             مانند Unreal Engine.
         </li>
-    </ul>
+</ul>
+<p>
+        اگر هدفت <a href="../programmong_web/programming_web.html">طراحی وب</a>‌سایته، بهتره یادگیری رو با
+        
+            <a href="../programmong_web/fontend_teach/html_teache/index.html">HTML</a>
+        
+        شروع کنی، بعد سراغ <a href="../programmong_web/fontend_teach/css_teache/index.html">CSS</a> و <a href="../programmong_web/fontend_teach/javaScript_teache/index.html">JavaScript</a> بری.
 
-    <p>
-        اگر هدفت طراحی وب‌سایته، بهتره یادگیری رو با
-        <a href="../programmong_web/fontend_teach/html_teache/index.html">
-            HTML
-        </a>
-        شروع کنی، بعد سراغ CSS و JavaScript بری.
-
-        یادت باشه HTML و CSS به‌ترتیب زبان نشانه‌گذاری و زبان استایل‌دهی
-        هستن و JavaScript زبان برنامه‌نویسی مورد استفاده در فرانت‌اند وب است.
+        یادت باشه <a href="../programmong_web/fontend_teach/html_teache/index.html">HTML</a> و <a href="../programmong_web/fontend_teach/css_teache/index.html">CSS</a> به‌ترتیب زبان نشانه‌گذاری و زبان استایل‌دهی
+        هستن و <a href="../programmong_web/fontend_teach/javaScript_teache/index.html">JavaScript</a> زبان برنامه‌نویسی مورد استفاده در <a href="../programmong_web/front_end_text.html">فرانت‌اند</a> وب است.
     </p>
-
-    <hr>
-
-    <h3 style="color: rgb(28, 179, 238);">
-        <span style="color: burlywood;">3.</span>
+<hr/>
+<h3 style="color: rgb(28, 179, 238);">
+<span style="color: burlywood;">3.</span>
         آیا برای یادگیری برنامه‌نویسی باید ریاضی‌ام قوی باشه؟
     </h3>
-
-    <p>
-        <strong style="color: red;">پاسخ:</strong>
+<p>
+<strong style="color: red;">پاسخ:</strong>
         نه، برای شروع برنامه‌نویسی لازم نیست ریاضی خیلی قوی‌ای داشته باشی.
         در بسیاری از حوزه‌ها، می‌تونی با دانش پایه ریاضی و یادگیری
         مفاهیم منطقی برنامه‌نویسی شروع کنی.
 
         البته میزان نیاز به ریاضی در همه حوزه‌ها یکسان نیست.
-        برای مثال، در طراحی وب معمولاً به ریاضیات پیشرفته نیاز نداری؛
+        برای مثال، در <a href="../programmong_web/programming_web.html">طراحی وب</a> معمولاً به ریاضیات پیشرفته نیاز نداری؛
         اما در حوزه‌هایی مثل هوش مصنوعی، پردازش تصویر، شبیه‌سازی
         و فیزیک بازی‌ها ممکنه به مباحث ریاضی بیشتری نیاز پیدا کنی.
 
@@ -471,16 +520,13 @@ Ruby برای توسعه سریع وب با فریم‌ورک Ruby on Rails.
         شروع یادگیری برنامه‌نویسی بشه.
         می‌تونی هم‌زمان با پیشرفت در مسیرت، مباحث موردنیاز رو هم یاد بگیری.
     </p>
-
-    <hr>
-
-    <h3 style="color: rgb(28, 179, 238);">
-        <span style="color: burlywood;">4.</span>
+<hr/>
+<h3 style="color: rgb(28, 179, 238);">
+<span style="color: burlywood;">4.</span>
         یادگیری برنامه‌نویسی از صفر چقدر زمان می‌بره؟
     </h3>
-
-    <p>
-        <strong style="color: red;">پاسخ:</strong>
+<p>
+<strong style="color: red;">پاسخ:</strong>
         زمان یادگیری برنامه‌نویسی برای همه یکسان نیست و به عوامل مختلفی
         مثل میزان تمرین روزانه، سختی حوزه انتخابی، تجربه قبلی و روش یادگیری
         بستگی داره.
@@ -496,78 +542,67 @@ Ruby برای توسعه سریع وب با فریم‌ورک Ruby on Rails.
         استمرار در یادگیری و تمرین منظم، از سرعت زیاد در چند روز
         و رها کردن مسیر بعد از مدتی نتیجه بهتری داره.
     </p>
-
-    <hr>
-
-    <h3 style="color: rgb(28, 179, 238);">
-        <span style="color: burlywood;">5.</span>
+<hr/>
+<h3 style="color: rgb(28, 179, 238);">
+<span style="color: burlywood;">5.</span>
         برای یادگیری برنامه‌نویسی به کامپیوتر یا لپ‌تاپ قوی نیاز دارم؟
     </h3>
-
-    <p>
-        <strong style="color: red;">پاسخ:</strong>
+<p>
+<strong style="color: red;">پاسخ:</strong>
         برای شروع بسیاری از حوزه‌های برنامه‌نویسی، به کامپیوتر
         فوق‌العاده قدرتمندی نیاز نداری.
         یک سیستم معمولی که بتونه نرم‌افزارهای موردنیازت رو اجرا کنه،
         برای یادگیری مباحث پایه و ساخت پروژه‌های ساده کافیه.
 
-        برای مثال، می‌تونی با نصب یک ویرایشگر کد مثل Visual Studio Code
+        برای مثال، می‌تونی با نصب یک <a href="../programmong_web/fontend_teach/html_teache/start_html/mogadame/2_editors/editors.html">ویرایشگر کد</a> مثل Visual Studio Code
         برنامه‌نویسی رو شروع کنی.
 
-        البته اگر در آینده بخوای سراغ بازی‌سازی سه‌بعدی، پروژه‌های
+        البته اگر در آینده بخوای سراغ <a href="../programming_game/programming_game.html">بازی‌سازی</a> سه‌بعدی، پروژه‌های
         سنگین گرافیکی یا پردازش‌های بزرگ بری، ممکنه به سخت‌افزار
         قدرتمندتری نیاز داشته باشی.
 
         پس بهتره قبل از خرید تجهیزات گران‌قیمت، با امکاناتی که
         در اختیار داری شروع کنی و بعد متناسب با نیازت سیستم رو ارتقا بدی.
     </p>
-
-    <hr>
-
-    <h3 style="color: rgb(28, 179, 238);">
-        <span style="color: burlywood;">6.</span>
+<hr/>
+<h3 style="color: rgb(28, 179, 238);">
+<span style="color: burlywood;">6.</span>
         چطور برنامه‌نویسی رو تمرین کنم و اولین پروژه خودم رو بسازم؟
     </h3>
-
-    <p>
-        <strong style="color: red;">پاسخ:</strong>
+<p>
+<strong style="color: red;">پاسخ:</strong>
         یکی از بهترین روش‌های یادگیری برنامه‌نویسی، ساخت پروژه‌های عملیه.
         فقط خواندن آموزش‌ها کافی نیست؛ باید خودت کد بنویسی،
         نتیجه رو بررسی کنی و خطاهایی رو که به وجود میان برطرف کنی.
 
         برای شروع می‌تونی پروژه‌های ساده‌ای مثل موارد زیر بسازی:
     </p>
-
-    <ul>
-        <li>یک صفحه وب شخصی با HTML و CSS.</li>
-        <li>یک ماشین‌حساب ساده با JavaScript.</li>
-        <li>یک برنامه مدیریت کارهای روزانه.</li>
-        <li>یک بازی ساده دوبعدی.</li>
-        <li>یک برنامه ساده برای انجام محاسبات با Python.</li>
-    </ul>
-
-    <p>
+<ul>
+<li>یک صفحه وب شخصی با <a href="../programmong_web/fontend_teach/html_teache/index.html">HTML</a> و <a href="../programmong_web/fontend_teach/css_teache/index.html">CSS</a>.</li>
+<li>یک ماشین‌حساب ساده با <a href="../programmong_web/fontend_teach/javaScript_teache/index.html">JavaScript</a>.</li>
+<li>یک برنامه مدیریت کارهای روزانه.</li>
+<li>یک بازی ساده دوبعدی.</li>
+<li>یک برنامه ساده برای انجام محاسبات با Python.</li>
+</ul>
+<p>
         در هر پروژه سعی کن از مفاهیمی که یاد گرفتی استفاده کنی.
         لازم نیست اولین پروژه‌ات کامل و بدون نقص باشه.
         اشکال‌زدایی، تغییر کد و پیدا کردن راه‌حل بخشی از
         فرایند واقعی برنامه‌نویسیه.
     </p>
-
-    <hr>
-
-    <h3 style="color: rgb(28, 179, 238);">
-        <span style="color: burlywood;">7.</span>
+<hr/>
+<h3 style="color: rgb(28, 179, 238);">
+<span style="color: burlywood;">7.</span>
         برای ساخت وب‌سایت و بازی باید چه مسیر برنامه‌نویسی‌ای رو انتخاب کنم؟
     </h3>
-
-    <p>
-        <strong style="color: red;">پاسخ:</strong>
+<p>
+<strong style="color: red;">پاسخ:</strong>
         این دو حوزه مسیرهای یادگیری متفاوتی دارن و بهتره متناسب
         با علاقه‌ات یکی رو انتخاب کنی.
 
-        اگر می‌خوای وب‌سایت بسازی، مسیر فرانت‌اند می‌تونه
-        شروع مناسبی باشه. در این مسیر ابتدا HTML، سپس CSS
-        و بعد JavaScript رو یاد می‌گیری.
+        اگر می‌خوای وب‌سایت بسازی، مسیر <a href="../programmong_web/front_end_text.html">فرانت‌اند</a> می‌تونه
+        شروع مناسبی باشه. در این مسیر ابتدا HTML، سپس <a href="../programmong_web/fontend_teach/css_teache/index.html">CSS</a>
+        و بعد <a href="../programmong_web/fontend_teach/javaScript_teache/index.html">JavaScript</a> رو یاد می‌گیری.
         پس از یادگیری مبانی می‌تونی سراغ ابزارها و فریم‌ورک‌های
         پیشرفته‌تر بری.
 
@@ -577,7 +612,7 @@ Ruby برای توسعه سریع وب با فریم‌ورک Ruby on Rails.
         </a>
         مراجعه کن.
 
-        اما اگر به ساخت بازی علاقه داری، می‌تونی مسیر بازی‌سازی
+        اما اگر به <a href="../programming_game/programming_game.html">ساخت بازی</a> علاقه داری، می‌تونی مسیر <a href="../programming_game/programming_game.html">بازی‌سازی</a>
         رو دنبال کنی. برای شروع، یادگیری C# و موتور Unity
         انتخاب مناسبیه. برای ورود به توسعه بازی‌های پیشرفته‌تر
         با Unreal Engine هم می‌تونی C++ رو یاد بگیری.
@@ -588,16 +623,13 @@ Ruby برای توسعه سریع وب با فریم‌ورک Ruby on Rails.
         </a>
         رو ببین.
     </p>
-
-    <hr>
-
-    <h3 style="color: rgb(28, 179, 238);">
-        <span style="color: burlywood;">8.</span>
+<hr/>
+<h3 style="color: rgb(28, 179, 238);">
+<span style="color: burlywood;">8.</span>
         پردرآمدترین حوزه برنامه‌نویسی کدومه؟
     </h3>
-
-    <p>
-        <strong style="color: red;">پاسخ:</strong>
+<p>
+<strong style="color: red;">پاسخ:</strong>
         درآمد برنامه‌نویسان به عوامل مختلفی مثل مهارت، تجربه،
         کیفیت پروژه‌ها، محل فعالیت، نوع همکاری و شرایط بازار کار بستگی داره.
         به همین دلیل نمی‌شه یک حوزه رو در همه کشورها و همه شرایط
@@ -607,23 +639,20 @@ Ruby برای توسعه سریع وب با فریم‌ورک Ruby on Rails.
         برنامه‌نویسی موبایل، امنیت سایبری و توسعه بازی
         هر کدوم فرصت‌های شغلی و مسیرهای درآمدی خودشون رو دارن.
 
-        برای مثال، در برنامه‌نویسی وب می‌تونی برای شرکت‌ها و افراد
+        برای مثال، در <a href="../programmong_web/programming_web.html">برنامه‌نویسی وب</a> می‌تونی برای شرکت‌ها و افراد
         وب‌سایت طراحی کنی، پروژه بگیری یا فروشگاه اینترنتی خودت رو
         راه‌اندازی کنی.
 
         پیشنهاد می‌کنیم هنگام انتخاب مسیر شغلی، علاوه بر درآمد،
         به علاقه، توانایی و فرصت‌های موجود در بازار کار هم توجه کنی.
     </p>
-
-    <hr>
-
-    <h3 style="color: rgb(28, 179, 238);">
-        <span style="color: burlywood;">9.</span>
+<hr/>
+<h3 style="color: rgb(28, 179, 238);">
+<span style="color: burlywood;">9.</span>
         آیا هوش مصنوعی جای برنامه‌نویس‌ها رو می‌گیره؟
     </h3>
-
-    <p>
-        <strong style="color: red;">پاسخ:</strong>
+<p>
+<strong style="color: red;">پاسخ:</strong>
         هوش مصنوعی در حال تغییر روش انجام کارهای برنامه‌نویسیه.
         امروزه ابزارهای مختلفی وجود دارن که می‌تونن در نوشتن کد،
         پیدا کردن خطاها، توضیح مفاهیم و انجام بعضی کارهای تکراری
@@ -639,16 +668,13 @@ Ruby برای توسعه سریع وب با فریم‌ورک Ruby on Rails.
         البته همیشه کدی رو که ابزارهای هوش مصنوعی تولید می‌کنن
         بررسی و آزمایش کن؛ چون ممکنه اشتباه یا ناامن باشه.
     </p>
-
-    <hr>
-
-    <h3 style="color: rgb(28, 179, 238);">
-        <span style="color: burlywood;">10.</span>
+<hr/>
+<h3 style="color: rgb(28, 179, 238);">
+<span style="color: burlywood;">10.</span>
         آیا برای برنامه‌نویس حرفه‌ای شدن باید چند زبان برنامه‌نویسی یاد بگیرم؟
     </h3>
-
-    <p>
-        <strong style="color: red;">پاسخ:</strong>
+<p>
+<strong style="color: red;">پاسخ:</strong>
         نه، برای شروع لازم نیست چند زبان برنامه‌نویسی رو هم‌زمان یاد بگیری.
         بهتره ابتدا روی یک زبان و مفاهیم اصلی اون تمرکز کنی
         و یاد بگیری چطور باهاش مسئله حل کنی و پروژه بسازی.
@@ -657,21 +683,18 @@ Ruby برای توسعه سریع وب با فریم‌ورک Ruby on Rails.
         می‌تونی زبان‌ها و ابزارهای دیگه رو متناسب با نیاز پروژه‌هات
         یاد بگیری.
 
-        برای مثال، در توسعه وب یادگیری HTML و CSS و JavaScript
+        برای مثال، در توسعه وب یادگیری <a href="../programmong_web/fontend_teach/html_teache/index.html">HTML</a> و <a href="../programmong_web/fontend_teach/css_teache/index.html">CSS</a> و <a href="../programmong_web/fontend_teach/javaScript_teache/index.html">JavaScript</a>
         به ترتیب یک مسیر منطقی برای شروعه.
         اما یادگیری زبان‌های متعدد بدون تمرین و استفاده عملی،
         لزوماً باعث حرفه‌ای شدن نمی‌شه.
     </p>
-
-    <hr>
-
-    <h3 style="color: rgb(28, 179, 238);">
-        <span style="color: burlywood;">11.</span>
+<hr/>
+<h3 style="color: rgb(28, 179, 238);">
+<span style="color: burlywood;">11.</span>
         آیا بدون مدرک دانشگاهی هم می‌شه برنامه‌نویس شد؟
     </h3>
-
-    <p>
-        <strong style="color: red;">پاسخ:</strong>
+<p>
+<strong style="color: red;">پاسخ:</strong>
         بله، در بسیاری از مسیرهای برنامه‌نویسی می‌تونی بدون داشتن
         مدرک دانشگاهی هم مهارت کسب کنی و پروژه بسازی.
         چیزی که اهمیت زیادی داره، دانش فنی، توانایی حل مسئله،
@@ -686,22 +709,18 @@ Ruby برای توسعه سریع وب با فریم‌ورک Ruby on Rails.
         بنابراین بهتره علاوه بر یادگیری عملی، شرایط بازار کار
         و موقعیت‌هایی رو که بهشون علاقه داری هم بررسی کنی.
     </p>
-
-    <hr>
-
-    <h3 style="color: rgb(28, 179, 238);">
+<hr/>
+<h3 style="color: rgb(28, 179, 238);">
         از کجا یادگیری برنامه‌نویسی رو ادامه بدم؟
     </h3>
-
-    <p>
+<p>
         حالا که با سؤال‌های مهم شروع برنامه‌نویسی آشنا شدی،
         می‌تونی متناسب با هدفت مسیر آموزشی موردنظرت رو انتخاب کنی.
         در MCD Code Up تلاش کردیم آموزش‌های مختلفی رو برای یادگیری
         برنامه‌نویسی در اختیارت قرار بدیم تا بتونی مرحله‌به‌مرحله
         مهارت‌هات رو افزایش بدی.
     </p>
-
-    <p>
+<p>
         برای شروع می‌تونی از
         <a href="../programmong_web/fontend_teach/index.html">
             مسیر یادگیری فرانت‌اند
@@ -712,27 +731,23 @@ Ruby برای توسعه سریع وب با فریم‌ورک Ruby on Rails.
         </a>
         استفاده کنی و متناسب با علاقه‌ات آموزش‌های دیگه رو هم دنبال کنی.
     </p>
-
-    <p style="color: rgb(180, 220, 190);">
-        <strong>یک نکته برای ادامه مسیر:</strong>
+<p style="color: rgb(180, 220, 190);">
+<strong>یک نکته برای ادامه مسیر:</strong>
         ممکنه در ابتدا بعضی مفاهیم سخت به نظر برسن یا هنگام نوشتن کد
         با خطاهای مختلفی روبه‌رو بشی. این اتفاق کاملاً طبیعیه.
         با تمرین، بررسی خطاها و ساخت پروژه‌های مختلف،
         کم‌کم تجربه بیشتری به دست میاری.
 
-        <br>
-        <strong>
+        <br/>
+<strong>
             برای یادگیری عجله نکن؛ مهم اینه که مفاهیم رو درست یاد بگیری
             و بتونی در پروژه‌های واقعی ازشون استفاده کنی.
         </strong>
-    </p>
-
+</p>
 </section>
-
 </section>
-  </main>
-
-  <script src="../../js/scroll-motion-blur.js" defer></script>
+</main>
+<script defer="" src="../../js/scroll-motion-blur.js"></script>
+<script defer="" src="../../js/mcd-green-motion.js"></script>
 </body>
-
 </html>
