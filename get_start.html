@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="fa">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#f5faf6" name="theme-color"/>
+<meta content="راهنمای شروع و انتخاب مسیر برنامه‌نویسی، معرفی سایت MCD Code Up، مسیرهای آموزش طراحی وب، بازی‌سازی و توسعه اپلیکیشن موبایل." name="description"/>
+<title>
+   راهنمای شروع برنامه‌نویسی | MCD Code Up
+  </title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+   :root {
+            --g: #16794a;
+            --gd: #105b38;
+            --gl: #eaf6ee;
+            --ink: #17251d;
+            --muted: #68776e;
+            --line: #e3ebe5;
+            --bg: #f6faf7
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: Vazirmatn, Tahoma, sans-serif;
+            line-height: 1.95
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        .container {
+            width: min(1080px, calc(100% - 36px));
+            margin: auto
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: #f6faf7e;
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--line)
+        }
+
+        .nav {
+            min-height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800
+        }
+
+        .mark {
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
+            display: grid;
+            place-items: center;
+            color: white;
+            background: linear-gradient(140deg, #25a76b, #105b38);
+            font: 700 16px monospace
+        }
+
+        .links {
+            display: flex;
+            gap: 8px
+        }
+
+        .links a {
+            padding: 8px 13px;
+            border-radius: 11px;
+            color: #536258;
+            font-size: 13px;
+            font-weight: 600
+        }
+
+        .links a:hover,
+        .links .active {
+            background: var(--gl);
+            color: var(--g)
+        }
+
+        .menu {
+            display: none;
+            border: 1px solid var(--line);
+            background: white;
+            color: var(--g);
+            width: 40px;
+            height: 40px;
+            border-radius: 11px
+        }
+
+        .hero {
+            padding: 42px 0 24px
+        }
+
+        .hero-box {
+            border-radius: 26px;
+            background: linear-gradient(130deg, #103e2b, #176746 65%, #218257);
+            color: white;
+            padding: clamp(25px, 5vw, 52px);
+            overflow: hidden;
+            position: relative
+        }
+
+        .hero-box:after {
+            content: "</>";
+            position: absolute;
+            left: 4%;
+            bottom: -45px;
+            font: 800 clamp(100px, 20vw, 220px)/1 monospace;
+            color: #ffffff0b;
+            pointer-events: none
+        }
+
+        .kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #ffffff27;
+            background: #ffffff15;
+            border-radius: 999px;
+            padding: 5px 12px;
+            color: #d9f5e4;
+            font-size: 12px;
+            font-weight: 700
+        }
+
+        .kicker:before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            background: #67e6a4;
+            border-radius: 50%
+        }
+
+        h1 {
+            font-size: clamp(28px, 4.4vw, 45px);
+            line-height: 1.5;
+            margin: 15px 0 8px;
+            max-width: 760px
+        }
+
+        .hero-box p {
+            color: #d4e8db;
+            font-size: 15px;
+            max-width: 680px;
+            margin: 0
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 22px
+        }
+
+        .btn {
+            display: inline-flex;
+            padding: 10px 17px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 700
+        }
+
+        .light {
+            background: white;
+            color: var(--gd)
+        }
+
+        .outline {
+            border: 1px solid #ffffff40;
+            color: white;
+            background: #ffffff0b
+        }
+
+        section {
+            padding: 35px 0
+        }
+
+        .head {
+            margin-bottom: 18px
+        }
+
+        .section-kicker {
+            color: var(--g);
+            font-size: 12px;
+            font-weight: 800
+        }
+
+        .title {
+            font-size: clamp(21px, 3vw, 29px);
+            margin: 4px 0
+        }
+
+        .sub {
+            color: var(--muted);
+            font-size: 13px;
+            margin: 5px 0 0;
+            max-width: 760px
+        }
+
+        .goal,
+        .faq details {
+            background: white;
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 20px
+        }
+
+        .guide-text {
+            max-width: 850px
+        }
+
+        .guide-part {
+            padding: 18px 0;
+            border-bottom: 1px solid var(--line)
+        }
+
+        .guide-part:last-child {
+            border-bottom: 0
+        }
+
+        .guide-part h3 {
+            font-size: 17px;
+            margin: 0 0 8px
+        }
+
+        .guide-part p {
+            font-size: 14px;
+            color: #58675e;
+            margin: 0 0 10px;
+            line-height: 2.2
+        }
+
+        .guide-part .example {
+            display: block;
+            margin: 0;
+            padding: 8px 0 0;
+            border-top: 1px dashed #dce8df;
+            color: #6d8173;
+            font-size: 12px
+        }
+
+        .goal p {
+            font-size: 13px;
+            color: var(--muted);
+            margin: 0
+        }
+
+        .goal {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px
+        }
+
+        .goal h3 {
+            margin: 0 0 7px;
+            font-size: 17px
+        }
+
+        .examples {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-content: start
+        }
+
+        .pill {
+            border: 1px solid #dcebe0;
+            background: #f4faf6;
+            color: #35664a;
+            border-radius: 99px;
+            padding: 6px 11px;
+            font-size: 12px
+        }
+
+        .faq {
+            display: grid;
+            gap: 10px
+        }
+
+        .faq details {
+            padding: 0;
+            overflow: hidden
+        }
+
+        .faq summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 14px 17px;
+            font-size: 14px;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between
+        }
+
+        .faq summary::-webkit-details-marker {
+            display: none
+        }
+
+        .faq summary:after {
+            content: "+";
+            font-size: 20px;
+            color: var(--g)
+        }
+
+        .faq details[open] summary:after {
+            content: "−"
+        }
+
+        .answer {
+            padding: 0 17px 15px;
+            color: var(--muted);
+            font-size: 13px
+        }
+
+        .paths {
+            direction: ltr;
+            overflow: hidden;
+            padding: 5px 0 15px
+        }
+
+        .track {
+            display: flex;
+            width: max-content;
+            gap: 15px;
+            animation: marquee 38s linear infinite
+        }
+
+        .paths:hover .track {
+            animation-play-state: paused
+        }
+
+        .card {
+            width: clamp(260px, 30vw, 330px);
+            direction: rtl;
+            flex-shrink: 0;
+            background: white;
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            overflow: hidden;
+            transition: .25s
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 45px #164b2f12
+        }
+
+        .card img {
+            width: 100%;
+            height: 165px;
+            object-fit: cover;
+            display: block;
+            background: #e7f2ea
+        }
+
+        .card-content {
+            padding: 15px
+        }
+
+        .label {
+            font-size: 11px;
+            color: var(--g);
+            font-weight: 700
+        }
+
+        .card h3 {
+            font-size: 17px;
+            margin: 3px 0
+        }
+
+        .card p {
+            font-size: 12px;
+            color: var(--muted);
+            margin: 0;
+            min-height: 47px
+        }
+
+        .card-bottom {
+            border-top: 1px solid #eef3ef;
+            margin-top: 12px;
+            padding-top: 10px;
+            color: var(--g);
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between
+        }
+
+        @keyframes marquee {
+            from {
+                transform: translateX(0)
+            }
+
+            to {
+                transform: translateX(-50%)
+            }
+        }
+
+        .seo {
+            max-width: 850px
+        }
+
+        .seo h2 {
+            font-size: 20px;
+            margin: 25px 0 7px
+        }
+
+        .seo h2:first-child {
+            margin-top: 0
+        }
+
+        .seo p {
+            font-size: 13px;
+            color: #59675e;
+            line-height: 2.2;
+            margin: 0
+        }
+
+        footer {
+            border-top: 1px solid var(--line);
+            background: #eff7f1;
+            padding: 23px 0
+        }
+
+        .foot {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px
+        }
+
+        .small {
+            font-size: 11px;
+            color: #7b8980
+        }
+
+        .footlinks {
+            display: flex;
+            gap: 16px;
+            font-size: 12px;
+            color: #607066
+        }
+
+        @media(max-width:700px) {
+            .guide-part {
+                padding: 15px 0
+            }
+
+            .guide-part h3 {
+                font-size: 16px
+            }
+
+            .guide-part p {
+                font-size: 13px
+            }
+
+            .menu {
+                display: block
+            }
+
+            .links {
+                display: none;
+                position: absolute;
+                top: 65px;
+                right: 14px;
+                left: 14px;
+                background: white;
+                border: 1px solid var(--line);
+                border-radius: 15px;
+                padding: 9px;
+                box-shadow: 0 16px 45px #164b2f12;
+                flex-direction: column
+            }
+
+            .links.open {
+                display: flex
+            }
+
+            .links a {
+                text-align: center
+            }
+
+            .hero {
+                padding-top: 25px
+            }
+
+            .hero-box {
+                border-radius: 22px
+            }
+
+            .grid {
+                grid-template-columns: 1fr
+            }
+
+            .goal {
+                grid-template-columns: 1fr
+            }
+
+            .card {
+                width: 265px
+            }
+
+            .card img {
+                height: 145px
+            }
+
+            section {
+                padding: 28px 0
+            }
+
+            .foot {
+                align-items: flex-start;
+                flex-direction: column
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            html {
+                scroll-behavior: auto
+            }
+
+            *,
+            *:before,
+            *:after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important
+            }
+
+            .track {
+                animation: none
+            }
+        }
+  
+        .track-loading { padding: 20px; color: var(--muted); font-size: 14px; }
+
+  .learning-article { padding: 56px 0 72px; border-top: 1px solid var(--line); }
+  .article-content { max-width: 850px; margin-inline: auto; line-height: 2.05; color: var(--ink); }
+  .article-content h2 { font-size: clamp(1.45rem, 3vw, 2rem); line-height: 1.7; margin: 12px 0 22px; }
+  .article-content h3 { font-size: 1.2rem; line-height: 1.8; margin: 30px 0 10px; }
+  .article-content p { margin: 0 0 16px; color: var(--muted); }
+
+</style>
+</head>
+<body>
+<header>
+<div class="container nav">
+<a class="brand" href="index.html">
+<span class="mark">
+      &lt;/&gt;
+     </span>
+<span>
+      MCD Code
+                    Up
+     </span>
+</a>
+<button aria-expanded="false" aria-label="باز کردن منو" class="menu" id="menu">
+     ☰
+    </button>
+<nav class="links" id="links">
+<a href="index.html">
+      صفحهٔ اصلی
+     </a>
+<a class="active" href="#resh">
+      رشته‌ها
+     </a>
+<a href="#soval">
+      سؤال‌های متداول
+     </a>
+</nav>
+</div>
+</header>
+<main>
+<section class="hero">
+<div class="container">
+<div class="hero-box">
+<span class="kicker">
+       راهنمای شروع برنامه‌نویسی
+      </span>
+<h1>
+       راهنمای شروع برنامه‌نویسی و انتخاب هدف
+      </h1>
+<p>
+       در اینجا هدف خود را مشخص کنید، برای آن برنامه‌ریزی کنید و با تلاش و پشتکار به آن برسید.
+      </p>
+<div class="actions">
+<a class="btn light" href="#guide">
+        راهنما
+       </a>
+<a class="btn outline" href="#paths">
+        رشته‌ها
+       </a>
+</div>
+</div>
+</div>
+</section>
+<section id="guide">
+<div class="container guide-text">
+<div class="head">
+<span class="section-kicker">
+       START HERE
+      </span>
+<h2 class="title">
+       از کجا شروع کنم و مسیر یادگیری چگونه است؟
+      </h2>
+<p class="sub">
+       برای شروع برنامه‌نویسی، ابتدا به‌خوبی فکر کنید که چه هدفی دارید و در آینده می‌خواهید از مهارت خود چگونه استفاده کنید. سپس مسیر یادگیری را بررسی کنید، چالش‌های احتمالی را در نظر بگیرید و برنامه‌ای واقع‌بینانه بنویسید. پیشنهاد می‌کنیم برای این تصمیم وقت بگذارید و هدف‌ها و برنامهٔ خود را یادداشت کنید.
+      </p>
+</div>
+<article class="guide-part">
+<h3>
+       مشخص‌کردن هدف
+      </h3>
+<p>
+       برای مشخص‌کردن هدف خود، خوب فکر کنید که به چه حوزه‌ای علاقه دارید و در آینده می‌خواهید از برنامه‌نویسی چگونه استفاده کنید.
+      </p>
+<p class="example">
+       مثال: هدف مشخصی انتخاب کنید و دربارهٔ مسیر رسیدن به آن فکر کنید.
+      </p>
+</article>
+<article class="guide-part">
+<h3>
+       تأثیر هوش مصنوعی بر برنامه‌نویسی
+      </h3>
+<p>
+       هوش مصنوعی در بسیاری از کارهای دیجیتال تأثیر چشمگیری گذاشته و بعضی فعالیت‌ها، مانند بخشی از کارهای گرافیکی و تایپ، تغییر کرده‌اند. برنامه‌نویسی نیز از این تأثیر بی‌نصیب نمانده است؛ بااین‌حال، این به معنای از بین رفتن کامل نیاز به برنامه‌نویس نیست.
+       <br/>
+<br/>
+       برای مثال، آیا هوش مصنوعی می‌تواند به‌تنهایی یک فروشگاه اینترنتی کاملاً اختصاصی، امن، قابل‌اعتماد و متناسب با نیازهای یک کسب‌وکار بسازد و نگهداری کند؟ ابزارهای هوش مصنوعی می‌توانند در ساخت وب‌سایت‌های ساده و نوشتن کد کمک کنند، اما همچنان به بررسی، آزمایش، اصلاح و تصمیم‌گیری انسانی نیاز است. بنابراین، بهتر است هوش مصنوعی را ابزاری برای افزایش سرعت و توانایی برنامه‌نویس بدانیم، نه جایگزینی کامل برای دانش و مهارت او.
+      </p>
+<p class="example">
+       مثال: هوش مصنوعی می‌تواند در برنامه‌نویسی کمک کند، اما درک و بررسی کد همچنان اهمیت دارد.
+      </p>
+</article>
+<article class="guide-part">
+<h3>
+       پردرآمدترین رشتهٔ برنامه‌نویسی چیست؟
+      </h3>
+<p>
+       در همهٔ رشته‌های برنامه‌نویسی می‌توان به درآمد مناسبی رسید؛ میزان درآمد به مهارت، تجربه، بازار کار و علاقهٔ شما بستگی دارد. اگر می‌خواهید زودتر وارد بازار کار شوید، توسعهٔ وب می‌تواند یکی از گزینه‌های مناسب برای شروع باشد؛ اما موفقیت در آن نیز به تمرین و کسب مهارت نیاز دارد.
+      </p>
+<p class="example">
+       مثال: توسعهٔ وب می‌تواند یکی از مسیرهای درآمدزایی باشد.
+      </p>
+</article>
+<article class="guide-part">
+<h3>
+       چگونه از برنامه‌نویسی درآمد کسب کنم؟
+      </h3>
+<p>
+       این موضوع به میزان مهارت، تجربه و توانایی شما در ارائهٔ خدمات یا ساخت محصولات کاربردی بستگی دارد. می‌توانید دربارهٔ کسب‌وکار، فریلنسری، ساخت اپلیکیشن و روش‌های درآمدزایی از مهارت‌های برنامه‌نویسی مطالعه کنید. برای شروع تحقیق، از
+       <a href="https://www.google.com/">
+        گوگل
+       </a>
+       استفاده کنید.
+      </p>
+<p class="example">
+       مثال: دربارهٔ راه‌اندازی کسب‌وکار و روش‌های درآمدزایی مطالعه کنید.
+      </p>
+</article>
+<article class="guide-part">
+<h3>
+       توضیحات مهم
+      </h3>
+<p>
+       ابتدا ببینیم Programming یا همان برنامه‌نویسی چیست. برنامه‌نویسی یعنی نوشتن مجموعه‌ای از دستورها و قواعد به زبانی که کامپیوتر بتواند آن‌ها را اجرا کند. اپلیکیشن‌های موبایل، وب‌سایت‌ها، بازی‌های کامپیوتری و بسیاری از نرم‌افزارها با برنامه‌نویسی ساخته می‌شوند. با زبان‌هایی مانند Python، JavaScript یا C# به کامپیوتر می‌گوییم چه کاری انجام دهد و آن کار را چگونه انجام دهد.
+       <br/>
+<br/>
+       یکی از جذاب‌ترین ویژگی‌های برنامه‌نویسی، ترکیب خلاقیت، منطق و مهارت حل مسئله است. با برنامه‌نویسی می‌توانید ایده‌های خود را به واقعیت تبدیل کنید، برای مسائل مختلف راه‌حل پیدا کنید و در نهایت محصول یا ابزاری کاربردی بسازید.
+       <br/>
+<br/>
+       اگر بخواهیم مسیر شروع برنامه‌نویسی را ساده توضیح دهیم، می‌توانیم آن را در هفت مرحلهٔ کلی خلاصه کنیم: یادگیری مبانی برنامه‌نویسی، شناخت هدف، انتخاب حوزه، انتخاب زبان، تمرین، ساخت پروژهٔ واقعی و در نهایت آماده‌شدن برای ورود به بازار کار.
+       <br/>
+<br/>
+       در ادامه، هر یک از این مراحل را جداگانه بررسی می‌کنیم تا بدانید در هر مرحله باید روی چه چیزی تمرکز کنید.
+      </p>
+</article>
+<article class="guide-part">
+<h3>
+       آیا برای برنامه‌نویسی باید ریاضی بلد باشیم؟
+      </h3>
+<p>
+       برای شروع برنامه‌نویسی لازم نیست ریاضی‌دان باشید یا ریاضی پیشرفته بلد باشید. برای یادگیری مفاهیم پایه، ریاضی معمولی و توانایی تفکر منطقی کافی است.
+       <br/>
+<br/>
+       البته میزان ریاضی موردنیاز در آینده به حوزه‌ای که انتخاب می‌کنید بستگی دارد. برای مثال، در طراحی وب و بسیاری از شاخه‌های توسعهٔ نرم‌افزار معمولاً به ریاضی پیچیده‌ای نیاز نیست؛ اما حوزه‌هایی مانند هوش مصنوعی، یادگیری ماشین، علم داده و بعضی بخش‌های بازی‌سازی ممکن است به مباحث بیشتری از جبر، آمار و ریاضی نیاز داشته باشند.
+       <br/>
+<br/>
+       پس اگر ریاضی شما خیلی قوی نیست، این موضوع نباید مانع شروع برنامه‌نویسی شود.
+      </p>
+</article>
+<article class="guide-part">
+<h3>
+       برای برنامه‌نویسی چقدر انگلیسی لازم داریم؟
+      </h3>
+<p>
+       بیشتر منابع آموزشی و بسیاری از مستندات برنامه‌نویسی به زبان انگلیسی هستند؛ بنابراین آشنایی با انگلیسی به شما کمک می‌کند راحت‌تر از این منابع استفاده کنید.
+       <br/>
+<br/>
+       بااین‌حال، برای شروع به انگلیسی بسیار قوی نیاز ندارید. آشنایی پایه و یادگیری تدریجی اصطلاحات تخصصی برنامه‌نویسی کافی است.
+       <br/>
+<br/>
+       حتی واژه‌هایی که در ابتدا ناآشنا هستند، مانند variable، function، loop و error، با تکرار و تمرین به‌مرور برایتان آشنا می‌شوند.
+      </p>
+</article>
+<article class="guide-part">
+<h3>
+       برای شروع، به چه مهارت‌های کامپیوتری نیاز داریم؟
+      </h3>
+<p>
+       اگر کار با سیستم‌عامل‌هایی مانند Windows، macOS یا Linux و مرورگرهای وب را بلد باشید، شروع کار برایتان آسان‌تر می‌شود.لازم نیست متخصص کامپیوتر باشید؛ کافی است بتوانید با فایل‌ها و پوشه‌ها کار کنید، نرم‌افزار نصب کنید، فایل دانلود کنید، در اینترنت جست‌وجو کنید و از مرورگر استفاده کنید.بعداً و هم‌زمان با یادگیری برنامه‌نویسی، کار با محیط کدنویسی، Terminal یا Command Line و سایر ابزارهای موردنیاز را نیز به‌تدریج یاد خواهید گرفت.
+      </p>
+</article>
+</div>
+</section>
+<section id="faq">
+<div class="container">
+<div class="head" id="soval">
+<span class="section-kicker">
+       FAQ
+      </span>
+<h2 class="title">
+       پرسش‌های متداول:
+      </h2>
+<p class="sub">
+       در این بخش به پرسش‌های رایج افرادی پاسخ می‌دهیم که می‌خواهند برنامه‌نویسی را از ابتدا یاد بگیرند.
+      </p>
+</div>
+<div class="faq">
+<details>
+<summary>
+        آیا هوش مصنوعی جای برنامه‌نویس را می‌گیرد؟
+       </summary>
+<div class="answer">
+        با توجه به شواهد موجود، نمی‌توان هوش مصنوعی را جایگزین کامل برنامه‌نویس دانست.
+        <br/>
+<br/>
+        یکی از دلایل این موضوع آن است که خروجی هوش مصنوعی همیشه درست نیست. در نظرسنجی Stack Overflow در سال ۲۰۲۵، سهم توسعه‌دهندگانی که به دقت خروجی ابزارهای هوش مصنوعی اعتماد نداشتند، بیشتر از کسانی بود که اعتماد داشتند؛ ۴۶ درصد در برابر ۳۳ درصد.
+        <br/>
+<br/>
+        حتی اگر هوش مصنوعی بخشی از کد را برای شما بنویسد، باید بتوانید کد را بخوانید، آزمایش کنید، خطاهای آن را پیدا کنید و تشخیص دهید که آیا راه‌حل پیشنهادی برای مسئلهٔ شما مناسب است یا نه.
+        <br/>
+<br/>
+        پس بهتر است هوش مصنوعی را ابزاری برای برنامه‌نویس بدانیم، نه جایگزین درک و مهارت برنامه‌نویسی.
+       </div>
+</details>
+<details>
+<summary>
+        آیا برای برنامه‌نویسی باید ریاضی بلد باشیم؟
+       </summary>
+<div class="answer">
+        برای شروع برنامه‌نویسی لازم نیست ریاضی‌دان باشید یا ریاضی پیشرفته بلد باشید. برای یادگیری مفاهیم پایه، ریاضی معمولی و توانایی تفکر منطقی کافی است.
+       </div>
+</details>
+<details>
+<summary>
+        برای برنامه‌نویسی چقدر انگلیسی لازم داریم؟
+       </summary>
+<div class="answer">
+        بیشتر منابع آموزشی و بسیاری از مستندات برنامه‌نویسی به زبان انگلیسی هستند؛ بنابراین آشنایی با انگلیسی به شما کمک می‌کند راحت‌تر از این منابع استفاده کنید.
+       </div>
+</details>
+<details>
+<summary>
+        برای شروع، به چه مهارت‌های کامپیوتری نیاز داریم؟
+       </summary>
+<div class="answer">
+        لازم نیست متخصص کامپیوتر باشید؛ کافی است بتوانید با فایل‌ها و پوشه‌ها کار کنید، نرم‌افزار نصب کنید، فایل دانلود کنید، در اینترنت جست‌وجو کنید و از مرورگر استفاده کنید.
+       </div>
+</details>
+<details>
+<summary>
+        آیا برای برنامه‌نویس شدن به مدرک دانشگاهی نیاز است؟
+       </summary>
+<div class="answer">
+        برای یادگیری برنامه‌نویسی به مدرک دانشگاهی مرتبط نیاز ندارید و می‌توانید حتی بدون سابقهٔ قبلی وارد این مسیر شوید. اما اگر هدفتان ورود به بازار کار است، باید بین یادگیری برنامه‌نویسی و شرایط استخدام تفاوت قائل شوید. بعضی شرکت‌ها بیشتر به مهارت، نمونه‌کار و تجربهٔ شما توجه می‌کنند؛ درحالی‌که برخی موقعیت‌های شغلی ممکن است مدرک دانشگاهی مرتبط را جزو شرایط استخدام قرار دهند.
+       </div>
+</details>
+<details>
+<summary>
+        برای شروع برنامه‌نویسی به چه لپ‌تاپ یا کامپیوتری نیاز داریم؟
+       </summary>
+<div class="answer">
+        برای شروع برنامه‌نویسی لازم نیست از همان ابتدا لپ‌تاپ یا کامپیوتر بسیار قدرتمندی بخرید. اگر سیستم فعلی شما می‌تواند مرورگر جدید و محیط کدنویسی مانند VS Code را بدون مشکل اجرا کند، معمولاً برای یادگیری مبانی و نوشتن برنامه‌های ساده کافی است.
+       </div>
+</details>
+</div>
+</div>
+</section>
+<section id="paths">
+<div class="container">
+<div class="head">
+<span class="section-kicker">
+       EXPLORE PATHS
+      </span>
+<h2 class="title">
+       آشنایی با مسیرهای برنامه‌نویسی
+      </h2>
+<p class="sub">
+       مسیر مناسب خود را بر اساس علاقه، هدف و نوع پروژه‌هایی که دوست دارید بسازید، انتخاب کنید.
+      </p>
+</div>
+</div>
+<div class="paths">
+<div class="track"><p class="track-loading" role="status">در حال دریافت مسیرهای آموزشی از صفحه اصلی...</p></div>
+</div>
+</section>
+<section id="learning-article" class="learning-article" aria-labelledby="learning-article-title">
+  <div class="container">
+    <article class="article-content">
+      <span class="section-kicker">ABOUT MCD CODE UP</span>
+      <h2 id="learning-article-title">MCD Code Up چیست؟ معرفی سایت آموزش برنامه‌نویسی و امکانات آن</h2>
+      <p>MCD Code Up یک وب‌سایت آموزشی با محوریت برنامه‌نویسی و مهارت‌های ساخت محصولات دیجیتال است. هدف این مجموعه آن است که مطالب آموزشی و مسیرهای یادگیری را در یک محیط آنلاین در دسترس قرار دهد تا علاقه‌مندان بتوانند با شناخت بهتر موضوعات، آموزش موردنظر خود را پیدا کنند و یادگیری را مرحله‌به‌مرحله ادامه دهند. در این سایت تلاش می‌شود محتوای برنامه‌نویسی به زبان قابل فهم ارائه شود و مفاهیم، صرفاً به نمایش چند قطعه کد محدود نباشند؛ بلکه توضیحات و زمینه استفاده از آن‌ها نیز برای خواننده روشن باشد.</p>
+
+      <h3>هدف و رویکرد آموزشی MCD Code Up</h3>
+      <p>هدف MCD Code Up فراهم کردن فضایی برای مطالعه، یادگیری و آشنایی با حوزه‌های گوناگون برنامه‌نویسی است. برنامه‌نویسی مهارتی است که با تمرین، درک مفاهیم و حل مسئله پیشرفت می‌کند؛ به همین دلیل، محتوای آموزشی باید به یادگیرنده کمک کند بداند هر مفهوم چه معنایی دارد، چه کاربردی دارد و در چه موقعیت‌هایی می‌تواند از آن استفاده کند. رویکرد این سایت بر ارائه توضیحات آموزشی، همراه کردن مطالب با مثال و کمک به شناخت مسیرهای مختلف توسعه نرم‌افزار متمرکز است.</p>
+      <p>این وب‌سایت برای افرادی طراحی شده که می‌خواهند با دنیای کدنویسی آشنا شوند، موضوعات تازه را مطالعه کنند یا با مراجعه به مطالب آموزشی، دانش خود را گسترش دهند. آشنایی قبلی با برنامه‌نویسی شرط استفاده از همه مطالب نیست؛ کاربران می‌توانند با بررسی موضوعات و مسیرهای معرفی‌شده، از نقطه مناسب خود شروع کنند.</p>
+
+      <h3>چه موضوعات و مسیرهای آموزشی در سایت معرفی می‌شوند؟</h3>
+      <p>در MCD Code Up حوزه‌های مختلفی از برنامه‌نویسی معرفی شده‌اند تا کاربران بتوانند بر اساس علاقه و نوع محصولی که می‌خواهند بسازند، مسیر مرتبط را بررسی کنند. مسیرهای نمایش‌داده‌شده در صفحه اصلی شامل طراحی وب‌سایت و برنامه‌نویسی سمت سرور، بازی‌سازی و توسعه اپلیکیشن موبایل هستند. هر حوزه مسائل، ابزارها و شیوه یادگیری خاص خود را دارد و انتخاب مسیر مناسب می‌تواند به متمرکز شدن مطالعه کمک کند.</p>
+      <p>در بخش طراحی وب، موضوع کلی ساخت وب‌سایت و بخش‌های مرتبط با توسعه سمت کاربر و سمت سرور مطرح می‌شود. مسیر بازی‌سازی به کسانی معرفی می‌شود که به طراحی و ساخت بازی‌های دیجیتال علاقه دارند. مسیر اپلیکیشن موبایل نیز برای آشنایی با فرایند ساخت برنامه‌هایی که روی گوشی و دستگاه‌های همراه اجرا می‌شوند، در نظر گرفته شده است. فهرست مسیرها و محتوای آن‌ها در سایت قابل مشاهده است و با گسترش مجموعه، موضوعات آموزشی دیگری نیز می‌توانند به این فهرست افزوده شوند.</p>
+
+      <h3>راهنمای سایت برای شناخت بهتر مسیر یادگیری</h3>
+      <p>یکی از کارکردهای صفحه راهنمای شروع، کمک به بازدیدکننده برای شناخت فضای سایت و انتخاب آگاهانه‌تر است. کاربر می‌تواند درباره هدف یادگیری خود فکر کند، توضیحات مسیرها را بخواند و بر اساس علاقه یا نوع پروژه‌ای که در ذهن دارد، بخش مناسب را پیدا کند. این راهنما برای آن است که مراجعه‌کننده بدون سردرگمی میان عنوان‌ها، بداند از کدام بخش بازدید کند و چگونه مطالب مرتبط را دنبال کند.</p>
+      <p>اگر هنوز حوزه مورد علاقه خود را نمی‌شناسید، بررسی معرفی مسیرها می‌تواند نقطه شروعی برای مقایسه باشد. اگر از قبل هدف مشخصی دارید، می‌توانید مستقیماً به بخش نزدیک به آن هدف مراجعه کنید. راهنمای سایت جایگزین مطالعه درس‌ها یا تمرین عملی نیست؛ بلکه نقشه‌ای برای آشنایی با محتوای موجود و نحوه استفاده از آن فراهم می‌کند.</p>
+
+      <h3>مطالب آموزشی، توضیحات و مثال‌های برنامه‌نویسی</h3>
+      <p>محتوای یک سایت آموزش برنامه‌نویسی زمانی برای خواننده مفید است که علاوه بر معرفی دستورها و ابزارها، به فهم مفهوم نیز کمک کند. در MCD Code Up، جهت‌گیری محتوای آموزشی توضیحی است: موضوعات باید با شرح مفهوم، بیان کاربرد، نمونه و نکته‌های مرتبط همراه شوند تا خواننده بتواند ارتباط میان بخش‌های مختلف درس را بهتر درک کند. مثال‌های کدنویسی نیز فرصتی برای مشاهده کاربرد یک موضوع در عمل هستند و می‌توانند مبنای تمرین و تغییر دادن کد قرار بگیرند.</p>
+      <p>مطالعه مطالب سایت را می‌توان با اجرای نمونه‌ها و آزمایش تغییرات همراه کرد. خواندن کد، بررسی خروجی و تلاش برای توضیح رفتار برنامه، راهی برای تبدیل اطلاعات به مهارت است. کاربران می‌توانند از محتوای سایت به عنوان مرجع مطالعه و نقطه شروع تمرین‌های شخصی استفاده کنند و در کنار آموزش، پروژه‌های کوچک متناسب با سطح خود بسازند.</p>
+
+      <h3>سایت برای چه افرادی می‌تواند مفید باشد؟</h3>
+      <p>این مجموعه می‌تواند برای علاقه‌مندان تازه‌وارد به برنامه‌نویسی، دانش‌آموزان و دانشجویان، افرادی که قصد شناخت رشته‌های مرتبط با فناوری را دارند و کسانی که می‌خواهند یک موضوع برنامه‌نویسی را مطالعه یا مرور کنند، مفید باشد. همچنین بازدیدکنندگانی که ایده‌ای برای ساخت وب‌سایت، بازی یا اپلیکیشن دارند می‌توانند مسیر مرتبط را بررسی کنند تا با زمینه آموزشی موردنیاز آشناتر شوند.</p>
+      <p>سطح و پیش‌نیاز هر آموزش ممکن است با موضوع آن تفاوت داشته باشد؛ بنابراین بهتر است پیش از ورود به یک درس، توضیحات و مباحث آن بررسی شود. یادگیری برنامه‌نویسی نیازمند زمان، تمرین و پیگیری است و سایت در نقش منبع آموزشی و راهنمای مطالعه می‌تواند همراه این فرایند باشد.</p>
+
+      <h3>چطور از بخش‌های مختلف MCD Code Up استفاده کنیم؟</h3>
+      <p>برای استفاده بهتر از سایت، ابتدا صفحه اصلی را مرور کنید تا با معرفی مجموعه و مسیرهای آموزشی آشنا شوید. سپس مسیر موردنظر خود را انتخاب و صفحه یا درس مربوط به آن را مطالعه کنید. هنگام خواندن آموزش‌ها، نکته‌های مهم را یادداشت کنید، مثال‌ها را اجرا کنید و اگر موضوعی را کامل متوجه نشدید، دوباره به توضیح همان بخش برگردید. دنبال کردن مطالب به ترتیب و انجام تمرین در کنار مطالعه می‌تواند به حفظ پیوستگی یادگیری کمک کند.</p>
+      <p>صفحه راهنمای شروع نیز برای مرور هدف سایت، آشنایی با حوزه‌های آموزشی و پاسخ به پرسش‌های مقدماتی در نظر گرفته شده است. استفاده از بخش‌های مختلف در کنار یکدیگر، به شما کمک می‌کند ابتدا تصویر کلی از مجموعه داشته باشید و سپس روی آموزش‌های مرتبط با نیاز خود تمرکز کنید.</p>
+
+      <h3>نگاه MCD Code Up به گسترش آموزش‌های برنامه‌نویسی</h3>
+      <p>حوزه فناوری پیوسته در حال تغییر است و موضوعات آموزشی نیز می‌توانند با توجه به نیاز یادگیرندگان و توسعه مجموعه گسترش پیدا کنند. MCD Code Up با تمرکز بر آموزش برنامه‌نویسی، معرفی مسیرهای ساخت محصولات دیجیتال و فراهم کردن مطالب قابل مطالعه، بستری برای دسترسی به آموزش‌های این حوزه ایجاد کرده است. معرفی مسیرها در سایت به معنای ثابت ماندن فهرست نیست؛ بخش‌های آموزشی می‌توانند در ادامه تکمیل شوند و موضوعات بیشتری در اختیار بازدیدکنندگان قرار بگیرند.</p>
+      <p>ارزش یک منبع آموزشی تنها به تعداد عنوان‌های آن وابسته نیست؛ توضیح روشن، سازمان‌دهی قابل فهم، مثال‌های مناسب و امکان تمرین نیز اهمیت دارند. به همین دلیل، هدف از توسعه محتوای MCD Code Up، فراهم کردن مطالبی است که خواننده بتواند از آن‌ها برای شناخت بهتر مفاهیم و ادامه یادگیری استفاده کند.</p>
+
+      <h3>معرفی MCD Code Up؛ مرجع آنلاین برای آشنایی و یادگیری برنامه‌نویسی</h3>
+      <p>اگر به دنبال سایت آموزش برنامه‌نویسی، مطالب مربوط به طراحی وب، بازی‌سازی یا توسعه اپلیکیشن موبایل هستید، MCD Code Up می‌تواند نقطه‌ای برای آشنایی با این حوزه‌ها و بررسی مسیرهای آموزشی باشد. در این وب‌سایت، معرفی مسیرها، محتوای آموزشی و راهنمای استفاده از مجموعه کنار هم قرار گرفته‌اند تا بازدیدکننده راحت‌تر موضوع موردنظر خود را پیدا کند. با مطالعه مطالب، بررسی مسیرهای موجود و تمرین آموخته‌ها، می‌توانید از سایت به عنوان یکی از منابع یادگیری برنامه‌نویسی و توسعه مهارت‌های دیجیتال استفاده کنید.</p>
+      <p>برای آشنایی بیشتر با مجموعه، مسیرهای آموزشی صفحه اصلی را ببینید و وارد موضوعی شوید که با علاقه یا هدف شما ارتباط دارد. MCD Code Up با هدف ارائه و توسعه آموزش‌های برنامه‌نویسی فعالیت می‌کند و این صفحه راهنمایی برای شناخت سایت، محتوای آن و نحوه استفاده از بخش‌های آموزشی است.</p>
+    </article>
+  </div>
+</section>
+</main>
+<footer class="footer">
+<div class="container footer-inner">
+<a class="brand" href="#">
+<span class="brand-mark">
+      &lt;/&gt;
+     </span>
+<span class="brand-name">
+      MCD Code Up
+     </span>
+</a>
+<span class="footer-copy">
+     پشتکار داشته باشید، تلاش کنید و امیدتان را از دست ندهید. شکست بخشی از مسیر یادگیری است؛ پس همین حالا شروع کنید.
+    </span>
+<nav aria-label="لینک‌های پایانی" class="footer-links">
+<a href="https://www.aparat.com/MASTERCODE_MCD">
+<img alt="تصویر صفحه آپارات" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHgGLqGSgLxZRf5DsbfZN09C0csetKlO5qQ9rjR60sWw&amp;s=10" width="20px"/>
+      کانال آپارات ما
+     </a>
+<a href="#">
+<img alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9JNvMuKvq0Wo2owYAzl_BKNpoLUAPhtieHjbiFdi9tw&amp;s=10" width="20px"/>
+      تماس با ما
+     </a>
+<a href="#">
+<img alt="" src="https://rubika.ir/static/images/logos/minimal/minimal.png" width="20px"/>
+      کانال روبیکا
+     </a>
+</nav>
+</div>
+</footer>
+<script>
+const menu = document.getElementById('menu');
+const links = document.getElementById('links');
+
+if (menu && links) {
+  menu.addEventListener('click', () => {
+    const isOpen = links.classList.toggle('open');
+    menu.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    links.classList.remove('open');
+    menu.setAttribute('aria-expanded', 'false');
+  }));
+}
+
+async function loadTracksFromIndex() {
+  const trackContainer = document.querySelector('#paths .track');
+  if (!trackContainer) return;
+
+  try {
+    const response = await fetch('./index.html', { cache: 'no-cache' });
+    if (!response.ok) throw new Error('HTTP ' + response.status);
+
+    const html = await response.text();
+    const indexDocument = new DOMParser().parseFromString(html, 'text/html');
+    const sourceCards = [...indexDocument.querySelectorAll('#tracks .track-card')];
+
+    // Duplicate cards used by the index-page animation are filtered out by title.
+    const uniqueTracks = [];
+    const seenTitles = new Set();
+
+    for (const sourceCard of sourceCards) {
+      const title = sourceCard.querySelector('.track-title')?.textContent.trim();
+      if (!title || seenTitles.has(title)) continue;
+      seenTitles.add(title);
+
+      uniqueTracks.push({
+        title,
+        label: sourceCard.querySelector('.track-label')?.textContent.trim() || '',
+        description: sourceCard.querySelector('.track-desc')?.textContent.trim() || '',
+        image: sourceCard.querySelector('.track-image img')?.getAttribute('src') || '',
+        imageAlt: sourceCard.querySelector('.track-image img')?.getAttribute('alt') || title,
+        actionText: sourceCard.querySelector('.track-bottom span:first-child')?.textContent.trim() || ''
+      });
+    }
+
+    if (!uniqueTracks.length) throw new Error('No tracks found in index.html');
+
+    trackContainer.replaceChildren();
+
+    function createTrackCard(track, isDuplicate = false) {
+      const article = document.createElement('article');
+      article.className = 'card';
+      if (isDuplicate) article.setAttribute('aria-hidden', 'true');
+
+      const image = document.createElement('img');
+      image.src = track.image;
+      image.alt = isDuplicate ? '' : track.imageAlt;
+      image.loading = 'lazy';
+      article.appendChild(image);
+
+      const content = document.createElement('div');
+      content.className = 'card-content';
+
+      const label = document.createElement('span');
+      label.className = 'label';
+      label.textContent = track.label;
+
+      const heading = document.createElement('h3');
+      heading.textContent = track.title;
+
+      const description = document.createElement('p');
+      description.textContent = track.description;
+
+      const bottom = document.createElement('div');
+      bottom.className = 'card-bottom';
+      const action = document.createElement('span');
+      action.textContent = track.actionText;
+      const arrow = document.createElement('span');
+      arrow.textContent = '←';
+      bottom.append(action, arrow);
+
+      content.append(label, heading, description, bottom);
+      article.appendChild(content);
+      return article;
+    }
+
+    uniqueTracks.forEach(track => trackContainer.appendChild(createTrackCard(track)));
+    // Clone once for the continuous loop; these clones are decorative for screen readers.
+    uniqueTracks.forEach(track => trackContainer.appendChild(createTrackCard(track, true)));
+  } catch (error) {
+    trackContainer.replaceChildren();
+    const message = document.createElement('p');
+    message.className = 'track-loading';
+    message.setAttribute('role', 'status');
+    message.textContent = 'دریافت مسیرها از index.html انجام نشد. هر دو فایل را کنار هم قرار دهید و سایت را از طریق یک سرور اجرا کنید.';
+    trackContainer.appendChild(message);
+    console.error('Track API error:', error);
+  }
+}
+
+loadTracksFromIndex();
+</script>
+</body>
+</html>
